@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Gastronom">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="Vorname" type="xs:string"/>
+			<xs:element name="Nachname" type="xs:string"/>
+			<xs:element name="Alter">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="18"/>
+						<xs:maxInclusive value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		
+			<xs:element name="Restaurant" minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Restaurantname" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Adresse">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Straße" type="xs:string"/>
+									<xs:element name="PLZ">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+											<xs:pattern value="(D )?[0-9]{5}"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Art_der_Küche" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element> 
+			
+			<xs:element name="Produktliste">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Produkt" minOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Produktname" type="xs:string" minOccurs="1"/>
+									<xs:element name="Preis" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="Beschreibung" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+</xs:schema>
