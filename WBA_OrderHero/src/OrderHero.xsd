@@ -33,6 +33,22 @@
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="Art_der_Küche" type="xs:string"/>
+						<xs:element name="Produktliste">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Produkt">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Produktname" type="xs:string" minOccurs="1" maxOccurs="1"/>
+												<xs:element name="Preis in €" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+												<xs:element name="Beschreibung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+												<!--soll Produkt durch nummer gekennzeichnet werden? oder nach name?  -->
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element> 
