@@ -44,7 +44,7 @@
 	</xs:complexType>
 </xs:element>
 
-<xs:element name="Lieferant">
+<xs:element name="Lieferanten">
 	<xs:complexType>
 		<xs:sequence>
 			<xs:element name="Vorname" type="xs:string"/>
@@ -105,10 +105,20 @@
 		<xs:sequence>
 			<xs:element name="Bestellungs-ID" type="xs:integer"/>
 			<!-- vom Typ Lieferant-->
-			<xs:element name="Lieferant"/> 
+			<xs:element name="Lieferant" type="Lieferanten"/> 
 			<xs:element name="Kunde" type="Gastronom"/>
 			<xs:element name="Produkte" type="Produktliste"/>
-			<xs:element name=""			
+			<xs:element name="Zahlungsart">
+  				<xs:simpleType>
+    				<xs:restriction base="xs:string">
+      					<xs:enumeration value="Rechnung"/>
+      					<xs:enumeration value="Lastschrift"/>
+      					<xs:enumeration value="Vorkasse"/>
+      					<xs:enumeration value="PayPal"/>
+      					<xs:enumeration value="Kreditkarte"/>
+   				 	</xs:restriction>
+  				</xs:simpleType>
+			</xs:element>			
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
