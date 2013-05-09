@@ -1,46 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Boerse" xmlns:tns="http://www.example.org/Boerse" elementFormDefault="qualified">
 <xs:element name="Boerse">
-<xs:element name="Verfasser" type="mitarbeiter_type" />
-						<xs:element name="Erstellungsdatum" type="xs:dateTime" />
-						<xs:element name="Titel" type="xs:string" />
-						<xs:element name="Informationstext" type="xs:string" />
-						<xs:element name="Startdatum" type="xs:dateTime" />
-						<xs:element name="Ablaufdatum" type="xs:dateTime" />
-						<xs:element name="Kommentare">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Verfasser" type="mitarbeiter_type" />
-									<xs:element name="Datum" type="xs:dateTime" />
-									<xs:element name="Informationstext" type="xs:string" />
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-<xs:element name="Typ">
-  				<xs:simpleType>
-    				<xs:restriction base="xs:string">
-      					<xs:enumeration value="Angebot" />
-      					<xs:enumeration value="Gesuch" />
-   				 	</xs:restriction>
-  				</xs:simpleType>
-</xs:element>			
-<xs:element name="mitarbeiter_type">
-	<xs:complexType>
-		<xs:sequence>
-			<xs:element ref="m:Vorname" />
-			<xs:element ref="m:Nachname"/>
-			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
-			<xs:element ref="m:Alter">
-				<xs:simpleType>
-					<xs:restriction base="xs:integer">
-						<xs:minInclusive value="18" />
-						<xs:maxInclusive value="100" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-</xs:element>
-
+<xs:complexType>
+<xs:sequence>
+	<xs:element name="Verfasser" type="mitarbeiter_type" />
+	<xs:element name="Erstellungsdatum" type="xs:dateTime" />
+	<xs:element name="Titel" type="xs:string" />
+	<xs:element name="Informationstext" type="xs:string" />
+	<xs:element name="Startdatum" type="xs:dateTime" />
+	<xs:element name="Ablaufdatum" type="xs:dateTime" />
+	<xs:element name="Kommentare">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Verfasser" type="mitarbeiter_type" />
+				<xs:element name="Datum" type="xs:dateTime" />
+				<xs:element name="Informationstext" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Typ">
+	 	<xs:simpleType>
+	    	<xs:restriction base="xs:string">
+	      		<xs:enumeration value="Angebot" />
+	      		<xs:enumeration value="Gesuch" />
+	   		</xs:restriction>
+	  	</xs:simpleType>
+	</xs:element>			
+	<xs:element name="mitarbeiter_type">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="m:Vorname" />
+				<xs:element ref="m:Nachname"/>
+				<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
+				<xs:element ref="m:Alter">
+					<xs:simpleType>
+						<xs:restriction base="xs:integer">
+							<xs:minInclusive value="18" />
+							<xs:maxInclusive value="100" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:sequence>
+</xs:complexType>
 </xs:element>
 </xs:schema>

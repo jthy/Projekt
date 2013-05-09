@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Dauerauftrag" xmlns:tns="http://www.example.org/Dauerauftrag" elementFormDefault="qualified">
+<xs:element name="Dauerautraege">
+<xs:complexType>
+<xs:sequence>
 <xs:element name="Dauerauftrag">
 				<xs:complexType>
 					<xs:sequence>
@@ -36,4 +39,8 @@
 			<xs:element ref="p:Beschreibung" />
 		</xs:sequence>
 	</xs:complexType>
+	
+</xs:sequence>
+</xs:complexType>
+</xs:element>
 </xs:schema>

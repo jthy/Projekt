@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Restaurant" xmlns:tns="http://www.example.org/Restaurant" elementFormDefault="qualified">
-<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" />
-<xs:element name="Adresse">
+<xs:element name="Betrieb">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Straße"/>
-				<xs:element name="PLZ">
-					<xs:simpleType>
-						<xs:restriction base="xs:integer">
-							<xs:pattern value="(D )?[0-9]{5}" />
-						</xs:restriction>
-				    </xs:simpleType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+			<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" />
+			<xs:element name="Adresse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Straße"/>
+						<xs:element name="PLZ">
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:pattern value="(D )?[0-9]{5}" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
 </schema>
