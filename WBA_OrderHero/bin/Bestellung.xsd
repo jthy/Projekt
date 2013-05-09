@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Bestellung" xmlns:tns="http://www.example.org/Bestellung" elementFormDefault="qualified">
-<xs:element name="Bestellung">
-<xs:complexType>
-<xs:sequence>
-
-<!-- Bestellungen werden ueber ID angesprochen -->
-<xs:element name="Bestellungs_ID" type ="xs:integer"/>
+<xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Bestellungsliste/Bestellung" xmlns:tns="http://www.example.org/Bestellungsliste/Bestellung" elementFormDefault="qualified">
+<xs:element name="Bestellungs_ID" type ="xs.integer"/>
 	<xs:complexType>
 		<xs:sequence>
 			<xs:element name="Lieferdatum" type="xs:date"/>
 			<xs:element name="Kunde" type="m:person_type"/>
-			<xs:element name="Lieferant" type="m:person_type"/>
+			<xs:element name="Lieferant" type="m:person_type"
 			<xs:element name="Restaurant" type="b:betrieb_type"/>
 			<xs:element name="Lieferbetrieb" type="b:betrieb_type"/>
 			<xs:element name="Anzahl" type="xs:integer"/>
@@ -23,7 +18,7 @@
 					</xs:restriction>
 				</xs:simpleType>                         
 			</xs:attribute>
-			<xs:attribute name="Zahlungsart">
+			<xs:element name="Zahlungsart">
   				<xs:simpleType>
     				<xs:restriction base="xs:string">
       					<xs:enumeration value="Rechnung" />
@@ -33,13 +28,11 @@
       					<xs:enumeration value="Kreditkarte" />
    				 	</xs:restriction>
   				</xs:simpleType>
-			</xs:attribute>			
+			</xs:element>			
 			<xs:element name="Gesamtbetrag_Bestellung" type="xs:integer"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
-
-<!-- Definition Person -->
 <xs:element name="person_type">
 	<xs:complexType>
 		<xs:sequence>
@@ -85,8 +78,4 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-</xs:schema>
+<xs:schema></xs:schema>
