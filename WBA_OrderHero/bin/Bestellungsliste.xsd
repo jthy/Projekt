@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
-<xs:element name="Bestellungen">
-<xs:complexType>
-<xs:sequence>
-<xs:element name="Bestellungs_ID" type ="xs:integer">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="Bestellungsliste">
 	<xs:complexType>
 		<xs:sequence>
+			<xs:element ref="Bestellung"/>
+		</xs:sequence>	
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="Bestellung">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="Bestellungs_ID" type ="xs:integer"/>
 			<xs:element name="Lieferdatum" type="xs:date"/>
-			<xs:element ref="person_type"/>
-			<xs:element ref="person_type"/>
-			<xs:element ref="betrieb_type"/>
-			<xs:element ref="betrieb_type"/>
-			<xs:element type="xs:integer"/>
-			<xs:element ref="Produkt_type"/>
+			<xs:element ref="Person"/>
+			<xs:element ref="Betrieb"/>
+			<xs:element ref="Person"/>
+			<xs:element ref="Betrieb"/>
+			<xs:element name="Anzahl" type="xs:integer"/>
+			<xs:element ref="Produkt"/>
 			<xs:element name="Bestellungsart">
 				<xs:simpleType>
     				<xs:restriction base="xs:string">
@@ -36,12 +43,20 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
-<xs:element name="Gesamtbetrag" type="xs:integer"/>
 
+<!-- Definitionen -->
 
-<xs:element name="person_type">
+<xs:element name="Person">
 	<xs:complexType>
 		<xs:sequence>
+			<xs:element name="Typ">
+	 			<xs:simpleType>
+			    	<xs:restriction base="xs:string">
+			      		<xs:enumeration value="Gastronom" />
+			      		<xs:enumeration value="Lieferant" />
+			   		</xs:restriction>
+	  			</xs:simpleType>
+	  		</xs:element>
 			<xs:element name="Vorname" />
 			<xs:element name="Nachname"/>
 			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
@@ -53,8 +68,12 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<!-- jeder Gastronom kann mehrere Restaurants besitzen -->
-			<xs:element name="betrieb_type" minOccurs="1" maxOccurs="unbounded">
+			<xs:element ref="Betrieb"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+			
+<xs:element name="Betrieb">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" />
@@ -72,24 +91,32 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-				<xs:element name="Produkt_type">	
-				<xs:complexType >
-					<xs:sequence>
-						<xs:element name="Produkt_ID" />
-						<xs:element name="Produktname" />
-						<xs:element name="Preis_in_Euro" />
-						<xs:element name="Beschreibung" />
 					</xs:sequence>
 				</xs:complexType>
-				</xs:element>	
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-</xs:sequence>
-</xs:complexType>
 </xs:element>
-
-</xs:sequence>
-</xs:complexType>
+					
+<xs:element name="Produkt">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="Produkt_ID" type="xs:integer"/>
+			<xs:element name="Produktangaben">	
+				<xs:complexType>
+					<xs:sequence> 
+						<xs:element name="Produktname" type="xs:string" />
+						<xs:element name="Preis_in_Euro" type="xs:float" />
+						<xs:element name="Beschreibung" type="xs:string" />
+						<xs:element name="Verfuegbarkeit">
+			            	<xs:simpleType>
+			                   <xs:restriction base="xs:string">
+			                      <xs:enumeration value="verfuegbar"/>
+								  <xs:enumeration value="momentan_nicht_verfuegbar"/>
+								</xs:restriction>
+							</xs:simpleType>                         
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:element>
-</schema>
+</xs:schema>
