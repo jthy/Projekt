@@ -26,13 +26,17 @@
 									<xs:element name="PLZ">
 										<xs:simpleType>
 											<xs:restriction base="xs:integer">
-											<xs:pattern value="(D )?[0-9]{5}" />
+												<xs:pattern value="(D )?[0-9]{5}" />
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element name="Art_des_Betriebes" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Produkte" type="Produkt_type">
 				<xs:complexType>
 					<xs:sequence>

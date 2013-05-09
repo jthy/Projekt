@@ -18,6 +18,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="Art_des_Betriebes" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://www.w3.org/2001/XMLSchema" >
-<xs:element name="Kundenliste">
+<xs:element name="Kunde">
 <xs:complexType>
 <xs:sequence>
 
@@ -22,25 +22,25 @@
 	</xs:complexType>
 </xs:element>
 <!-- jeder Gastronom kann mehrere Restaurants besitzen -->
-<xs:element name="Restaurant" minOccurs="1" maxOccurs="unbounded">
+<xs:element name="Betrieb" minOccurs="1" maxOccurs="unbounded">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Restaurantname" minOccurs="1" maxOccurs="1" />
-				<xs:element name="Adresse">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="Straße"/>
-							<xs:element name="PLZ">
-								<xs:simpleType>
-									<xs:restriction base="xs:integer">
+			<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" />
+			<xs:element name="Adresse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Straße"/>
+						<xs:element name="PLZ">
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
 									<xs:pattern value="(D )?[0-9]{5}" />
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			<xs:element name="Art_der_Küche" type="xs:string" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Art_des_Betriebes" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
