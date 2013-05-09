@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Boerse" xmlns:tns="http://www.example.org/Boerse" elementFormDefault="qualified">
-<xs:element name="Boerse">
+<xs:element name="Eintrag">
 <xs:complexType>
 <xs:sequence>
 	<xs:element name="Verfasser" type="mitarbeiter_type" />
