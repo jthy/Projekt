@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Dauerauftrag" xmlns:tns="http://www.example.org/Dauerauftrag" elementFormDefault="qualified">
+<xs:element name="Dauerauftrag">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Anzahl" type="xs:integer"/>
+						<xs:element name="Produkte" type="Produkt_type">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Produkt_ID" type="xs:integer" />
+						<xs:element name="Produktname" type="xs:string" />
+						<xs:element name="Preis_in_Euro" type="xs:float" />
+						<xs:element name="Beschreibung" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		<xs:element name="Beginn" type="xs:date"/>
+			<xs:attribute name="Regelmaeßigkeit">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="monatlich"/>
+						<xs:enumeration value="woechentlich"/>
+						<xs:enumeration value="taeglich"/>
+					</xs:restriction>
+				</xs:simpleType>                         
+			</xs:attribute>
+			
+	<xs:complexType name="Produkt_type">
+		<xs:sequence>
+			<xs:element ref="p:Produkt_ID" />
+			<xs:element ref="p:Produktname" />
+			<xs:element ref="p:Preis_in_Euro" />
+			<xs:element ref="p:Beschreibung" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
