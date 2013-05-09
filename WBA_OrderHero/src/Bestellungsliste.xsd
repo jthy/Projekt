@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Bestellungsliste" xmlns:tns="http://www.example.org/Bestellungsliste" elementFormDefault="qualified">
-<xs:element name="Bestellungen">
+<xs:element name="Bestellungsliste">
+<xs:complexType>
+<xs:sequence>
+
+<xs:element name="Bestellung">
 <xs:complexType>
 <xs:sequence>
 
@@ -87,7 +91,11 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	
+
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
 </xs:sequence>
 </xs:complexType>
 </xs:element>
