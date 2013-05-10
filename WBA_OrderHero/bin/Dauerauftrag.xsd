@@ -66,8 +66,8 @@
 			   		</xs:restriction>
 	  			</xs:simpleType>
 	  		</xs:element>
-			<xs:element name="Vorname" />
-			<xs:element name="Nachname"/>
+			<xs:element name="Vorname" type="xs:string" />
+			<xs:element name="Nachname" type="xs:string"/>
 			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
 			<xs:element name="Alter">
 				<xs:simpleType>
@@ -89,7 +89,8 @@
 						<xs:element name="Adresse">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Straße"/>
+									<xs:element name="Straße" type="xs:string"/>
+									<xs:element name="Hausnummer" type="xs:integer"/>
 									<xs:element name="PLZ">
 										<xs:simpleType>
 											<xs:restriction base="xs:integer">

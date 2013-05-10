@@ -5,7 +5,7 @@
 <xs:sequence>
 
 <xs:element name="Person" maxOccurs="unbounded" minOccurs="1">
-	<xs:complexType>
+		<xs:complexType>
 		<xs:sequence>
 			<xs:element name="Typ">
 	 			<xs:simpleType>
@@ -15,8 +15,8 @@
 			   		</xs:restriction>
 	  			</xs:simpleType>
 	  		</xs:element>
-			<xs:element name="Vorname" />
-			<xs:element name="Nachname"/>
+			<xs:element name="Vorname" type="xs:string"/>
+			<xs:element name="Nachname" type="xs:string"/>
 			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
 			<xs:element name="Alter">
 				<xs:simpleType>
@@ -33,16 +33,15 @@
 </xs:sequence>
 </xs:complexType>
 </xs:element>
-
 <!-- Definitionen -->			
 <xs:element name="Betrieb">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" />
+						<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" type="xs:string"/>
 						<xs:element name="Adresse">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Straße"/>
+									<xs:element name="Straße" type="xs:string"/>
 									<xs:element name="PLZ">
 										<xs:simpleType>
 											<xs:restriction base="xs:integer">

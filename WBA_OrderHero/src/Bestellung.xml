@@ -4,13 +4,14 @@
   <Lieferdatum>2001-01-01</Lieferdatum>
   <Person>
     <Typ>Gastronom</Typ>
-    <Vorname/>
-    <Nachname/>
+    <Vorname>Vorname</Vorname>
+    <Nachname>Nachname</Nachname>
     <Alter>0</Alter>
     <Betrieb>
       <Betriebname/>
       <Adresse>
-        <Straße/>
+        <Straße>Straße</Straße>
+        <Hausnummer>0</Hausnummer>
         <PLZ>0</PLZ>
       </Adresse>
     </Betrieb>
@@ -18,19 +19,21 @@
   <Betrieb>
     <Betriebname/>
     <Adresse>
-      <Straße/>
+      <Straße>Straße</Straße>
+      <Hausnummer>0</Hausnummer>
       <PLZ>0</PLZ>
     </Adresse>
   </Betrieb>
   <Person>
     <Typ>Gastronom</Typ>
-    <Vorname/>
-    <Nachname/>
+    <Vorname>Vorname</Vorname>
+    <Nachname>Nachname</Nachname>
     <Alter>0</Alter>
     <Betrieb>
       <Betriebname/>
       <Adresse>
-        <Straße/>
+        <Straße>Straße</Straße>
+        <Hausnummer>0</Hausnummer>
         <PLZ>0</PLZ>
       </Adresse>
     </Betrieb>
@@ -38,7 +41,8 @@
   <Betrieb>
     <Betriebname/>
     <Adresse>
-      <Straße/>
+      <Straße>Straße</Straße>
+      <Hausnummer>0</Hausnummer>
       <PLZ>0</PLZ>
     </Adresse>
   </Betrieb>

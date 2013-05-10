@@ -2,15 +2,15 @@
 <Personenliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Personenliste.xsd">
   <Person>
     <Typ>Gastronom</Typ>
-    <Vorname>Peter</Vorname>
-    <Nachname>Pan</Nachname>
-    <Alter>100</Alter>
+    <Vorname>Vorname</Vorname>
+    <Nachname>Nachname</Nachname>
+    <Alter>0</Alter>
     <Betrieb>
-      <Betriebname>Champs</Betriebname>
+      <Betriebname>Betriebname</Betriebname>
       <Adresse>
-        <Straße>Adenaueralle</Straße>
-        <PLZ>12345</PLZ>
+        <Straße>Straße</Straße>
+        <PLZ>0</PLZ>
       </Adresse>
-     </Betrieb>
-     </Person>
+    </Betrieb>
+  </Person>
 </Personenliste>
