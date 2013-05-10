@@ -89,8 +89,10 @@ public class Personverwaltung {
        		  System.out.println("Nachname:"+ person.getPerson().get(i).getNachname());
        		  System.out.println("Alter:"+ person.getPerson().get(i).getAlter());
        		  System.out.println("Betrieb:");
-       		  System.out.println("Betrieb:"+ person.getPerson().get(i).getBetrieb().getBetriebname());
-       		  System.out.println("Vorname:"+ person.getPerson().get(i).getBetrieb().getAdresse());
+       		  System.out.println("Betriebname:"+ person.getPerson().get(i).getBetrieb().getBetriebname());
+       		  System.out.println("Stra§e:"+ person.getPerson().get(i).getBetrieb().getAdresse().getStra§e());
+       		  System.out.println("Hausnummer:"+ person.getPerson().get(i).getBetrieb().getAdresse().getHausnummer());
+       		  System.out.println("PLZ:"+ person.getPerson().get(i).getBetrieb().getAdresse().getPLZ());
        	  }
        
 	}	  
@@ -140,6 +142,9 @@ public class Personverwaltung {
 			System.out.println("\nAdresse des Betriebes:");
 			System.out.println("\nStra§e:");
 			neuePerson.betrieb.adresse.setStra§e(getString());
+			System.out.println("\nHausnummer:");
+			neuePerson.betrieb.adresse.setHausnummer(getBigInt());
+			System.out.println("\nPLZ:");
 			neuePerson.betrieb.adresse.setPLZ(getBigInt());	
 			
 			// Formatierung der XML-Datei
