@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Betrieb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Betrieb.xsd">
+  <Betriebname/>
+  <Adresse>
+    <Straße/>
+    <PLZ>0</PLZ>
+  </Adresse>
+  <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
+</Betrieb>

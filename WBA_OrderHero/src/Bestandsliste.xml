@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bestand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Bestandsliste.xsd">
+  <Produkt>
+    <Produkt_ID>0</Produkt_ID>
+    <Produktangaben>
+      <Produktname>Produktname</Produktname>
+      <Preis_in_Euro>0.0</Preis_in_Euro>
+      <Beschreibung>Beschreibung</Beschreibung>
+    </Produktangaben>
+  </Produkt>
+  <Anzahl>0</Anzahl>
+  <Verfuegbarkeit>verfuegbar</Verfuegbarkeit>
+</Bestand>

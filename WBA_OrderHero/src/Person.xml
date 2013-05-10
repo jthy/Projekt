@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Person.xsd">
+  <Typ>Gastronom</Typ>
+  <Vorname/>
+  <Nachname/>
+  <Alter>0</Alter>
+  <Betrieb>
+    <Betriebname/>
+    <Adresse>
+      <Straße/>
+      <PLZ>0</PLZ>
+    </Adresse>
+  </Betrieb>
+</Person>
