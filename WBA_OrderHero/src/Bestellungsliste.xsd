@@ -4,7 +4,7 @@
 <xs:element name="Bestellungsliste">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element ref="Bestellung"/>
+			<xs:element ref="Bestellung" maxOccurs="unbounded" minOccurs="1"/>
 		</xs:sequence>	
 	</xs:complexType>
 </xs:element>

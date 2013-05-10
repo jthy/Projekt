@@ -3,7 +3,7 @@
 <xs:element name="Boerse">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Eintrag">
+			<xs:element name="Eintrag" maxOccurs="unbounded" minOccurs="1">
 				<xs:complexType>
 					<xs:sequence>	
 						<xs:element ref="Person"/>

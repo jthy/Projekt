@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Personenliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Personenliste.xsd">
+  <Person>
+    <Typ>Gastronom</Typ>
+    <Vorname>Peter</Vorname>
+    <Nachname>Pan</Nachname>
+    <Alter>100</Alter>
+    <Betrieb>
+      <Betriebname>Champs</Betriebname>
+      <Adresse>
+        <Straße>Adenaueralle</Straße>
+        <PLZ>12345</PLZ>
+      </Adresse>
+     </Betrieb>
+     </Person>
+</Personenliste>
