@@ -14,31 +14,31 @@ import javax.xml.bind.Unmarshaller;
 
 
 public class Personverwaltung {
-	
+
 	static Scanner scanner = new Scanner(System.in);
 	private static Scanner input;
 	private static Scanner inputint;
 	private static Scanner inputbigint;
-	
+
 	public static void main(String[] args) throws JAXBException, IOException{
 		Boolean anzeige = true;
 		int eingabe = 0;
-		
+
 		//xml_person in Datei speichern
 		//TO DO: WENN alles laueft, dann src/Personenliste.xml
 		File file = new File("src/Personenliste.xml");
-		
+
 		//JAXB Objekt erstellen
 		JAXBContext context = JAXBContext.newInstance(Personenliste.class);
-		
+
 		//Marshaller 
 		Marshaller m = context.createMarshaller();
-		
+
 		//Unmarshaller
 		Unmarshaller um = context.createUnmarshaller();
-		
+
 		Personenliste person = (Personenliste) um.unmarshal(file);
-		
+
 		//Menue
 		while(anzeige){
 			  System.out.println();
@@ -47,10 +47,10 @@ public class Personverwaltung {
 	          System.out.println("3. Lieferanten ausgeben");
 	          System.out.println("4. Neue Person erstellen");
 	          System.out.println("5. Person bearbeiten");
-	          System.out.println("6. Person löschen");
+	          System.out.println("6. Person l√∂schen");
 	          System.out.println();
 	          eingabe = scanner.nextInt();
-	          
+
 	          //Personen ausgeben
 	          if(eingabe == 1){
 	        	  personenausgabe(person);
@@ -70,18 +70,18 @@ public class Personverwaltung {
 	          if(eingabe == 5){
 	        	  personbearbeiten(person,file,m);
 	          }
-	          //Person löschen
+	          //Person l≈°schen
 	          if(eingabe == 6){ 
-	        	  personlöschen(person,file,m);
+	        	  personl≈°schen(person,file,m);
 	          }*/
 	          else
 	        	  System.out.println("Ungueltige Eingabe!");
-	          
+
 		}
 	}	
 	          //Person.xml in Java ausgeben (1)
 	public static void personenausgabe(Personenliste person){
-			 
+
        	  for(int i = 0; i<=person.getPerson().size() -1; i++){
        		  System.out.println("Person:");
        		  System.out.println("Personentyp:" + person.getPerson().get(i).getTyp());
@@ -90,7 +90,7 @@ public class Personverwaltung {
        		  System.out.println("Alter:"+ person.getPerson().get(i).getAlter());
        		  System.out.println("Betrieb:");
        		  System.out.println("Betriebname:"+ person.getPerson().get(i).getBetrieb().getBetriebname());
-       		  System.out.println("Straße:"+ person.getPerson().get(i).getBetrieb().getAdresse().getStraße());
+       		  System.out.println("Stra√üe:"+ person.getPerson().get(i).getBetrieb().getAdresse().getStra√üe());
        		  System.out.println("Hausnummer:"+ person.getPerson().get(i).getBetrieb().getAdresse().getHausnummer());
        		  System.out.println("PLZ:"+ person.getPerson().get(i).getBetrieb().getAdresse().getPLZ());
        	  }
@@ -114,48 +114,48 @@ public class Personverwaltung {
          
 		
        	 }*/
-	
+
 	//neue Person erstellen
-	
+
 		public static void personerstellen(Personenliste person, File file, Marshaller m) throws IOException,JAXBException{
 			Writer w = new FileWriter(file);
-			
+
 			Personenliste.Person neuePerson = new Personenliste.Person();
 			System.out.println("\nBitte geben Sie nun die Daten der neuen Person ein:");
-			
+
 			System.out.println("\nGastronom oder Lieferant?");
 			neuePerson.setTyp(getString());
-			
+
 			System.out.println("\nVorname:");
 			neuePerson.setVorname(getString());
-			
+
 			System.out.println("\nNachname:");
 			neuePerson.setNachname(getString());
-			
+
 			System.out.println("\nAlter:");
 			neuePerson.setAlter(getInt());
-			
+
 			System.out.println("\nBitte geben Sie nun die Daten den zugehoerigen Betriebes ein:");
 			System.out.println("\nBetriebname:");
 			neuePerson.betrieb.setBetriebname(getString());
-			
+
 			System.out.println("\nAdresse des Betriebes:");
-			System.out.println("\nStraße:");
-			neuePerson.betrieb.adresse.setStraße(getString());
+			System.out.println("\nStra√üe:");
+			neuePerson.betrieb.adresse.setStra√üe(getString());
 			System.out.println("\nHausnummer:");
 			neuePerson.betrieb.adresse.setHausnummer(getBigInt());
 			System.out.println("\nPLZ:");
 			neuePerson.betrieb.adresse.setPLZ(getBigInt());	
-			
+
 			// Formatierung der XML-Datei
 	        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-	        
+
 	        //Kommentar hinzufuegen
 	        person.getPerson().add(neuePerson);
 	        m.marshal(person,w);
 		}
-		 
-		//Menü wieder aufrufen für neue Eingaben
+
+		//Men≈∏ wieder aufrufen f≈∏r neue Eingaben
 	      boolean anzeige= true;
 
 		// Bugfixing (Scanner wartet ohne eigene Methode nicht auf Eingabe vom Nutzer!)
@@ -171,7 +171,7 @@ public class Personverwaltung {
 			 inputbigint = new Scanner(System.in);
 			 return inputbigint.nextBigInteger();
 		 }
-		
+
 		/* public static void personbearbeiten(Personenliste person,File file,Marshaller m) throws IOException,JAXBException{
 
 				Writer w = new FileWriter(file);
@@ -186,8 +186,8 @@ public class Personverwaltung {
 				
 		 }
 		 
-		 public static void personlöschen(Personenliste person, File file, Marshaller m) throws IOException, JAXBException{
+		 public static void personl≈°schen(Personenliste person, File file, Marshaller m) throws IOException, JAXBException{
 			 
 		 }*/
-	
+
 }
