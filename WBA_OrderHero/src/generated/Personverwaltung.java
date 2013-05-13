@@ -1,10 +1,13 @@
 package generated;
 
+import generated.Personenliste.Person;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.math.BigInteger;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.xml.bind.JAXBContext;
@@ -66,6 +69,18 @@ public class Personverwaltung {
 	          if(eingabe == 4){ 
 	        	  personerstellen(person,file,m);
 	          }
+	          
+	       // Suche Person mit ID=person1 und aendere Personeninformationen
+	          List<Person> p = person.getPerson();
+	          for(int i = 0; i < p.size(); i++) {
+	          	if ( p.get(i).getPersonID().equals("person1") ) {
+	          		p.get(i).setTyp("Gastronom");
+	          		p.get(i).setVorname("Sheree");
+	          		p.get(i).setNachname("Saßmannshausen");
+	          		p.get(i).setAlter(22);
+	          	}
+	          }
+	          
 	          /*//Person bearbeiten
 	          if(eingabe == 5){
 	        	  personbearbeiten(person,file,m);
@@ -74,8 +89,8 @@ public class Personverwaltung {
 	          if(eingabe == 6){ 
 	        	  personlšschen(person,file,m);
 	          }*/
-	          else
-	        	  System.out.println("Ungueltige Eingabe!");
+	          /*else
+	        	  System.out.println("Ungueltige Eingabe!");*/
 
 		}
 	}	
