@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Betrieb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Betrieb.xsd">
+<Betrieb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Betrieb.xsd">
+  <Betriebs_ID>0</Betriebs_ID>
   <Betriebname>Betriebname</Betriebname>
   <Adresse>
     <Straße>Straße</Straße>
