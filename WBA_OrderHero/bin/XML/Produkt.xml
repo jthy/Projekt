@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Produkt xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Produkt.xsd">
+<Produkt xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Produkt.xsd">
   <Produkt_ID>0</Produkt_ID>
   <Produktangaben>
     <Produktname>Produktname</Produktname>

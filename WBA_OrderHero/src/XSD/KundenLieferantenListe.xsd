@@ -17,8 +17,8 @@
 			<xs:element name="Bestellungs_ID" type ="xs:integer"/>
 			<xs:element name="Lieferdatum" type="xs:date"/>
 			<xs:element ref="Person"/>
-			<xs:element ref="Person"/>
 			<xs:element ref="Betrieb"/>
+			<xs:element ref="Person"/>
 			<xs:element ref="Betrieb"/>
 			<xs:element name="Anzahl" type="xs:integer"/>
 			<xs:element ref="Produkt"/>
@@ -76,6 +76,7 @@
 <xs:element name="Betrieb">
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element name="Betriebs_ID" type="xs:integer" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" />
 						<xs:element name="Adresse">
 							<xs:complexType>

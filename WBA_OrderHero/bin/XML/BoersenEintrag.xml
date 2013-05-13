@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BoersenEintrag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/BoersenEintrag.xsd">
+  <Person>
+    <Typ>Gastronom</Typ>
+    <Vorname>Vorname</Vorname>
+    <Nachname>Nachname</Nachname>
+    <Alter>0</Alter>
+    <Betrieb>
+      <Betriebs_ID>0</Betriebs_ID>
+      <Betriebname/>
+      <Adresse>
+        <Straße>Straße</Straße>
+        <Hausnummer>0</Hausnummer>
+        <PLZ>0</PLZ>
+      </Adresse>
+      <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
+    </Betrieb>
+  </Person>
+  <Erstellungsdatum>2001-12-31T12:00:00</Erstellungsdatum>
+  <Titel>Titel</Titel>
+  <Informationstext>Informationstext</Informationstext>
+  <Startdatum>2001-12-31T12:00:00</Startdatum>
+  <Ablaufdatum>2001-12-31T12:00:00</Ablaufdatum>
+  <Kommentare>
+    <Person>
+      <Typ>Gastronom</Typ>
+      <Vorname>Vorname</Vorname>
+      <Nachname>Nachname</Nachname>
+      <Alter>0</Alter>
+      <Betrieb>
+        <Betriebs_ID>0</Betriebs_ID>
+        <Betriebname/>
+        <Adresse>
+          <Straße>Straße</Straße>
+          <Hausnummer>0</Hausnummer>
+          <PLZ>0</PLZ>
+        </Adresse>
+        <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
+      </Betrieb>
+    </Person>
+    <Datum>2001-12-31T12:00:00</Datum>
+    <Informationstext>Informationstext</Informationstext>
+  </Kommentare>
+  <Typ>Angebot</Typ>
+</BoersenEintrag>

@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Betrieb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Produktliste.xsd">
-  <Betriebname/>
-  <Adresse>
-    <Straße>Straße</Straße>
-    <Hausnummer>0</Hausnummer>
-    <PLZ>0</PLZ>
-  </Adresse>
-</Betrieb>
+<Produkte xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Produktliste.xsd">
+  <Produkt>
+    <Produkt_ID>0</Produkt_ID>
+    <Produktangaben>
+      <Produktname>Produktname</Produktname>
+      <Preis_in_Euro>0.0</Preis_in_Euro>
+      <Beschreibung>Beschreibung</Beschreibung>
+    </Produktangaben>
+  </Produkt>
+  <Verfuegbarkeit>verfuegbar</Verfuegbarkeit>
+  <Person>
+    <Typ>Gastronom</Typ>
+    <Vorname>Vorname</Vorname>
+    <Nachname>Nachname</Nachname>
+    <Alter>0</Alter>
+    <Betrieb>
+      <Betriebs_ID>0</Betriebs_ID>
+      <Betriebname/>
+      <Adresse>
+        <Straße>Straße</Straße>
+        <Hausnummer>0</Hausnummer>
+        <PLZ>0</PLZ>
+      </Adresse>
+    </Betrieb>
+  </Person>
+</Produkte>

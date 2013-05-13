@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<xs:element name="Boerse">
-	<xs:complexType>
-		<xs:sequence>
-			<xs:element name="Eintrag" maxOccurs="unbounded" minOccurs="1">
+<xs:element name="BoersenEintrag">
 				<xs:complexType>
 					<xs:sequence>	
 						<xs:element ref="Person"/>
@@ -32,11 +29,7 @@
 				</xs:sequence>
 			</xs:complexType>
 		</xs:element>
-	  </xs:sequence>
-	</xs:complexType>
-</xs:element>
-
-<!-- Definitionen -->			
+	<!-- Definitionen -->			
 	<xs:element name="Person">
 	<xs:complexType>
 		<xs:sequence>

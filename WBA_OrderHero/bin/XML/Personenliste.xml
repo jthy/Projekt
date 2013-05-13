@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Betrieb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Personenliste.xsd">
-  <Betriebname>Betriebname</Betriebname>
-  <Adresse>
-    <Straße>Straße</Straße>
-    <Hausnummer>0</Hausnummer>
-    <PLZ>0</PLZ>
-  </Adresse>
-</Betrieb>
+<Personenliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Personenliste.xsd">
+  <Person>
+    <Person_ID>0</Person_ID>
+    <Typ>Gastronom</Typ>
+    <Vorname>Vorname</Vorname>
+    <Nachname>Nachname</Nachname>
+    <Alter>0</Alter>
+    <Betrieb>
+      <Betriebs_ID>0</Betriebs_ID>
+      <Betriebname>Betriebname</Betriebname>
+      <Adresse>
+        <Straße>Straße</Straße>
+        <Hausnummer>0</Hausnummer>
+        <PLZ>0</PLZ>
+      </Adresse>
+    </Betrieb>
+  </Person>
+</Personenliste>

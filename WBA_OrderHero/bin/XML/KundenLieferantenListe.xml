@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<KundenLieferantenListe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KundenLieferantenListe.xsd">
+<KundenLieferantenListe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/KundenLieferantenListe.xsd">
   <Person>
     <Typ>Gastronom</Typ>
     <Vorname>Vorname</Vorname>
     <Nachname>Nachname</Nachname>
     <Alter>0</Alter>
     <Betrieb>
+      <Betriebs_ID>0</Betriebs_ID>
       <Betriebname/>
       <Adresse>
         <Straße>Straße</Straße>
@@ -23,20 +24,7 @@
       <Nachname>Nachname</Nachname>
       <Alter>0</Alter>
       <Betrieb>
-        <Betriebname/>
-        <Adresse>
-          <Straße>Straße</Straße>
-          <Hausnummer>0</Hausnummer>
-          <PLZ>0</PLZ>
-        </Adresse>
-      </Betrieb>
-    </Person>
-    <Person>
-      <Typ>Gastronom</Typ>
-      <Vorname>Vorname</Vorname>
-      <Nachname>Nachname</Nachname>
-      <Alter>0</Alter>
-      <Betrieb>
+        <Betriebs_ID>0</Betriebs_ID>
         <Betriebname/>
         <Adresse>
           <Straße>Straße</Straße>
@@ -46,6 +34,7 @@
       </Betrieb>
     </Person>
     <Betrieb>
+      <Betriebs_ID>0</Betriebs_ID>
       <Betriebname/>
       <Adresse>
         <Straße>Straße</Straße>
@@ -53,7 +42,23 @@
         <PLZ>0</PLZ>
       </Adresse>
     </Betrieb>
+    <Person>
+      <Typ>Gastronom</Typ>
+      <Vorname>Vorname</Vorname>
+      <Nachname>Nachname</Nachname>
+      <Alter>0</Alter>
+      <Betrieb>
+        <Betriebs_ID>0</Betriebs_ID>
+        <Betriebname/>
+        <Adresse>
+          <Straße>Straße</Straße>
+          <Hausnummer>0</Hausnummer>
+          <PLZ>0</PLZ>
+        </Adresse>
+      </Betrieb>
+    </Person>
     <Betrieb>
+      <Betriebs_ID>0</Betriebs_ID>
       <Betriebname/>
       <Adresse>
         <Straße>Straße</Straße>

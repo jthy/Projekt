@@ -67,17 +67,9 @@
 	</xs:complexType>
 </xs:element>
 
-<xs:element name="Geschaeftspartnerliste">
+<xs:element name="KundenLieferantenListe">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Listentyp">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Kundenliste"/>
-						<xs:enumeration value="Lieferantenliste"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
 			<xs:element ref="Person"/>
 			<xs:element ref="Bestellung" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -105,7 +97,7 @@
 </xs:complexType>
 </xs:element>
 
-<!-- Definitionen -->
+
 <xs:element name="Bestellung">
 	<xs:complexType>
 		<xs:sequence>
@@ -172,6 +164,7 @@
 <xs:element name="Betrieb">
 				<xs:complexType>
 					<xs:sequence>
+						<xs:element name="Betriebs_ID" type="xs:integer" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" />
 						<xs:element name="Adresse">
 							<xs:complexType>
