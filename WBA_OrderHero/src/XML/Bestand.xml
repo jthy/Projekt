@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bestandsliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Bestandsliste.xsd">
+<Bestand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Bestand.xsd">
   <Produkte>
     <Produkt_ID>0</Produkt_ID>
     <Produktname>Produktname</Produktname>
@@ -7,4 +7,4 @@
     <Beschreibung>Beschreibung</Beschreibung>
     <Menge>0</Menge>
   </Produkte>
-</Bestandsliste>
+</Bestand>
