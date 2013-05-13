@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
 
-<xs:element name="Geschaeftspartnerliste">
+<xs:element name="KundenLieferantenListe">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Listentyp">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Kundenliste"/>
-						<xs:enumeration value="Lieferantenliste"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
 			<xs:element ref="Person"/>
 			<xs:element ref="Bestellung" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
