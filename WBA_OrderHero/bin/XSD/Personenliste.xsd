@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Personenliste">
+<xs:complexType>
+<xs:sequence>
+
+<xs:element name="Person" maxOccurs="unbounded" minOccurs="1">
+		<xs:complexType>
+		<xs:sequence>
+		<xs:element name="Person_ID" type="xs:integer"/>
+			<xs:element name="Typ">
+	 			<xs:simpleType>
+			    	<xs:restriction base="xs:string">
+			      		<xs:enumeration value="Gastronom" />
+			      		<xs:enumeration value="Lieferant" />
+			   		</xs:restriction>
+	  			</xs:simpleType>
+	  		</xs:element>
+			<xs:element name="Vorname" type="xs:string"/>
+			<xs:element name="Nachname" type="xs:string"/>
+			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
+			<xs:element name="Alter">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="18" />
+						<xs:maxInclusive value="100" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element ref="Betrieb"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<!-- Definitionen -->			
+<xs:element name="Betrieb">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" type="xs:string"/>
+						<xs:element name="Adresse">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Straße" type="xs:string"/>
+									<xs:element name="Hausnummer" type="xs:integer"/>
+									<xs:element name="PLZ">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+											<xs:pattern value="(D )?[0-9]{5}" />
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+</xs:element>
+</xs:schema>	
