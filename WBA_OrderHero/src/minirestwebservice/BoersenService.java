@@ -2,17 +2,12 @@ package minirestwebservice;
 
 import javax.ws.rs.*;
 
-@Path( "/helloworld" )
+@Path( "/Boerse/Boerseneintrag/BoerseneintragsID" )
 public class BoersenService {
 
-		//Soll Einträge ausgeben GET
-		//Soll Einträge erstellen PUT
-		//Soll Einträge löschen DELETE
-	
-		/*
-	   @GET @Produces( "text/html" )
-	   public String halloHtml( @QueryParam("name") String name )
-	   {
-	      return "<html><title>HelloWorld</title><body><h2>Html: Hallo " + name + "</h2></body></html>";
-	   }*/
+	@GET @Produces( "text/html" )
+	public String ID(@QueryParam("BoerseneintragsID") Integer BoerseneintragsID){
+		return "<html><title>Börseneintrag></title><body><p>" + BoerseneintragsID + "</p></body></html>";
+	}
+		
 }
