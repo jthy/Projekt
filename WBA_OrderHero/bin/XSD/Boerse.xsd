@@ -3,9 +3,16 @@
 <xs:element name="Boerse">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Eintrag" maxOccurs="unbounded" minOccurs="1">
+			<xs:element ref="BoersenEintrag" maxOccurs="unbounded" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- Definitionen -->	
+<xs:element name="BoersenEintrag">
 				<xs:complexType>
-					<xs:sequence>	
+					<xs:sequence>
+						<xs:element name="BoerseneintragsID" type="xs:integer" maxOccurs="1" minOccurs="1"/>	
 						<xs:element ref="Person"/>
 					 	<xs:element name="Erstellungsdatum" type="xs:dateTime" />
 						<xs:element name="Titel" type="xs:string" />
@@ -31,12 +38,7 @@
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
-		</xs:element>
-	  </xs:sequence>
-	</xs:complexType>
-</xs:element>
-
-<!-- Definitionen -->			
+		</xs:element>		
 	<xs:element name="Person">
 	<xs:complexType>
 		<xs:sequence>
