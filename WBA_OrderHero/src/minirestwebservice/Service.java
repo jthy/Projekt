@@ -45,7 +45,7 @@ public Boerse getOne(@PathParam("BoerseneintragsID")int i) throws JAXBException,
 	Unmarshaller um = context.createUnmarshaller();
 	boe = (Boerse) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/XML/Boerse.xml"));
 	Boerse rt = ob.createBoerse();
-	rt.getBoersenEintrag().getBoerseneintragsID().add(boe.getBoersenEintrag().getBoerseneintragsID());
+	rt.getBoersenEintrag().add(boe.getBoersenEintrag().get(i-1));
 	return rt;
 
 	}
