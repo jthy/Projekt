@@ -35,7 +35,7 @@ public Boerse getAll() throws JAXBException, FileNotFoundException
 }
 
 @GET
-@Path("/Boerse/{BoerseneintragsID}")
+@Path("/BoersenEintrag/{BoerseneintragsID}")
 @Produces( "boersen/xml")
 public Boerse getOne(@PathParam("BoerseneintragsID")int i) throws JAXBException, FileNotFoundException
 {
