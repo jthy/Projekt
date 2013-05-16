@@ -20,7 +20,7 @@ public class Service
 {
 
 @GET
-@Produces( "boersen/xml")
+@Produces( "application/xml")
 
 public Boerse getAll() throws JAXBException, FileNotFoundException
 {
@@ -36,7 +36,7 @@ public Boerse getAll() throws JAXBException, FileNotFoundException
 
 @GET
 @Path("/BoersenEintrag/{BoerseneintragsID}")
-@Produces( "boersen/xml")
+@Produces( "application/xml")
 public Boerse getOne(@PathParam("BoerseneintragsID")int i) throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
