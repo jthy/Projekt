@@ -1,47 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Boerse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Boerse.xsd">
-  <Eintrag>
+  <BoersenEintrag>
+    <BoerseneintragsID>1</BoerseneintragsID>
     <Person>
       <Typ>Gastronom</Typ>
-      <Vorname>Vorname</Vorname>
-      <Nachname>Nachname</Nachname>
-      <Alter>0</Alter>
+      <Vorname>Julia</Vorname>
+      <Nachname>Tyssen</Nachname>
+      <Alter>21</Alter>
       <Betrieb>
-        <Betriebs_ID>0</Betriebs_ID>
-        <Betriebname/>
+        <Betriebs_ID>1</Betriebs_ID>
+        <Betriebname>Moyos</Betriebname>
         <Adresse>
-          <Straße>Straße</Straße>
-          <Hausnummer>0</Hausnummer>
-          <PLZ>0</PLZ>
+          <Straße>Hohenzollering</Straße>
+          <Hausnummer>23</Hausnummer>
+          <PLZ>51103</PLZ>
         </Adresse>
-        <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
+        <Art_des_Betriebes>Creolisch</Art_des_Betriebes>
       </Betrieb>
     </Person>
-    <Erstellungsdatum>2001-12-31T12:00:00</Erstellungsdatum>
-    <Titel>Titel</Titel>
+    <Erstellungsdatum>2013-05-13T12:00:00</Erstellungsdatum>
+    <Titel>Suche 10 Giabatta-Brote!</Titel>
+    <Informationstext>Blaaaaaaaaaaa</Informationstext>
+    <Startdatum>2013-06-01T12:00:00</Startdatum>
+    <Ablaufdatum>2013-08-31T12:00:00</Ablaufdatum>
+    <Kommentare>
+      <Person>
+        <Typ>Lieferant</Typ>
+        <Vorname>Peter</Vorname>
+        <Nachname>Handelshof</Nachname>
+        <Alter>50</Alter>
+        <Betrieb>
+          <Betriebs_ID>2</Betriebs_ID>
+          <Betriebname>Handelshof</Betriebname>
+          <Adresse>
+          <Straße>Haupsttrasse</Straße>
+            <Hausnummer>76</Hausnummer>
+            <PLZ>51102</PLZ>
+          </Adresse>
+          <Art_des_Betriebes>Großhandel</Art_des_Betriebes>
+        </Betrieb>
+      </Person>
+      <Datum>2013-05-31T09:30:34</Datum>
+      <Informationstext>Kann dir die Menge täglich liefern.</Informationstext>
+    </Kommentare>
+    <Typ>Gesuch</Typ>
+  </BoersenEintrag>
+    <BoersenEintrag>
+    <BoerseneintragsID>2</BoerseneintragsID>
+    <Person>
+      <Typ>Gastronom</Typ>
+      <Vorname>Sheree</Vorname>
+      <Nachname>Sassmannshausen</Nachname>
+      <Alter>22</Alter>
+      <Betrieb>
+        <Betriebs_ID>3</Betriebs_ID>
+        <Betriebname>Kesselsknall</Betriebname>
+        <Adresse>
+          <Straße>Blödestrasse</Straße>
+          <Hausnummer>99</Hausnummer>
+          <PLZ>53423</PLZ>
+        </Adresse>
+        <Art_des_Betriebes>Brauerei</Art_des_Betriebes>
+      </Betrieb>
+    </Person>
+    <Erstellungsdatum>2013-05-13T12:00:00</Erstellungsdatum>
+    <Titel>Käseplatten</Titel>
     <Informationstext>Informationstext</Informationstext>
-    <Startdatum>2001-12-31T12:00:00</Startdatum>
-    <Ablaufdatum>2001-12-31T12:00:00</Ablaufdatum>
+    <Startdatum>2013-06-01T12:00:00</Startdatum>
+    <Ablaufdatum>2013-07-31T12:00:00</Ablaufdatum>
     <Kommentare>
       <Person>
         <Typ>Gastronom</Typ>
-        <Vorname>Vorname</Vorname>
-        <Nachname>Nachname</Nachname>
-        <Alter>0</Alter>
+        <Vorname>Liese</Vorname>
+        <Nachname>Cott</Nachname>
+        <Alter>88</Alter>
         <Betrieb>
-          <Betriebs_ID>0</Betriebs_ID>
-          <Betriebname/>
+          <Betriebs_ID>4</Betriebs_ID>
+          <Betriebname>Lörsbars</Betriebname>
           <Adresse>
-            <Straße>Straße</Straße>
-            <Hausnummer>0</Hausnummer>
-            <PLZ>0</PLZ>
+            <Straße>Braunsstrasse</Straße>
+            <Hausnummer>76</Hausnummer>
+            <PLZ>56789</PLZ>
           </Adresse>
-          <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
+          <Art_des_Betriebes>Italiener</Art_des_Betriebes>
         </Betrieb>
       </Person>
-      <Datum>2001-12-31T12:00:00</Datum>
-      <Informationstext>Informationstext</Informationstext>
+      <Datum>2013-05-31T09:30:34</Datum>
+      <Informationstext>Ich nehme 2 Platten</Informationstext>
     </Kommentare>
     <Typ>Angebot</Typ>
-  </Eintrag>
+  </BoersenEintrag>
 </Boerse>

@@ -14,7 +14,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-@Path("/generated")
+@Path("/Boerse")
 
 public class Service 
 {
@@ -35,9 +35,9 @@ public Boerse getAll() throws JAXBException, FileNotFoundException
 }
 
 @GET
-@Path("/boerse/{boerse_ID}")
+@Path("/Boerse/{BoerseneintragsID}")
 @Produces( "application/xml")
-public Boerse getOne(@PathParam("boerse_ID")int i) throws JAXBException, FileNotFoundException
+public Boerse getOne(@PathParam("BoerseneintragsID")int i) throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Boerse boe=ob.createBoerse();
@@ -45,7 +45,7 @@ public Boerse getOne(@PathParam("boerse_ID")int i) throws JAXBException, FileNot
 	Unmarshaller um = context.createUnmarshaller();
 	boe = (Boerse) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/XML/Boerse.xml"));
 	Boerse rt = ob.createBoerse();
-	rt.getEintrag().add(boe.getEintrag().get(i-1));
+	rt.getBoersenEintrag().add(boe.getBoersenEintrag().get(i-1));
 	//der kann nicht getBoerse vom typ boerse nehmen... hab das jetzt mit geteintrag ersetzt
 	//rt.getBoerse().add(boe.getBoerse().get(i-1));
 	return rt;
