@@ -68,7 +68,7 @@
 <xs:element name="Betrieb">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" />
+						<xs:element name="Betriebname" type="xs:string" minOccurs="1" maxOccurs="1" />
 						<xs:element name="Adresse">
 							<xs:complexType>
 								<xs:sequence>

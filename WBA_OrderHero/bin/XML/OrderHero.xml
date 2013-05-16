@@ -23,7 +23,7 @@
         <Alter>0</Alter>
         <Betrieb>
           <Betriebs_ID>0</Betriebs_ID>
-          <Betriebname/>
+          <Betriebname>Betriebname</Betriebname>
           <Adresse>
             <Straße>Straße</Straße>
             <Hausnummer>0</Hausnummer>
@@ -33,7 +33,7 @@
       </Person>
       <Betrieb>
         <Betriebs_ID>0</Betriebs_ID>
-        <Betriebname/>
+        <Betriebname>Betriebname</Betriebname>
         <Adresse>
           <Straße>Straße</Straße>
           <Hausnummer>0</Hausnummer>
@@ -47,7 +47,7 @@
         <Alter>0</Alter>
         <Betrieb>
           <Betriebs_ID>0</Betriebs_ID>
-          <Betriebname/>
+          <Betriebname>Betriebname</Betriebname>
           <Adresse>
             <Straße>Straße</Straße>
             <Hausnummer>0</Hausnummer>
@@ -57,7 +57,7 @@
       </Person>
       <Betrieb>
         <Betriebs_ID>0</Betriebs_ID>
-        <Betriebname/>
+        <Betriebname>Betriebname</Betriebname>
         <Adresse>
           <Straße>Straße</Straße>
           <Hausnummer>0</Hausnummer>
@@ -80,6 +80,7 @@
   </Bestellungsliste>
   <Boerse>
     <Eintrag>
+      <BoerseneintragsID>0</BoerseneintragsID>
       <Person>
         <Typ>Gastronom</Typ>
         <Vorname>Vorname</Vorname>
@@ -87,7 +88,7 @@
         <Alter>0</Alter>
         <Betrieb>
           <Betriebs_ID>0</Betriebs_ID>
-          <Betriebname/>
+          <Betriebname>Betriebname</Betriebname>
           <Adresse>
             <Straße>Straße</Straße>
             <Hausnummer>0</Hausnummer>
@@ -108,7 +109,7 @@
           <Alter>0</Alter>
           <Betrieb>
             <Betriebs_ID>0</Betriebs_ID>
-            <Betriebname/>
+            <Betriebname>Betriebname</Betriebname>
             <Adresse>
               <Straße>Straße</Straße>
               <Hausnummer>0</Hausnummer>
@@ -130,7 +131,7 @@
       <Alter>0</Alter>
       <Betrieb>
         <Betriebs_ID>0</Betriebs_ID>
-        <Betriebname/>
+        <Betriebname>Betriebname</Betriebname>
         <Adresse>
           <Straße>Straße</Straße>
           <Hausnummer>0</Hausnummer>
@@ -148,7 +149,7 @@
         <Alter>0</Alter>
         <Betrieb>
           <Betriebs_ID>0</Betriebs_ID>
-          <Betriebname/>
+          <Betriebname>Betriebname</Betriebname>
           <Adresse>
             <Straße>Straße</Straße>
             <Hausnummer>0</Hausnummer>
@@ -158,7 +159,7 @@
       </Person>
       <Betrieb>
         <Betriebs_ID>0</Betriebs_ID>
-        <Betriebname/>
+        <Betriebname>Betriebname</Betriebname>
         <Adresse>
           <Straße>Straße</Straße>
           <Hausnummer>0</Hausnummer>
@@ -172,7 +173,7 @@
         <Alter>0</Alter>
         <Betrieb>
           <Betriebs_ID>0</Betriebs_ID>
-          <Betriebname/>
+          <Betriebname>Betriebname</Betriebname>
           <Adresse>
             <Straße>Straße</Straße>
             <Hausnummer>0</Hausnummer>
@@ -182,7 +183,7 @@
       </Person>
       <Betrieb>
         <Betriebs_ID>0</Betriebs_ID>
-        <Betriebname/>
+        <Betriebname>Betriebname</Betriebname>
         <Adresse>
           <Straße>Straße</Straße>
           <Hausnummer>0</Hausnummer>
@@ -220,7 +221,7 @@
       <Alter>0</Alter>
       <Betrieb>
         <Betriebs_ID>0</Betriebs_ID>
-        <Betriebname/>
+        <Betriebname>Betriebname</Betriebname>
         <Adresse>
           <Straße>Straße</Straße>
           <Hausnummer>0</Hausnummer>

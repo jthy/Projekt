@@ -2,14 +2,8 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <xs:element name="Boerse">
 	<xs:complexType>
-		<xs:sequence>
-			<xs:element ref="BoersenEintrag" maxOccurs="unbounded" minOccurs="0"/>
-	  </xs:sequence>
-	</xs:complexType>
-</xs:element>
-
-<!-- Definitionen -->	
-<xs:element name="BoersenEintrag">
+		<xs:sequence>	
+			<xs:element name="BoersenEintrag">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="BoerseneintragsID" type="xs:integer" maxOccurs="1" minOccurs="1"/>	
@@ -38,7 +32,12 @@
 					</xs:element>
 				</xs:sequence>
 			</xs:complexType>
-		</xs:element>		
+		</xs:element>
+ </xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- Definitionen -->		
 	<xs:element name="Person">
 	<xs:complexType>
 		<xs:sequence>

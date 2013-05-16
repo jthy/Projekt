@@ -10,7 +10,7 @@
       <Alter>0</Alter>
       <Betrieb>
         <Betriebs_ID>0</Betriebs_ID>
-        <Betriebname/>
+        <Betriebname>Betriebname</Betriebname>
         <Adresse>
           <Straße>Straße</Straße>
           <Hausnummer>0</Hausnummer>
@@ -20,7 +20,7 @@
     </Person>
     <Betrieb>
       <Betriebs_ID>0</Betriebs_ID>
-      <Betriebname/>
+      <Betriebname>Betriebname</Betriebname>
       <Adresse>
         <Straße>Straße</Straße>
         <Hausnummer>0</Hausnummer>
@@ -34,7 +34,7 @@
       <Alter>0</Alter>
       <Betrieb>
         <Betriebs_ID>0</Betriebs_ID>
-        <Betriebname/>
+        <Betriebname>Betriebname</Betriebname>
         <Adresse>
           <Straße>Straße</Straße>
           <Hausnummer>0</Hausnummer>
@@ -44,7 +44,7 @@
     </Person>
     <Betrieb>
       <Betriebs_ID>0</Betriebs_ID>
-      <Betriebname/>
+      <Betriebname>Betriebname</Betriebname>
       <Adresse>
         <Straße>Straße</Straße>
         <Hausnummer>0</Hausnummer>

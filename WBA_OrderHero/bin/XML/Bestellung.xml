@@ -8,7 +8,7 @@
     <Nachname>Nachname</Nachname>
     <Alter>0</Alter>
     <Betrieb>
-      <Betriebname/>
+      <Betriebname>Betriebname</Betriebname>
       <Adresse>
         <Straße>Straße</Straße>
         <Hausnummer>0</Hausnummer>
@@ -17,7 +17,7 @@
     </Betrieb>
   </Person>
   <Betrieb>
-    <Betriebname/>
+    <Betriebname>Betriebname</Betriebname>
     <Adresse>
       <Straße>Straße</Straße>
       <Hausnummer>0</Hausnummer>
@@ -30,7 +30,7 @@
     <Nachname>Nachname</Nachname>
     <Alter>0</Alter>
     <Betrieb>
-      <Betriebname/>
+      <Betriebname>Betriebname</Betriebname>
       <Adresse>
         <Straße>Straße</Straße>
         <Hausnummer>0</Hausnummer>
@@ -39,7 +39,7 @@
     </Betrieb>
   </Person>
   <Betrieb>
-    <Betriebname/>
+    <Betriebname>Betriebname</Betriebname>
     <Adresse>
       <Straße>Straße</Straße>
       <Hausnummer>0</Hausnummer>
