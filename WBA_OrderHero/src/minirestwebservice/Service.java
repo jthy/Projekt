@@ -29,7 +29,7 @@ public Boerse getAll() throws JAXBException, FileNotFoundException
 	Boerse boe=ob.createBoerse();
 	JAXBContext context = JAXBContext.newInstance(Boerse.class);
 	Unmarshaller um = context.createUnmarshaller();
-	boe = ( Boerse ) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/XML/neuBoerse.xml"));
+	boe = ( Boerse ) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/XML/Boerse.xml"));
 	
 	return boe;
 	
@@ -44,7 +44,7 @@ public Boerse getOne(@PathParam("BoerseneintragsID")int i) throws JAXBException,
 	Boerse boe=ob.createBoerse();
 	JAXBContext context = JAXBContext.newInstance(Boerse.class);
 	Unmarshaller um = context.createUnmarshaller();
-	boe = (Boerse) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/XML/neuBoerse.xml"));
+	boe = (Boerse) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/XML/Boerse.xml"));
 	Boerse rt = ob.createBoerse();
 	rt.getBoersenEintrag().add(boe.getBoersenEintrag().get(i-1));
 	return rt;
