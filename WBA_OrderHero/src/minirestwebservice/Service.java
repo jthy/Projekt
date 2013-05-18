@@ -22,7 +22,7 @@ public class Service
 
 @GET
 @Produces( "application/xml")
-
+//gibt alle Boerseneinträge aus
 public Boerse getAll() throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
@@ -34,7 +34,7 @@ public Boerse getAll() throws JAXBException, FileNotFoundException
 	return boe;
 	
 }
-
+//gibt Boerseneintrag nach ID aus
 @GET
 @Path("/BoersenEintrag/{BoerseneintragsID}")
 @Produces( "application/xml")
