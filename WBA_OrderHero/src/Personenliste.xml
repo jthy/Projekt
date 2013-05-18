@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Personenliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Personenliste.xsd">
+<Personenliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Personenliste.xsd">
   <Person>
     <Person_ID>0</Person_ID>
     <Typ>Gastronom</Typ>

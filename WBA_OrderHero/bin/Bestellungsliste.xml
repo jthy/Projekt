@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<KundenLieferantenListe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/KundenLieferantenListe.xsd">
-  <Person>
-    <Typ>Gastronom</Typ>
-    <Vorname>Vorname</Vorname>
-    <Nachname>Nachname</Nachname>
-    <Alter>0</Alter>
-    <Betrieb>
-      <Betriebs_ID>0</Betriebs_ID>
-      <Betriebname>Betriebname</Betriebname>
-      <Adresse>
-        <Straße>Straße</Straße>
-        <Hausnummer>0</Hausnummer>
-        <PLZ>0</PLZ>
-      </Adresse>
-    </Betrieb>
-  </Person>
+<Bestellungsliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Bestellungsliste.xsd">
   <Bestellung>
     <Bestellungs_ID>0</Bestellungs_ID>
     <Lieferdatum>2001-01-01</Lieferdatum>
@@ -69,12 +54,15 @@
     <Anzahl>0</Anzahl>
     <Produkt>
       <Produkt_ID>0</Produkt_ID>
-      <Produktname>Produktname</Produktname>
-      <Preis_in_Euro>0.0</Preis_in_Euro>
-      <Beschreibung>Beschreibung</Beschreibung>
+      <Produktangaben>
+        <Produktname>Produktname</Produktname>
+        <Preis_in_Euro>0.0</Preis_in_Euro>
+        <Beschreibung>Beschreibung</Beschreibung>
+        <Verfuegbarkeit>verfuegbar</Verfuegbarkeit>
+      </Produktangaben>
     </Produkt>
     <Bestellungsart>Dauerauftrag</Bestellungsart>
     <Zahlungsart>Rechnung</Zahlungsart>
     <Gesamtbetrag_Bestellung>0</Gesamtbetrag_Bestellung>
   </Bestellung>
-</KundenLieferantenListe>
+</Bestellungsliste>

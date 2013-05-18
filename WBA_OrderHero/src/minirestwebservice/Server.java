@@ -15,7 +15,7 @@ public class Server {
 		SelectorThread srv = GrizzlyServerFactory.create (url );
 		
 		System.out.println( "URL: " + url);
-		Thread.sleep( 1000 * 60 * 5);
+		Thread.sleep( 1000 * 60 * 10);
 		srv.stopEndpoint();
 	}
 

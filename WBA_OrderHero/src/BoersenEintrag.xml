@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BoersenEintrag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/BoersenEintrag.xsd">
+<BoersenEintrag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../BoersenEintrag.xsd">
   <BoerseneintragsID>0</BoerseneintragsID>
   <Person>
     <Typ>Gastronom</Typ>
-    <Vorname>Vorname</Vorname>
+    <Vorname>Alex</Vorname>
     <Nachname>Nachname</Nachname>
-    <Alter>0</Alter>
+    <Alter>32</Alter>
     <Betrieb>
       <Betriebs_ID>0</Betriebs_ID>
       <Betriebname>Betriebname</Betriebname>
       <Adresse>
         <Straße>Straße</Straße>
         <Hausnummer>0</Hausnummer>
-        <PLZ>0</PLZ>
+        <PLZ>32312</PLZ>
       </Adresse>
       <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
     </Betrieb>
@@ -27,14 +27,14 @@
       <Typ>Gastronom</Typ>
       <Vorname>Vorname</Vorname>
       <Nachname>Nachname</Nachname>
-      <Alter>0</Alter>
+      <Alter>90</Alter>
       <Betrieb>
         <Betriebs_ID>0</Betriebs_ID>
         <Betriebname>Betriebname</Betriebname>
         <Adresse>
           <Straße>Straße</Straße>
           <Hausnummer>0</Hausnummer>
-          <PLZ>0</PLZ>
+          <PLZ>12345</PLZ>
         </Adresse>
         <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
       </Betrieb>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Boerse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Boerse.xsd">
+<Boerse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Boerse.xsd">
   <BoersenEintrag>
     <BoerseneintragsID>1</BoerseneintragsID>
     <Person>
