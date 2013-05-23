@@ -18,6 +18,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import generated.Boerse;
+import generated.Person;
+import generated.Betrieb;
 import generated.ObjectFactory;
 
 
@@ -65,22 +67,31 @@ public void postEintrag(
 		@QueryParam("Nachname")String Nachname,
 		@QueryParam("Alter")int Alter,
 		@QueryParam("Typ")String Typ,
+		@QueryParam("BetriebsID")BigInteger BetriebsID,
 		@QueryParam("Datum")String Datum,
 		@QueryParam("Titel") String Titel,
 		@QueryParam("Informationstext")String Informationstext,
 		@QueryParam("Startdatum")String Startdatum,
 		@QueryParam("Ablaufdatum")String Ablaufdatum,
-		@QueryParam("Kommentare")String Kommentare)
+		@QueryParam("Kommentare")String Kommentare)throws JAXBException, FileNotFoundException
 		{
-	XMLmarshaller xmlm = new XMLmarshaller();
-	xmlm.getBoerse();
 	
-	Boerse.BoersenEintrag neu=new Boerse.BoersenEintrag();
+	ObjectFactory ob=new ObjectFactory();
+	Boerse boe=ob.createBoerse();
+	JAXBContext context = JAXBContext.newInstance(Boerse.class);
+	Unmarshaller um = context.createUnmarshaller();
+	boe = ( Boerse ) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Boerse.xml"));
+	
+	
+	Boerse.BoersenEintrag eintragNeu=new Boerse.BoersenEintrag();
+	Person personNeu = new Person();
+	Betrieb
 	neu.setBoerseneintragsID(BoerseneintragsID);
 	neu.getPerson().setVorname(Vorname);
 	neu.getPerson().setNachname(Nachname);
 	neu.getPerson().setAlter(Alter);
 	neu.getPerson().setTyp(Typ);
+	neu.getPerson().getBetrieb().setBetriebsID(BetriebsID);
 	
 }
 /*

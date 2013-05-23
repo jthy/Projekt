@@ -22,9 +22,9 @@ private JAXBContext context;
 public Boerse boerseliste;
 
 
-public Boerse getBoerse() throws JAXBException, FileNotFoundException
+public Boerse readBoerse() throws JAXBException, FileNotFoundException
 {
-	try{
+	
 	ObjectFactory ob=new ObjectFactory();
 	Boerse boe=ob.createBoerse();
 	context = JAXBContext.newInstance(Boerse.class);
@@ -34,7 +34,7 @@ public Boerse getBoerse() throws JAXBException, FileNotFoundException
 	return boe;
 }
 
-public Boerse getEintrag(int i) throws JAXBException, FileNotFoundException
+public Boerse readEintrag(int i) throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Boerse boe=ob.createBoerse();

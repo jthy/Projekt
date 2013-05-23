@@ -3,7 +3,7 @@
 <xs:element name="Betriebliste">
 <xs:complexType>
 <xs:sequence>
-<xs:element name="Betrieb">
+<xs:element name="Betrieb" minOccurs="1" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="Betriebs_ID" type="xs:integer" minOccurs="1" maxOccurs="1"/>
