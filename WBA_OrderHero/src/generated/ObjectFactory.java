@@ -60,4 +60,56 @@ public class ObjectFactory {
         return new Betriebliste.Betrieb();
     }
 
+    /**
+<<<<<<< HEAD
+     * Create an instance of {@link Personenliste }
+=======
+     * Create an instance of {@link Bestand.Produkte }
+>>>>>>> branch 'master' of https://github.com/jthy/Projekt.git
+     * 
+     */
+
+    public Personenliste createPersonenliste() {
+        return new Personenliste();}
+
+    public Bestand.Produkte createBestandProdukte() {
+        return new Bestand.Produkte();
+    }
+
+    /**
+<<<<<<< HEAD
+     * Create an instance of {@link Betrieb }
+=======
+     * Create an instance of {@link Bestand }
+>>>>>>> branch 'master' of https://github.com/jthy/Projekt.git
+     * 
+     */
+
+    public Betrieb createBetrieb() {
+        return new Betrieb();
+    }
+
+    public Boerse createBoerse(){
+    	return new Boerse();
+    	
+    }
+    /**
+     * Create an instance of {@link Personenliste.Person }
+     * 
+     */
+    public Personenliste.Person createPersonenlistePerson() {
+        return new Personenliste.Person();
+    }
+
+    /**
+     * Create an instance of {@link Betrieb.Adresse }
+     * 
+     */
+    public Betrieb.Adresse createBetriebAdresse() {
+        return new Betrieb.Adresse(); }
+
+    public Bestand createBestand() {
+        return new Bestand();
+    }
+
 }

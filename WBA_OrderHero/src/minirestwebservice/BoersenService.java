@@ -58,7 +58,7 @@ public Boerse getEintrag(@PathParam("BoerseneintragsID")int i) throws JAXBExcept
 	return rt;
 }
 
-
+/*
 @POST 
 @Path("/boerse/neu")
 public void postEintrag(
@@ -85,13 +85,13 @@ public void postEintrag(
 	
 	Boerse.BoersenEintrag eintragNeu=new Boerse.BoersenEintrag();
 	Person personNeu = new Person();
-	Betrieb
-	neu.setBoerseneintragsID(BoerseneintragsID);
-	neu.getPerson().setVorname(Vorname);
-	neu.getPerson().setNachname(Nachname);
-	neu.getPerson().setAlter(Alter);
-	neu.getPerson().setTyp(Typ);
-	neu.getPerson().getBetrieb().setBetriebsID(BetriebsID);
+	//Betrieb
+	//neu.setBoerseneintragsID(BoerseneintragsID);
+	//neu.getPerson().setVorname(Vorname);
+	//neu.getPerson().setNachname(Nachname);
+	//neu.getPerson().setAlter(Alter);
+	//neu.getPerson().setTyp(Typ);
+	//neu.getPerson().getBetrieb().setBetriebsID(BetriebsID);
 	
 }
 /*

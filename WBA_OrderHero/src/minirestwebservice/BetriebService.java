@@ -12,7 +12,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import generated.Betriebliste;
-import generated.Boerse;
+import generated.Betrieb;
 import generated.ObjectFactory;
 
 @Path("/betriebe")
@@ -26,7 +26,7 @@ public Betriebliste getBetriebe() throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Betriebliste betriebe = ob.createBetriebliste();
-	JAXBContext context = JAXBContext.newInstance(Boerse.class);
+	JAXBContext context = JAXBContext.newInstance(Betriebliste.class);
 	Unmarshaller um = context.createUnmarshaller();
 	betriebe = ( Betriebliste ) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Betriebliste.xml"));
 	return betriebe;	
@@ -39,7 +39,7 @@ public Betriebliste getBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBExcept
 {
 	ObjectFactory ob=new ObjectFactory();
 	Betriebliste betriebe = ob.createBetriebliste();
-	JAXBContext context = JAXBContext.newInstance(Boerse.class);
+	JAXBContext context = JAXBContext.newInstance(Betriebliste.class);
 	Unmarshaller um = context.createUnmarshaller();
 	betriebe = ( Betriebliste ) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Betriebliste.xml"));
 	Betriebliste rt = ob.createBetriebliste();
