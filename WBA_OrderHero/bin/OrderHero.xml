@@ -25,7 +25,7 @@
           <Betriebs_ID>0</Betriebs_ID>
           <Betriebname>Betriebname</Betriebname>
           <Adresse>
-            <Straße>Straße</Straße>
+            <strasse>strasse</strasse>
             <Hausnummer>0</Hausnummer>
             <PLZ>0</PLZ>
           </Adresse>
@@ -35,7 +35,7 @@
         <Betriebs_ID>0</Betriebs_ID>
         <Betriebname>Betriebname</Betriebname>
         <Adresse>
-          <Straße>Straße</Straße>
+          <strasse>strasse</strasse>
           <Hausnummer>0</Hausnummer>
           <PLZ>0</PLZ>
         </Adresse>
@@ -49,7 +49,7 @@
           <Betriebs_ID>0</Betriebs_ID>
           <Betriebname>Betriebname</Betriebname>
           <Adresse>
-            <Straße>Straße</Straße>
+            <strasse>strasse</strasse>
             <Hausnummer>0</Hausnummer>
             <PLZ>0</PLZ>
           </Adresse>
@@ -59,7 +59,7 @@
         <Betriebs_ID>0</Betriebs_ID>
         <Betriebname>Betriebname</Betriebname>
         <Adresse>
-          <Straße>Straße</Straße>
+          <strasse>strasse</strasse>
           <Hausnummer>0</Hausnummer>
           <PLZ>0</PLZ>
         </Adresse>
@@ -90,7 +90,7 @@
           <Betriebs_ID>0</Betriebs_ID>
           <Betriebname>Betriebname</Betriebname>
           <Adresse>
-            <Straße>Straße</Straße>
+            <strasse>strasse</strasse>
             <Hausnummer>0</Hausnummer>
             <PLZ>0</PLZ>
           </Adresse>
@@ -111,7 +111,7 @@
             <Betriebs_ID>0</Betriebs_ID>
             <Betriebname>Betriebname</Betriebname>
             <Adresse>
-              <Straße>Straße</Straße>
+              <strasse>strasse</strasse>
               <Hausnummer>0</Hausnummer>
               <PLZ>0</PLZ>
             </Adresse>
@@ -133,7 +133,7 @@
         <Betriebs_ID>0</Betriebs_ID>
         <Betriebname>Betriebname</Betriebname>
         <Adresse>
-          <Straße>Straße</Straße>
+          <strasse>strasse</strasse>
           <Hausnummer>0</Hausnummer>
           <PLZ>0</PLZ>
         </Adresse>
@@ -151,7 +151,7 @@
           <Betriebs_ID>0</Betriebs_ID>
           <Betriebname>Betriebname</Betriebname>
           <Adresse>
-            <Straße>Straße</Straße>
+            <strasse>strasse</strasse>
             <Hausnummer>0</Hausnummer>
             <PLZ>0</PLZ>
           </Adresse>
@@ -161,7 +161,7 @@
         <Betriebs_ID>0</Betriebs_ID>
         <Betriebname>Betriebname</Betriebname>
         <Adresse>
-          <Straße>Straße</Straße>
+          <strasse>strasse</strasse>
           <Hausnummer>0</Hausnummer>
           <PLZ>0</PLZ>
         </Adresse>
@@ -175,7 +175,7 @@
           <Betriebs_ID>0</Betriebs_ID>
           <Betriebname>Betriebname</Betriebname>
           <Adresse>
-            <Straße>Straße</Straße>
+            <strasse>strasse</strasse>
             <Hausnummer>0</Hausnummer>
             <PLZ>0</PLZ>
           </Adresse>
@@ -185,7 +185,7 @@
         <Betriebs_ID>0</Betriebs_ID>
         <Betriebname>Betriebname</Betriebname>
         <Adresse>
-          <Straße>Straße</Straße>
+          <strasse>strasse</strasse>
           <Hausnummer>0</Hausnummer>
           <PLZ>0</PLZ>
         </Adresse>
@@ -223,7 +223,7 @@
         <Betriebs_ID>0</Betriebs_ID>
         <Betriebname>Betriebname</Betriebname>
         <Adresse>
-          <Straße>Straße</Straße>
+          <strasse>strasse</strasse>
           <Hausnummer>0</Hausnummer>
           <PLZ>0</PLZ>
         </Adresse>

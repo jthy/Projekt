@@ -81,7 +81,7 @@
 						<xs:element name="Adresse">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Straße" type="xs:string"/>
+									<xs:element name="strasse" type="xs:string"/>
 									<xs:element name="Hausnummer" type="xs:integer"/>
 									<xs:element name="PLZ">
 										<xs:simpleType>
