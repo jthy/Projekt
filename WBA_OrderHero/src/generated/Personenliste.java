@@ -156,7 +156,7 @@ public class Personenliste {
     public static class Person {
 
         @XmlElement(name = "Person_ID", required = true)
-        protected BigInteger personID;
+        protected int personID;
         @XmlElement(name = "Typ", required = true)
         protected String typ;
         @XmlElement(name = "Vorname", required = true)
@@ -176,20 +176,20 @@ public class Personenliste {
          *     {@link BigInteger }
          *     
          */
-        public BigInteger getPersonID() {
+        public int getPersonID() {
             return personID;
         }
 
         /**
          * Sets the value of the personID property.
          * 
-         * @param value
+         * @param i
          *     allowed object is
          *     {@link BigInteger }
          *     
          */
-        public void setPersonID(BigInteger value) {
-            this.personID = value;
+        public void setPersonID(int i) {
+            this.personID = i;
         }
 
         /**
