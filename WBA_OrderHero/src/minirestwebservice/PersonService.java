@@ -37,7 +37,7 @@ import generated.ObjectFactory;
 	}
 
 	@GET
-	@Path("/kundenliste/{Person_ID}")
+	@Path("/{Person_ID}")
 	@Produces( "application/xml")
 	public Personenliste getPerson(@PathParam("Person_ID")int i) throws JAXBException, FileNotFoundException
 	{
@@ -52,8 +52,8 @@ import generated.ObjectFactory;
 		return rt;
 	}
 
-	@PUT
-	@Path("/kundenliste/{Person_ID}")
+	@POST
+	@Path("/neu")
 	public Personenliste personerstellen(
 			@PathParam("Person_ID") int Person_ID,
 			@PathParam("Typ") String Typ,
@@ -68,9 +68,9 @@ import generated.ObjectFactory;
 		Personenliste per = (Personenliste) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
 		List<Person> p = per.getPerson();
 		
-		if(Person_ID > p.size()){
 		Person person=new Person();
-		person.setPersonID(Person_ID);
+		//Damit ID's chronologisch aufeinander aufbauen
+		person.setPersonID(p.size()+1);
 		person.setVorname(Vorname);
 		person.setNachname(Nachname);
 		person.setTyp(Typ);
@@ -85,11 +85,45 @@ import generated.ObjectFactory;
 		ma.marshal(person, new FileOutputStream("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
 		return n;	
 		}
+	@PUT
+	@Path("/{Person_ID}/aendern")
+	public Personenliste personaendern(
+			@PathParam("Person_ID") int Person_ID,
+			@PathParam("Typ") String Typ,
+			@PathParam("Vorname") String Vorname,
+			@PathParam("Nachmane") String Nachname,
+			@PathParam("Alter") int Alter,
+			@PathParam("Betrieb") int Betriebs_ID)  throws JAXBException, FileNotFoundException
+		{
+		
+JAXBContext context = JAXBContext.newInstance(Person.class);
+		
+		Unmarshaller um = context.createUnmarshaller();
+		Personenliste per = (Personenliste) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
+		List<Person> p = per.getPerson();
+		if(Person_ID <= p.size()){
+			Person person=new Person();
+			//PersonID darf nicht geaendert werden
+			person.setVorname(Vorname);
+			person.setNachname(Nachname);
+			person.setTyp(Typ);
+			person.setAlter(Alter);
+			person.getBetrieb().setBetriebsID(Betriebs_ID);
+
+			Personenliste n = getPerson(Person_ID);
+			n.getPerson().add(person);
+			
+			Marshaller ma=context.createMarshaller();
+			ma.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			ma.marshal(person, new FileOutputStream("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
+			return n;
+		}
 		else return null;
 		}
 	
+	
 	@DELETE 
-	@Path("/kundenliste/{Person_ID}")
+	@Path("/{Person_ID}/loeschen")
 	   public Personenliste personloeschen(@PathParam("Person_ID") int Person_ID)throws JAXBException, FileNotFoundException{
 		Personenliste person = getPerson(Person_ID);
 		person = null;
