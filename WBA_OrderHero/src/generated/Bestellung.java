@@ -8,7 +8,7 @@
 
 package generated;
 
-import java.math.BigInteger;
+import java.math.int;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.JAXBElement;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.datatype.Date;
 
 
 /**
@@ -115,15 +115,15 @@ public class Bestellung {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     * {@link JAXBElement }{@code <}{@link Date }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link Produkt }
      * {@link Betrieb }
-     * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     * {@link JAXBElement }{@code <}{@link int }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link Person }
-     * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-     * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     * {@link JAXBElement }{@code <}{@link int }{@code >}
+     * {@link JAXBElement }{@code <}{@link int }{@code >}
      * 
      * 
      */

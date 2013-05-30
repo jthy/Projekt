@@ -13,6 +13,7 @@
 						<xs:element name="Kommentare">
 						<xs:complexType>
 							<xs:sequence>
+								<xs:element name="KommentarID" type="xs:integer"  maxOccurs="1" minOccurs="1"/>
 								<xs:element ref="Person"/>
 								<xs:element name="Datum" type="xs:dateTime" />
 								<xs:element name="Informationstext" type="xs:string" />

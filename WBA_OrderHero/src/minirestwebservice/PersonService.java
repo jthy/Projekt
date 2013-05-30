@@ -1,11 +1,12 @@
 package minirestwebservice;
 
-	import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.util.List;
 
-	import javax.ws.rs.GET;
+import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.POST;
 import javax.ws.rs.DELETE;
@@ -21,7 +22,7 @@ import generated.Personenliste;
 import generated.Personenliste.Person;
 import generated.ObjectFactory;
 
-	@Path("/kundenliste")
+	@Path("/personenliste")
 	public class PersonService {
 
 
@@ -32,7 +33,7 @@ import generated.ObjectFactory;
 		Personenliste personen = ob.createPersonenliste();
 		JAXBContext context = JAXBContext.newInstance(Personenliste.class);
 		Unmarshaller um = context.createUnmarshaller();
-		personen = ( Personenliste ) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
+		personen = ( Personenliste ) um.unmarshal(new FileReader("src/XML/Personenliste.xml"));
 		return personen;	
 	}
 
@@ -45,7 +46,7 @@ import generated.ObjectFactory;
 		Personenliste person = ob.createPersonenliste();
 		JAXBContext context = JAXBContext.newInstance(Personenliste.class);
 		Unmarshaller um = context.createUnmarshaller();
-		person = ( Personenliste ) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
+		person = ( Personenliste ) um.unmarshal(new FileReader("src/XML/Personenliste.xml"));
 		
 		Personenliste rt = ob.createPersonenliste();
 		rt.getPerson().add(person.getPerson().get(i-1));
@@ -53,7 +54,6 @@ import generated.ObjectFactory;
 	}
 
 	@POST
-	@Path("/neu")
 	public Personenliste personerstellen(
 			@PathParam("Person_ID") int Person_ID,
 			@PathParam("Typ") String Typ,
@@ -65,7 +65,7 @@ import generated.ObjectFactory;
 		JAXBContext context = JAXBContext.newInstance(Person.class);
 		
 		Unmarshaller um = context.createUnmarshaller();
-		Personenliste per = (Personenliste) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
+		Personenliste per = (Personenliste) um.unmarshal(new FileReader("src/XML/Personenliste.xml"));
 		List<Person> p = per.getPerson();
 		
 		Person person=new Person();
@@ -82,11 +82,12 @@ import generated.ObjectFactory;
 		
 		Marshaller ma=context.createMarshaller();
 		ma.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		ma.marshal(person, new FileOutputStream("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
+		ma.marshal(person, new FileOutputStream("src/Personenliste.xml"));
 		return n;	
 		}
+	
 	@PUT
-	@Path("/{Person_ID}/aendern")
+	@Path("/{Person_ID}")
 	public Personenliste personaendern(
 			@PathParam("Person_ID") int Person_ID,
 			@PathParam("Typ") String Typ,
@@ -96,10 +97,10 @@ import generated.ObjectFactory;
 			@PathParam("Betrieb") int Betriebs_ID)  throws JAXBException, FileNotFoundException
 		{
 		
-JAXBContext context = JAXBContext.newInstance(Person.class);
+		JAXBContext context = JAXBContext.newInstance(Person.class);
 		
 		Unmarshaller um = context.createUnmarshaller();
-		Personenliste per = (Personenliste) um.unmarshal(new FileReader("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
+		Personenliste per = (Personenliste) um.unmarshal(new FileReader("src/XML/Personenliste.xml"));
 		List<Person> p = per.getPerson();
 		if(Person_ID <= p.size()){
 			Person person=new Person();
@@ -115,7 +116,7 @@ JAXBContext context = JAXBContext.newInstance(Person.class);
 			
 			Marshaller ma=context.createMarshaller();
 			ma.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			ma.marshal(person, new FileOutputStream("/Users/juliathyssen/git/Projekt/WBA_OrderHero/src/Personenliste.xml"));
+			ma.marshal(person, new FileOutputStream("src/Personenliste.xml"));
 			return n;
 		}
 		else return null;
@@ -123,14 +124,29 @@ JAXBContext context = JAXBContext.newInstance(Person.class);
 	
 	
 	@DELETE 
-	@Path("/{Person_ID}/loeschen")
+	@Path("/{Person_ID}")
 	   public Personenliste personloeschen(@PathParam("Person_ID") int Person_ID)throws JAXBException, FileNotFoundException{
-		Personenliste person = getPerson(Person_ID);
-		person = null;
-		return null;
-	}
-			
+		JAXBContext context = JAXBContext.newInstance("generated");
+		Unmarshaller um = context.createUnmarshaller();
+		
+		Personenliste personen = (Personenliste) um.unmarshal( new FileReader("src/XML/Personenliste.xml"));
 	
+		//Personenliste in Person kopieren
+		ObjectFactory of = new ObjectFactory();
+		Personenliste person = of.createPersonenliste();
+		
+		// i-ten Benutzer aus Personenliste lšschen
+		person.getPerson().addAll(personen.getPerson());
+		person.getPerson().remove(Person_ID);
+		
+		// Personenliste "aktualisieren" und zurŸckgeben
+		// Marshaller
+		Marshaller m = context.createMarshaller();
+		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+		m.marshal(person, new File("src/Personenliste.xml"));
+
+		return person;
+	}
 }
 
 

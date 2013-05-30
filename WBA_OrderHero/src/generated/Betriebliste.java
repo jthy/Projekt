@@ -8,7 +8,7 @@
 
 package generated;
 
-import java.math.BigInteger;
+import java.math.int;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -155,7 +155,7 @@ public class Betriebliste {
     public static class Betrieb {
 
         @XmlElement(name = "Betriebs_ID", required = true)
-        protected BigInteger betriebsID;
+        protected int betriebsID;
         @XmlElement(name = "Betriebname", required = true)
         protected String betriebname;
         @XmlElement(name = "Adresse", required = true)
@@ -166,10 +166,10 @@ public class Betriebliste {
          * 
          * @return
          *     possible object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
-        public BigInteger getBetriebsID() {
+        public int getBetriebsID() {
             return betriebsID;
         }
 
@@ -178,10 +178,10 @@ public class Betriebliste {
          * 
          * @param value
          *     allowed object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
-        public void setBetriebsID(BigInteger value) {
+        public void setBetriebsID(int value) {
             this.betriebsID = value;
         }
 
@@ -272,9 +272,9 @@ public class Betriebliste {
             @XmlElement(required = true)
             protected String strasse;
             @XmlElement(name = "Hausnummer", required = true)
-            protected BigInteger hausnummer;
+            protected int hausnummer;
             @XmlElement(name = "PLZ", required = true)
-            protected BigInteger plz;
+            protected int plz;
 
             /**
              * Gets the value of the strasse property.
@@ -305,10 +305,10 @@ public class Betriebliste {
              * 
              * @return
              *     possible object is
-             *     {@link BigInteger }
+             *     {@link int }
              *     
              */
-            public BigInteger getHausnummer() {
+            public int getHausnummer() {
                 return hausnummer;
             }
 
@@ -317,10 +317,10 @@ public class Betriebliste {
              * 
              * @param value
              *     allowed object is
-             *     {@link BigInteger }
+             *     {@link int }
              *     
              */
-            public void setHausnummer(BigInteger value) {
+            public void setHausnummer(int value) {
                 this.hausnummer = value;
             }
 
@@ -329,10 +329,10 @@ public class Betriebliste {
              * 
              * @return
              *     possible object is
-             *     {@link BigInteger }
+             *     {@link int }
              *     
              */
-            public BigInteger getPLZ() {
+            public int getPLZ() {
                 return plz;
             }
 
@@ -341,10 +341,10 @@ public class Betriebliste {
              * 
              * @param value
              *     allowed object is
-             *     {@link BigInteger }
+             *     {@link int }
              *     
              */
-            public void setPLZ(BigInteger value) {
+            public void setPLZ(int value) {
                 this.plz = value;
             }
 

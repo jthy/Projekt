@@ -8,7 +8,7 @@
 
 package generated;
 
-import java.math.BigInteger;
+import java.math.int;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -173,7 +173,7 @@ public class Personenliste {
          * 
          * @return
          *     possible object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
         public int getPersonID() {
@@ -185,7 +185,7 @@ public class Personenliste {
          * 
          * @param i
          *     allowed object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
         public void setPersonID(int i) {

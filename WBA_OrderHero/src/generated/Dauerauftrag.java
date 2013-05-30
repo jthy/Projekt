@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.datatype.Date;
 
 
 /**
@@ -61,10 +61,10 @@ public class Dauerauftrag {
     protected Bestellung bestellung;
     @XmlElement(name = "Beginn", required = true)
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar beginn;
+    protected Date beginn;
     @XmlElement(name = "Ende")
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar ende;
+    protected Date ende;
     @XmlElement(name = "Regelmae\u00dfigkeit", required = true)
     protected String regelmae§igkeit;
 
@@ -97,10 +97,10 @@ public class Dauerauftrag {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getBeginn() {
+    public Date getBeginn() {
         return beginn;
     }
 
@@ -109,10 +109,10 @@ public class Dauerauftrag {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setBeginn(XMLGregorianCalendar value) {
+    public void setBeginn(Date value) {
         this.beginn = value;
     }
 
@@ -121,10 +121,10 @@ public class Dauerauftrag {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public XMLGregorianCalendar getEnde() {
+    public Date getEnde() {
         return ende;
     }
 
@@ -133,10 +133,10 @@ public class Dauerauftrag {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Date }
      *     
      */
-    public void setEnde(XMLGregorianCalendar value) {
+    public void setEnde(Date value) {
         this.ende = value;
     }
 

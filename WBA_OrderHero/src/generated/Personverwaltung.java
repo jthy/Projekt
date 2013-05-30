@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.math.BigInteger;
+import java.math.int;
 import java.util.List;
 import java.util.Scanner;
 
@@ -184,9 +184,9 @@ public class Personverwaltung {
 			 inputint = new Scanner(System.in);
 			 return inputint.nextInt();
 		 }
-		 public static BigInteger getBigInt(){
+		 public static int getBigInt(){
 			 inputbigint = new Scanner(System.in);
-			 return inputbigint.nextBigInteger();
+			 return inputbigint.nextint();
 		 }
 
 		/* public static void personbearbeiten(Personenliste person,File file,Marshaller m) throws IOException,JAXBException{

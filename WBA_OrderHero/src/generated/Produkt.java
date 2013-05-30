@@ -8,7 +8,7 @@
 
 package generated;
 
-import java.math.BigInteger;
+import java.math.int;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -57,7 +57,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Produkt {
 
     @XmlElement(name = "Produkt_ID", required = true)
-    protected BigInteger produktID;
+    protected int produktID;
     @XmlElement(name = "Produktangaben", required = true)
     protected Produkt.Produktangaben produktangaben;
 
@@ -66,10 +66,10 @@ public class Produkt {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link int }
      *     
      */
-    public BigInteger getProduktID() {
+    public int getProduktID() {
         return produktID;
     }
 
@@ -78,10 +78,10 @@ public class Produkt {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link int }
      *     
      */
-    public void setProduktID(BigInteger value) {
+    public void setProduktID(int value) {
         this.produktID = value;
     }
 

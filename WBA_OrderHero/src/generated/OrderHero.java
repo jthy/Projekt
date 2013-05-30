@@ -8,7 +8,7 @@
 
 package generated;
 
-import java.math.BigInteger;
+import java.math.int;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.datatype.Date;
 
 
 /**
@@ -331,7 +331,7 @@ public class OrderHero {
         @XmlElement(name = "Produkt", required = true)
         protected Produkt produkt;
         @XmlElement(name = "Anzahl", required = true)
-        protected BigInteger anzahl;
+        protected int anzahl;
         @XmlElement(name = "Verfuegbarkeit", required = true)
         protected String verfuegbarkeit;
 
@@ -364,10 +364,10 @@ public class OrderHero {
          * 
          * @return
          *     possible object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
-        public BigInteger getAnzahl() {
+        public int getAnzahl() {
             return anzahl;
         }
 
@@ -376,10 +376,10 @@ public class OrderHero {
          * 
          * @param value
          *     allowed object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
-        public void setAnzahl(BigInteger value) {
+        public void setAnzahl(int value) {
             this.anzahl = value;
         }
 
@@ -616,22 +616,22 @@ public class OrderHero {
         public static class Eintrag {
 
             @XmlElement(name = "BoerseneintragsID", required = true)
-            protected BigInteger boerseneintragsID;
+            protected int boerseneintragsID;
             @XmlElement(name = "Person", required = true)
             protected Person person;
             @XmlElement(name = "Erstellungsdatum", required = true)
             @XmlSchemaType(name = "dateTime")
-            protected XMLGregorianCalendar erstellungsdatum;
+            protected Date erstellungsdatum;
             @XmlElement(name = "Titel", required = true)
             protected String titel;
             @XmlElement(name = "Informationstext", required = true)
             protected String informationstext;
             @XmlElement(name = "Startdatum", required = true)
             @XmlSchemaType(name = "dateTime")
-            protected XMLGregorianCalendar startdatum;
+            protected Date startdatum;
             @XmlElement(name = "Ablaufdatum", required = true)
             @XmlSchemaType(name = "dateTime")
-            protected XMLGregorianCalendar ablaufdatum;
+            protected Date ablaufdatum;
             @XmlElement(name = "Kommentare", required = true)
             protected OrderHero.Boerse.Eintrag.Kommentare kommentare;
             @XmlElement(name = "Typ", required = true)
@@ -642,10 +642,10 @@ public class OrderHero {
              * 
              * @return
              *     possible object is
-             *     {@link BigInteger }
+             *     {@link int }
              *     
              */
-            public BigInteger getBoerseneintragsID() {
+            public int getBoerseneintragsID() {
                 return boerseneintragsID;
             }
 
@@ -654,10 +654,10 @@ public class OrderHero {
              * 
              * @param value
              *     allowed object is
-             *     {@link BigInteger }
+             *     {@link int }
              *     
              */
-            public void setBoerseneintragsID(BigInteger value) {
+            public void setBoerseneintragsID(int value) {
                 this.boerseneintragsID = value;
             }
 
@@ -690,10 +690,10 @@ public class OrderHero {
              * 
              * @return
              *     possible object is
-             *     {@link XMLGregorianCalendar }
+             *     {@link Date }
              *     
              */
-            public XMLGregorianCalendar getErstellungsdatum() {
+            public Date getErstellungsdatum() {
                 return erstellungsdatum;
             }
 
@@ -702,10 +702,10 @@ public class OrderHero {
              * 
              * @param value
              *     allowed object is
-             *     {@link XMLGregorianCalendar }
+             *     {@link Date }
              *     
              */
-            public void setErstellungsdatum(XMLGregorianCalendar value) {
+            public void setErstellungsdatum(Date value) {
                 this.erstellungsdatum = value;
             }
 
@@ -762,10 +762,10 @@ public class OrderHero {
              * 
              * @return
              *     possible object is
-             *     {@link XMLGregorianCalendar }
+             *     {@link Date }
              *     
              */
-            public XMLGregorianCalendar getStartdatum() {
+            public Date getStartdatum() {
                 return startdatum;
             }
 
@@ -774,10 +774,10 @@ public class OrderHero {
              * 
              * @param value
              *     allowed object is
-             *     {@link XMLGregorianCalendar }
+             *     {@link Date }
              *     
              */
-            public void setStartdatum(XMLGregorianCalendar value) {
+            public void setStartdatum(Date value) {
                 this.startdatum = value;
             }
 
@@ -786,10 +786,10 @@ public class OrderHero {
              * 
              * @return
              *     possible object is
-             *     {@link XMLGregorianCalendar }
+             *     {@link Date }
              *     
              */
-            public XMLGregorianCalendar getAblaufdatum() {
+            public Date getAblaufdatum() {
                 return ablaufdatum;
             }
 
@@ -798,10 +798,10 @@ public class OrderHero {
              * 
              * @param value
              *     allowed object is
-             *     {@link XMLGregorianCalendar }
+             *     {@link Date }
              *     
              */
-            public void setAblaufdatum(XMLGregorianCalendar value) {
+            public void setAblaufdatum(Date value) {
                 this.ablaufdatum = value;
             }
 
@@ -887,7 +887,7 @@ public class OrderHero {
                 protected Person person;
                 @XmlElement(name = "Datum", required = true)
                 @XmlSchemaType(name = "dateTime")
-                protected XMLGregorianCalendar datum;
+                protected Date datum;
                 @XmlElement(name = "Informationstext", required = true)
                 protected String informationstext;
 
@@ -920,10 +920,10 @@ public class OrderHero {
                  * 
                  * @return
                  *     possible object is
-                 *     {@link XMLGregorianCalendar }
+                 *     {@link Date }
                  *     
                  */
-                public XMLGregorianCalendar getDatum() {
+                public Date getDatum() {
                     return datum;
                 }
 
@@ -932,10 +932,10 @@ public class OrderHero {
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link XMLGregorianCalendar }
+                 *     {@link Date }
                  *     
                  */
-                public void setDatum(XMLGregorianCalendar value) {
+                public void setDatum(Date value) {
                     this.datum = value;
                 }
 

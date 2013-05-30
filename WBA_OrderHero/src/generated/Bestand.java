@@ -8,7 +8,7 @@
 
 package generated;
 
-import java.math.BigInteger;
+import java.math.int;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -118,7 +118,7 @@ public class Bestand {
     public static class Produkte {
 
         @XmlElement(name = "Produkt_ID", required = true)
-        protected BigInteger produktID;
+        protected int produktID;
         @XmlElement(name = "Produktname", required = true)
         protected String produktname;
         @XmlElement(name = "Preis_in_Euro")
@@ -126,17 +126,17 @@ public class Bestand {
         @XmlElement(name = "Beschreibung", required = true)
         protected String beschreibung;
         @XmlElement(name = "Menge", required = true)
-        protected BigInteger menge;
+        protected int menge;
 
         /**
          * Gets the value of the produktID property.
          * 
          * @return
          *     possible object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
-        public BigInteger getProduktID() {
+        public int getProduktID() {
             return produktID;
         }
 
@@ -145,10 +145,10 @@ public class Bestand {
          * 
          * @param value
          *     allowed object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
-        public void setProduktID(BigInteger value) {
+        public void setProduktID(int value) {
             this.produktID = value;
         }
 
@@ -221,10 +221,10 @@ public class Bestand {
          * 
          * @return
          *     possible object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
-        public BigInteger getMenge() {
+        public int getMenge() {
             return menge;
         }
 
@@ -233,10 +233,10 @@ public class Bestand {
          * 
          * @param value
          *     allowed object is
-         *     {@link BigInteger }
+         *     {@link int }
          *     
          */
-        public void setMenge(BigInteger value) {
+        public void setMenge(int value) {
             this.menge = value;
         }
 

@@ -3,7 +3,7 @@ package minirestwebservice;
 
 import com.sun.jersey.api.client.*;
 
-public class Client
+public class OrderHeroClient
 {
    public static void main( String[] args )
    {
@@ -15,8 +15,8 @@ public class Client
 
       
       // Personen
-      urlPersonen = url + "/kundenliste/";
-      System.out.println( "URL der Kunden: " + urlPersonen );
+      urlPersonen = url + "/personenliste/";
+      System.out.println( "URL der Personen: " + urlPersonen );
       
       WebResource wrs = Client.create().resource( urlPersonen );
       

@@ -8,7 +8,7 @@
 
 package generated;
 
-import java.math.BigInteger;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -67,7 +67,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Person {
 
     @XmlElement(name = "Person_ID", required = true)
-    protected BigInteger personID;
+    protected int personID;
     @XmlElement(name = "Typ", required = true)
     protected String typ;
     @XmlElement(name = "Vorname", required = true)
@@ -84,10 +84,10 @@ public class Person {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link int }
      *     
      */
-    public BigInteger getPersonID() {
+    public int getPersonID() {
         return personID;
     }
 
@@ -96,10 +96,10 @@ public class Person {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link int }
      *     
      */
-    public void setPersonID(BigInteger value) {
+    public void setPersonID(int value) {
         this.personID = value;
     }
 
