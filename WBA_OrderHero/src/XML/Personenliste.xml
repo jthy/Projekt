@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Personenliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Personenliste.xsd">
+<Personenliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Personenliste.xsd">
   <Person>
-    <Person_ID>1</Person_ID>
+    <Person_ID>0</Person_ID>
     <Typ>Gastronom</Typ>
-    <Vorname>Peter</Vorname>
-    <Nachname>Lustig</Nachname>
-    <Alter>33</Alter>
-    <Betrieb>
-      <Betriebs_ID>0</Betriebs_ID>
-      <Betriebname>Betriebname</Betriebname>
-      <Adresse>
-        <strasse>strasse</strasse>
-        <Hausnummer>0</Hausnummer>
-        <PLZ>0</PLZ>
-      </Adresse>
-    </Betrieb>
-  </Person>
-   <Person>
-    <Person_ID>2</Person_ID>
-    <Typ>Gastronom</Typ>
-    <Vorname>Lisa</Vorname>
-    <Nachname>Lolli</Nachname>
-    <Alter>22</Alter>
+    <Vorname>Vorname</Vorname>
+    <Nachname>Nachname</Nachname>
+    <Alter>0</Alter>
     <Betrieb>
       <Betriebs_ID>0</Betriebs_ID>
       <Betriebname>Betriebname</Betriebname>

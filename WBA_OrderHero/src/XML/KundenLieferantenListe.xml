@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<KundenLieferantenListe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../KundenLieferantenListe.xsd">
+<KundenLieferantenListe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/KundenLieferantenListe.xsd">
   <Person>
     <Typ>Gastronom</Typ>
     <Vorname>Vorname</Vorname>

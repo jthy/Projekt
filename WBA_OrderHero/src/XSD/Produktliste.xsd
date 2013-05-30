@@ -23,7 +23,7 @@
 <xs:element name="Produkt">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Produkt_ID" type="xs:integer"/>
+			<xs:element name="Produkt_ID" type="xs:int"/>
 			<xs:element name="Produktangaben">	
 				<xs:complexType>
 					<xs:sequence> 
@@ -53,7 +53,7 @@
 			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
 			<xs:element name="Alter">
 				<xs:simpleType>
-					<xs:restriction base="xs:integer">
+					<xs:restriction base="xs:int">
 						<xs:minInclusive value="18" />
 						<xs:maxInclusive value="100" />
 					</xs:restriction>
@@ -67,16 +67,16 @@
 <xs:element name="Betrieb">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Betriebs_ID" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Betriebs_ID" type="xs:int" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="Betriebname" type="xs:string" minOccurs="1" maxOccurs="1" />
 						<xs:element name="Adresse">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="strasse" type="xs:string"/>
-									<xs:element name="Hausnummer" type="xs:integer"/>
+									<xs:element name="Hausnummer" type="xs:int"/>
 									<xs:element name="PLZ">
 										<xs:simpleType>
-											<xs:restriction base="xs:integer">
+											<xs:restriction base="xs:int">
 											<xs:pattern value="(D )?[0-9]{5}" />
 											</xs:restriction>
 										</xs:simpleType>

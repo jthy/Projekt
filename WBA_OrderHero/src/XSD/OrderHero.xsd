@@ -9,7 +9,7 @@
 	<xs:complexType>
 		<xs:sequence>
 			<xs:element ref="Produkt"/>
-			<xs:element name="Anzahl" type="xs:integer"/>
+			<xs:element name="Anzahl" type="xs:int"/>
 			<xs:element name="Verfuegbarkeit">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -37,7 +37,7 @@
 			<xs:element name="Eintrag">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="BoerseneintragsID" type="xs:integer" maxOccurs="1" minOccurs="1"/>	
+						<xs:element name="BoerseneintragsID" type="xs:int" maxOccurs="1" minOccurs="1"/>	
 						<xs:element ref="Person"/>
 					 	<xs:element name="Erstellungsdatum" type="xs:dateTime" />
 						<xs:element name="Titel" type="xs:string" />
@@ -102,13 +102,13 @@
 <xs:element name="Bestellung">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Bestellungs_ID" type ="xs:integer"/>
+			<xs:element name="Bestellungs_ID" type ="xs:int"/>
 			<xs:element name="Lieferdatum" type="xs:date"/>
 			<xs:element ref="Person"/>
 			<xs:element ref="Betrieb"/>
 			<xs:element ref="Person"/>
 			<xs:element ref="Betrieb"/>
-			<xs:element name="Anzahl" type="xs:integer"/>
+			<xs:element name="Anzahl" type="xs:int"/>
 			<xs:element ref="Produkt"/>
 			<xs:element name="Bestellungsart">
 				<xs:simpleType>
@@ -129,7 +129,7 @@
    				 	</xs:restriction>
   				</xs:simpleType>
 			</xs:element>			
-			<xs:element name="Gesamtbetrag_Bestellung" type="xs:integer"/>
+			<xs:element name="Gesamtbetrag_Bestellung" type="xs:int"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
@@ -151,7 +151,7 @@
 			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
 			<xs:element name="Alter">
 				<xs:simpleType>
-					<xs:restriction base="xs:integer">
+					<xs:restriction base="xs:int">
 						<xs:minInclusive value="18" />
 						<xs:maxInclusive value="100" />
 					</xs:restriction>
@@ -165,16 +165,16 @@
 <xs:element name="Betrieb">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Betriebs_ID" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Betriebs_ID" type="xs:int" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="Betriebname" type="xs:string" minOccurs="1" maxOccurs="1" />
 						<xs:element name="Adresse">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="strasse" type="xs:string"/>
-									<xs:element name="Hausnummer" type="xs:integer"/>
+									<xs:element name="Hausnummer" type="xs:int"/>
 									<xs:element name="PLZ">
 										<xs:simpleType>
-											<xs:restriction base="xs:integer">
+											<xs:restriction base="xs:int">
 											<xs:pattern value="(D )?[0-9]{5}" />
 											</xs:restriction>
 										</xs:simpleType>
@@ -189,7 +189,7 @@
 <xs:element name="Produkt">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Produkt_ID" type="xs:integer"/>
+						<xs:element name="Produkt_ID" type="xs:int"/>
 						<xs:element name="Produktangaben">	
 							<xs:complexType>
 								<xs:sequence> 
