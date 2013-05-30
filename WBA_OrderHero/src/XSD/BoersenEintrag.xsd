@@ -35,6 +35,7 @@
 	<xs:element name="Person">
 	<xs:complexType>
 		<xs:sequence>
+		<xs:element name="Person_ID" type="xs:int" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Typ">
 	 			<xs:simpleType>
 			    	<xs:restriction base="xs:string">
@@ -43,7 +44,7 @@
 			   		</xs:restriction>
 	  			</xs:simpleType>
 	  		</xs:element>
-			<xs:element name="Vorname" type="xs:string" />
+			<xs:element name="Vorname" type="xs:string"/>
 			<xs:element name="Nachname" type="xs:string"/>
 			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
 			<xs:element name="Alter">

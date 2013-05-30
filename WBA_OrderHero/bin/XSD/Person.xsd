@@ -4,7 +4,7 @@
 <xs:element name="Person">
 	<xs:complexType>
 		<xs:sequence>
-		<xs:element name="Person_ID" type="xs:int"/>
+		<xs:element name="Person_ID" type="xs:int" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Typ">
 	 			<xs:simpleType>
 			    	<xs:restriction base="xs:string">

@@ -3,6 +3,7 @@
   <BoersenEintrag>
     <BoerseneintragsID>0</BoerseneintragsID>
     <Person>
+      <Person_ID>0</Person_ID>
       <Typ>Gastronom</Typ>
       <Vorname>Vorname</Vorname>
       <Nachname>Nachname</Nachname>
@@ -26,6 +27,7 @@
     <Kommentare>
       <KommentarID>0</KommentarID>
       <Person>
+        <Person_ID>0</Person_ID>
         <Typ>Gastronom</Typ>
         <Vorname>Vorname</Vorname>
         <Nachname>Nachname</Nachname>

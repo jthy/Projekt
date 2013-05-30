@@ -4,6 +4,7 @@
     <Bestellungs_ID>0</Bestellungs_ID>
     <Lieferdatum>2001-01-01</Lieferdatum>
     <Person>
+      <Person_ID>0</Person_ID>
       <Typ>Gastronom</Typ>
       <Vorname>Vorname</Vorname>
       <Nachname>Nachname</Nachname>
@@ -28,6 +29,7 @@
       </Adresse>
     </Betrieb>
     <Person>
+      <Person_ID>0</Person_ID>
       <Typ>Gastronom</Typ>
       <Vorname>Vorname</Vorname>
       <Nachname>Nachname</Nachname>
