@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Rezepte xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="NewXMLSchema.xsd">
+  <Rezept>
+    <Titel>Schokokuchen</Titel>
+    <Kategorie id="11" ParentId="33">
+      <Name>Backen</Name>
+    </Kategorie>
+    <Bilder>
+    <Bild height="345" width="324">
+    <Autor>Peterli</Autor>
+    <Quelle>http://static.chefkoch-cdn.de/ck.de/rezepte/2/2464/42942-420x280-fix-lenchen-s-schokoladenkuchen.jpg</Quelle>
+    </Bild>
+    </Bilder>
+    <Zutaten Portionen="10">
+      <Zutat Name="Butter" Anzahl="200" Einheit="g"/>
+      <Zutat Name="Mehl" Anzahl="555" Einheit="g"/>
+      <Zutat Name="Backpulver" Anzahl="1" Einheit="Pkt."/>
+    </Zutaten>
+    <Zubereitung>
+    <Zeit>
+    <Vorheizen Minuten="20"/>
+    <Backen Minuten="60"/>
+    </Zeit>
+    <Schwierigkeitsgrad>normal</Schwierigkeitsgrad>
+    <Kalorien>295</Kalorien>
+      <Schritte>
+        <step>Butter und Schokolade im Wasserbad schmelzen.</step>
+        <step>Eier trennen.</step>
+      </Schritte>
+    </Zubereitung>
+    <Kommentare>
+    <Kommentar>
+    <KommentarAutor>
+    <Avatar>
+    <Bild height="44" width="323">
+    <Quelle>http://static.chefkoch-cdn.de/ck.de/avatar/</Quelle>
+    </Bild>
+    </Avatar>
+    <userLevel>1</userLevel>
+    <name>Petra</name>
+    </KommentarAutor>
+    <date>2012-04-17T09:20:47</date>
+    <isHelpful>true</isHelpful>
+    <content>Hilfeee</content>
+    <Antworten>
+    	<Kommentar>
+     <KommentarAutor>
+    <Avatar>
+    <Bild height="44" width="323">
+    <Quelle>http://static.chefkoch-cdn.de/ck.de/avatar/1</Quelle>
+    </Bild>
+    </Avatar>
+    <userLevel>3</userLevel>
+    <name>Lisa</name>
+    </KommentarAutor>
+    <date>2012-04-17T09:20:47</date>
+    <isHelpful>true</isHelpful>
+    <content>Hilfeee</content>
+    </Kommentar>
+    </Antworten>
+    
+    </Kommentar>
+    </Kommentare>
+  </Rezept>
+</Rezepte>
