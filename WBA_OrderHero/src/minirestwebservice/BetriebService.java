@@ -62,7 +62,8 @@ public Betriebliste betrieberstellen(
 		@PathParam("Betriebname") String Betriebname,
 		@PathParam("Strasse") String Strasse,
 		@PathParam("Hausnummer") int Hausnummer,
-		@PathParam("Postleitzahl") int plz)throws JAXBException, FileNotFoundException
+		@PathParam("Postleitzahl") int plz,
+		@PathParam("ArtDesBetriebes") String ArtDesBetriebes)throws JAXBException, FileNotFoundException
 	{
 	JAXBContext context = JAXBContext.newInstance(Betrieb.class);
 
@@ -77,7 +78,7 @@ public Betriebliste betrieberstellen(
 	betrieb.getAdresse().setStrasse(Strasse);
 	betrieb.getAdresse().setHausnummer(Hausnummer);
 	betrieb.getAdresse().setPLZ(plz);
-	
+	betrieb.setArtDesBetriebes(ArtDesBetriebes);
 
 	Betriebliste bl = getBetrieb(Betriebs_ID);
 	bl.getBetrieb().add(betrieb);
@@ -95,7 +96,8 @@ public Betriebliste betriebaendern(
 		@PathParam("Betriebname") String Betriebname,
 		@PathParam("Strasse") String Strasse,
 		@PathParam("Hausnummer") int Hausnummer,
-		@PathParam("Postleitzahl") int plz
+		@PathParam("Postleitzahl") int plz,
+		@PathParam("ArtDesBetriebes") String ArtDesBetriebes
 		)throws JAXBException, FileNotFoundException
 	{
 	
@@ -112,6 +114,7 @@ public Betriebliste betriebaendern(
 		betrieb.getAdresse().setStrasse(Strasse);
 		betrieb.getAdresse().setHausnummer(Hausnummer);
 		betrieb.getAdresse().setPLZ(plz);
+		betrieb.setArtDesBetriebes(ArtDesBetriebes);
 		
 		Betriebliste bl = getBetrieb(Betriebs_ID);
 		bl.getBetrieb().add(betrieb);
