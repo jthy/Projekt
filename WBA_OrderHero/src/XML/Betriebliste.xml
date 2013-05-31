@@ -8,5 +8,6 @@
       <Hausnummer>0</Hausnummer>
       <PLZ>0</PLZ>
     </Adresse>
+    <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
   </Betrieb>
 </Betriebliste>

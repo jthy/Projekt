@@ -20,6 +20,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element name="Art_des_Betriebes" minOccurs="1" maxOccurs="1" type="xs:string"/>
 					</xs:sequence>
 				</xs:complexType>
 </xs:element>
