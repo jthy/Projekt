@@ -116,7 +116,7 @@ import generated.ObjectFactory;
 			
 			Marshaller ma=context.createMarshaller();
 			ma.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			ma.marshal(person, new FileOutputStream("src/Personenliste.xml"));
+			ma.marshal(person, new FileOutputStream("src/XML/Personenliste.xml"));
 			return n;
 		}
 		else return null;

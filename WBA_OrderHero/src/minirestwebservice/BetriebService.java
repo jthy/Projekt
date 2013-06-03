@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.util.List;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -56,7 +57,13 @@ public Betriebliste getBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBExcept
 
 
 @POST
-public Betriebliste betrieberstellen()throws JAXBException, FileNotFoundException
+public Betriebliste betrieberstellen(
+		@FormParam("Betriebs_ID") int Betriebs_ID,
+		@FormParam("Betriebname") String Betriebname,
+		@FormParam("Strasse") String Strasse,
+		@FormParam("Hausnummer") int Hausnummer,
+		@FormParam("Postleitzahl") int plz,
+		@FormParam("ArtDesBetriebes") String ArtDesBetriebes)throws JAXBException, FileNotFoundException
 	{
 	JAXBContext context = JAXBContext.newInstance(Betrieb.class);
 
@@ -86,11 +93,11 @@ public Betriebliste betrieberstellen()throws JAXBException, FileNotFoundExceptio
 @Path("/{Betriebs_ID}")
 public Betriebliste betriebaendern(
 		@PathParam("Betriebs_ID") int Betriebs_ID,
-		@PathParam("Betriebname") String Betriebname,
-		@PathParam("Strasse") String Strasse,
-		@PathParam("Hausnummer") int Hausnummer,
-		@PathParam("Postleitzahl") int plz,
-		@PathParam("ArtDesBetriebes") String ArtDesBetriebes
+		@FormParam("Betriebname") String Betriebname,
+		@FormParam("Strasse") String Strasse,
+		@FormParam("Hausnummer") int Hausnummer,
+		@FormParam("Postleitzahl") int plz,
+		@FormParam("ArtDesBetriebes") String ArtDesBetriebes
 		)throws JAXBException, FileNotFoundException
 	{
 	
