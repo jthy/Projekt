@@ -56,14 +56,7 @@ public Betriebliste getBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBExcept
 
 
 @POST
-@Path("/betriebsliste/{betrieb_ID}")
-public Betriebliste betrieberstellen(
-		@PathParam("Betriebs_ID") int Betriebs_ID,
-		@PathParam("Betriebname") String Betriebname,
-		@PathParam("Strasse") String Strasse,
-		@PathParam("Hausnummer") int Hausnummer,
-		@PathParam("Postleitzahl") int plz,
-		@PathParam("ArtDesBetriebes") String ArtDesBetriebes)throws JAXBException, FileNotFoundException
+public Betriebliste betrieberstellen()throws JAXBException, FileNotFoundException
 	{
 	JAXBContext context = JAXBContext.newInstance(Betrieb.class);
 
