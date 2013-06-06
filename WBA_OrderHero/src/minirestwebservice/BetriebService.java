@@ -59,10 +59,26 @@ public Betriebliste getBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBExcept
 @POST
 @Produces("application/xml")
 
-public Betrieb betrieberstellen(Betriebliste betrl)throws JAXBException, FileNotFoundException
+public Betrieb betrieberstellen( @PathParam("Betriebs_ID") int Betriebs_ID, Betrieb betrieb)throws JAXBException, FileNotFoundException
 	{	
-	Betrieb betrieb=new Betrieb();
-	return betrieb;
+	 JAXBContext context= JAXBContext.newInstance(Betriebliste.class);
+	    
+	    Unmarshaller um = context.createUnmarshaller();
+		Betriebliste betriebe = (Betriebliste) um.unmarshal(new File("src/XML/Betriebliste.xml"));
+		List<Betrieb> b = betriebe.getBetrieb();
+		
+	    if(Betriebs_ID > b.size()){
+	    	Betriebliste bl = getBetrieb(Betriebs_ID);
+	    	bl.getBetrieb().add(betrieb);
+	    }
+	    //wenn Betriebs_ID bereits verwendet, nächstmögliche ID verwenden
+	    else{
+	    	Betriebs_ID = b.size() +1 ;
+	    	Betriebliste bl = getBetrieb(Betriebs_ID);
+	    	bl.getBetrieb().add(betrieb);
+	    }
+	    return betrieb;
+	    
 	}
 
 @PUT
