@@ -19,7 +19,7 @@ import org.jivesoftware.smackx.pubsub.SimplePayload;
 public class PubSubController {
 
 	private XMPPConnect verbindung;
-	// Create a pubsub manager using an existing Connection
+// Create a pubsub manager using an existing Connection
     private PubSubManager mgr;
     
     public static void main (String[] args){
@@ -27,7 +27,7 @@ public class PubSubController {
     }
     
     public PubSubController(){
-    	// Create a Connection
+// Create a Connection
     	verbindung=new XMPPConnect();
     	// Create a pubsub manager using an existing Connection
         mgr = new PubSubManager(verbindung.conn);
@@ -38,7 +38,7 @@ public class PubSubController {
     	nodesAuslesen();
     }
 
-    // Create the node
+// Create the node
 	public void nodeErstellen( String nodeName ){
 
 /*		try {
