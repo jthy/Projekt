@@ -11,5 +11,9 @@
 	<classpathentry kind="lib" path="/Users/juliathyssen/Downloads/WBA_2_Phase_2_jars (1)/WBA_2_Phase_2_jars/jersey/jettison-1.1.jar"/>
 	<classpathentry kind="lib" path="/Users/juliathyssen/Downloads/WBA_2_Phase_2_jars (1)/WBA_2_Phase_2_jars/jersey/jsr311-api-1.1.1.jar"/>
 	<classpathentry kind="lib" path="/Users/juliathyssen/Downloads/WBA_2_Phase_2_jars (1)/WBA_2_Phase_2_jars/grizzly-servlet-webserver-1.9.18.jar"/>
+	<classpathentry kind="lib" path="/Users/juliathyssen/Downloads/smack_3_3_0 (1)/smack_3_3_0/smack.jar"/>
+	<classpathentry kind="lib" path="/Users/juliathyssen/Downloads/smack_3_3_0 (1)/smack_3_3_0/smackx-debug.jar"/>
+	<classpathentry kind="lib" path="/Users/juliathyssen/Downloads/smack_3_3_0 (1)/smack_3_3_0/smackx-jingle.jar"/>
+	<classpathentry kind="lib" path="/Users/juliathyssen/Downloads/smack_3_3_0 (1)/smack_3_3_0/smackx.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

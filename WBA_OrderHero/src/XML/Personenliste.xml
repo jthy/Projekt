@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Personenliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Personenliste.xsd">
   <Person>
-    <Person_ID>0</Person_ID>
+    <Person_ID>1</Person_ID>
     <Typ>Gastronom</Typ>
     <Vorname>Vorname</Vorname>
     <Nachname>Nachname</Nachname>
-    <Alter>0</Alter>
+    <Alter>19</Alter>
     <Betrieb>
-      <Betriebs_ID>0</Betriebs_ID>
+      <Betriebs_ID>1</Betriebs_ID>
       <Betriebname>Betriebname</Betriebname>
       <Adresse>
         <strasse>strasse</strasse>
