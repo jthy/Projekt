@@ -1,17 +1,11 @@
 package minirestwebservice;
 
-import java.awt.PageAttributes.MediaType;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.math.BigInteger;
-import java.net.URI;
 import java.util.List;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -23,8 +17,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-
-import com.sun.grizzly.tcp.Response;
 
 import generated.Betriebliste;
 import generated.Betriebliste.Betrieb;
@@ -85,17 +77,15 @@ public Betrieb postNewBetrieb( Betrieb betrieb ) throws Exception
 	    	}
 	    } */
 
-	    Betrieb betrie=new Betrieb();
+	    Betrieb betrieb2=new Betrieb();
 		
 		betrieb.setBetriebsID(betriebliste.size()+1);
 		
-	 	betriebliste.add( betrieb );
+	 	betriebliste.add( betrieb2 );
 
 	    marshaller.marshal(betriebe, new File("XML/Betriebliste.xml"));
 
-
-   URI location = URI.create( "http://localhost:5222/betriebe/" + betrieb.getBetriebsID() );
-   return Response.created(location ).build(); 
+   return betrieb2;
 }
 
 /*@POST
@@ -136,6 +126,36 @@ public Betriebliste betrieberstellen(
 */
 
 @PUT
+@Path( "/{BetriebsID}" )
+public Betrieb changeBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb  ) throws Exception
+{
+
+	    JAXBContext jc = JAXBContext.newInstance(Betriebliste.class);
+	    //unmarshaller zum lesen 
+	    Unmarshaller um = jc.createUnmarshaller();
+	    //marshaller zum schreiben
+	    Marshaller marshaller =jc.createMarshaller();
+	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+	    Betriebliste betriebe = (Betriebliste) um.unmarshal(new FileInputStream("XML/Betriebliste.xml"));
+
+
+	    List<Betrieb> betriebsliste = betriebe.getBetrieb();
+
+	    int i=0;;
+	    for(Betrieb be : betriebsliste ){
+	    	if(be.getBetriebsID() == (id)){
+	    		betriebsliste.set(i, betrieb);
+	    	}
+	    	i++;
+	    }
+
+	    marshaller.marshal(betriebe, new File("XML/Betriebliste.xml"));
+
+   return betrieb; 
+}
+
+/*@PUT
 @Path("/{Betriebs_ID}")
 public Betriebliste betriebaendern(
 		@PathParam("Betriebs_ID") int Betriebs_ID,
@@ -172,6 +192,8 @@ public Betriebliste betriebaendern(
 	}
 	else return null;
 	}
+	*/
+
 @DELETE 
 @Path("/{Betriebs_ID}")
    public Betriebliste betriebloeschen(@PathParam("Betriebs_ID") int Betriebs_ID)throws JAXBException, FileNotFoundException{
