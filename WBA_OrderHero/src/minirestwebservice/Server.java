@@ -10,19 +10,14 @@ public class Server {
 	 */
 	public static void main(String[] args) throws Exception 
 	{
-		String url = "http://localhost:5223";
+String url = "http://localhost:4422";
 		
 		SelectorThread srv = GrizzlyServerFactory.create (url );
 		
 		System.out.println( "URL: " + url);
-		
-        System.out.println( "Enter to stop server" );
-        System.in.read();
-        srv.stopEndpoint();
-       System.out.println( "Server stopped" );
-
-		Thread.sleep( 1000 * 60 * 10);
+		Thread.sleep( 1000 * 60 * 5);
 		srv.stopEndpoint();
+
 	}
 	
 
