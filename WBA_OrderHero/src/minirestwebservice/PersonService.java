@@ -1,11 +1,13 @@
 package minirestwebservice;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.net.URI;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.POST;
@@ -13,6 +15,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -28,7 +31,7 @@ import generated.ObjectFactory;
 
 	@GET
 	@Produces( "application/xml")
-	public Personenliste getPersonen() throws JAXBException, FileNotFoundException{
+	public Personenliste lesePersonen() throws JAXBException, FileNotFoundException{
 		ObjectFactory ob=new ObjectFactory();
 		Personenliste personen = ob.createPersonenliste();
 		JAXBContext context = JAXBContext.newInstance(Personenliste.class);
@@ -40,7 +43,7 @@ import generated.ObjectFactory;
 	@GET
 	@Path("/{Person_ID}")
 	@Produces( "application/xml")
-	public Personenliste getPerson(@PathParam("Person_ID")int i) throws JAXBException, FileNotFoundException
+	public Personenliste lesePerson(@PathParam("Person_ID")int i) throws JAXBException, FileNotFoundException
 	{
 		ObjectFactory ob=new ObjectFactory();
 		Personenliste person = ob.createPersonenliste();
@@ -54,72 +57,63 @@ import generated.ObjectFactory;
 	}
 
 	@POST
-	public Personenliste personerstellen(
-			@PathParam("Person_ID") int Person_ID,
-			@PathParam("Typ") String Typ,
-			@PathParam("Vorname") String Vorname,
-			@PathParam("Nachmane") String Nachname,
-			@PathParam("Alter") int Alter,
-			@PathParam("Betrieb") int Betriebs_ID)  throws JAXBException, FileNotFoundException
+	@Produces("application/xml")
+	@Consumes("application/xml")
+	public Response erstellePerson(Person person)  throws Exception
 		{
-		JAXBContext context = JAXBContext.newInstance(Person.class);
+		 JAXBContext jc = JAXBContext.newInstance(Personenliste.class);
+		    //unmarshaller zum lesen 
+		 Unmarshaller um = jc.createUnmarshaller();
+		    //marshaller zum schreiben
+		 Marshaller marshaller =jc.createMarshaller();
+		 marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 		
-		Unmarshaller um = context.createUnmarshaller();
-		Personenliste per = (Personenliste) um.unmarshal(new FileReader("src/XML/Personenliste.xml"));
-		List<Person> p = per.getPerson();
+		Personenliste per = (Personenliste) um.unmarshal(new FileInputStream("src/XML/Personenliste.xml"));
+		List<Person> personenliste = per.getPerson();
+		person.setPersonID(personenliste.size()+1);
+		personenliste.add(person);
 		
-		Person person=new Person();
-		//Damit ID's chronologisch aufeinander aufbauen
-		person.setPersonID(p.size()+1);
-		person.setVorname(Vorname);
-		person.setNachname(Nachname);
-		person.setTyp(Typ);
-		person.setAlter(Alter);
-		person.getBetrieb().setBetriebsID(Betriebs_ID);
-		
-		Personenliste n = getPerson(Person_ID);
-		n.getPerson().add(person);
-		
-		Marshaller ma=context.createMarshaller();
-		ma.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		ma.marshal(person, new FileOutputStream("src/Personenliste.xml"));
-		return n;	
+		marshaller.marshal(per, new File("src/XML/Personenliste.xml"));
+		   
+	    URI location = URI.create( "http://localhost:4433/personenliste" + person.getPersonID());
+	    return Response.created(location).build();
 		}
-	
 	@PUT
 	@Path("/{Person_ID}")
-	public Personenliste personaendern(
-			@PathParam("Person_ID") int Person_ID,
-			@PathParam("Typ") String Typ,
-			@PathParam("Vorname") String Vorname,
-			@PathParam("Nachmane") String Nachname,
-			@PathParam("Alter") int Alter,
-			@PathParam("Betrieb") int Betriebs_ID)  throws JAXBException, FileNotFoundException
+	@Produces("application/xml")
+	@Consumes("application/xml")
+	public Response personaendern(@PathParam("Person_ID") int id, Person person)  throws Exception
 		{
-		
-		JAXBContext context = JAXBContext.newInstance(Person.class);
-		
-		Unmarshaller um = context.createUnmarshaller();
-		Personenliste per = (Personenliste) um.unmarshal(new FileReader("src/XML/Personenliste.xml"));
-		List<Person> p = per.getPerson();
-		if(Person_ID <= p.size()){
-			Person person=new Person();
-			//PersonID darf nicht geaendert werden
-			person.setVorname(Vorname);
-			person.setNachname(Nachname);
-			person.setTyp(Typ);
-			person.setAlter(Alter);
-			person.getBetrieb().setBetriebsID(Betriebs_ID);
+	    JAXBContext jc = JAXBContext.newInstance(Personenliste.class);
+	    //unmarshaller zum lesen 
+	    Unmarshaller um = jc.createUnmarshaller();
+	    //marshaller zum schreiben
+	    Marshaller marshaller =jc.createMarshaller();
+	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-			Personenliste n = getPerson(Person_ID);
-			n.getPerson().add(person);
-			
-			Marshaller ma=context.createMarshaller();
-			ma.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			ma.marshal(person, new FileOutputStream("src/XML/Personenliste.xml"));
-			return n;
-		}
-		else return null;
+	    Personenliste personen = (Personenliste) um.unmarshal(new FileInputStream("src/XML/Personenliste.xml"));
+	    
+	    List<Person> personenliste = personen.getPerson();
+	    //wenn id nicht vergeben ist wird betrieb erst erstellt!
+	    if(id > personenliste.size()){
+    		person.setPersonID(personenliste.size()+1);
+    	 	personenliste.add( person );
+    	}
+	    else{
+	    int i=0;;
+	    for(Person pe : personenliste){
+	    	if(pe.getPersonID() == (id)){
+	    		personenliste.set(i, person);
+	    	}
+	    	i++;
+	    	}
+	    }
+
+	    marshaller.marshal(personen, new File("src/XML/Personenliste.xml"));
+
+	    URI location = URI.create( "http://localhost:4433/personenliste" + person.getPersonID() );
+	    return Response.created(location).build(); 
+		 
 		}
 	
 	
