@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Betrieb">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Betriebs_ID" type="xs:int" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Betriebname" minOccurs="1" maxOccurs="1" type="xs:string"/>
+						<xs:element name="Adresse">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="strasse" type="xs:string"/>
+									<xs:element name="Hausnummer" type="xs:int"/>
+									<xs:element name="PLZ">
+										<xs:simpleType>
+											<xs:restriction base="xs:int">
+											<xs:pattern value="(D )?[0-9]{5}" />
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Ort" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Art_des_Betriebes" minOccurs="1" maxOccurs="1" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+</xs:element>
+
+</xs:schema>

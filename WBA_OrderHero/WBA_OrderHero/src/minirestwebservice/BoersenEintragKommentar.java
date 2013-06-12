@@ -28,34 +28,6 @@ import javax.xml.bind.Unmarshaller;
 public class BoersenEintragKommentar {
 
 
-@GET
-@Produces( "application/xml")
-
-public generated.BoersenEintrag leseKommentare() throws JAXBException, FileNotFoundException{
-	ObjectFactory ob=new ObjectFactory();
-	generated.BoersenEintrag ein = ob.createBoersenEintrag();
-	JAXBContext context = JAXBContext.newInstance(BoersenEintrag.class);
-	Unmarshaller um = context.createUnmarshaller();
-	ein = (generated.BoersenEintrag) um.unmarshal(new FileReader("src/XML/Boerse.xml"));
-	return ein;
-}
-
-@GET
-@Path("/{KommentarID}")
-@Produces( "application/xml")
-public generated.BoersenEintrag leseKommentar(@PathParam("KommentarID")int i) throws JAXBException, FileNotFoundException{
-	
-	ObjectFactory ob= new ObjectFactory();
-	generated.BoersenEintrag ein = ob.createBoersenEintrag();
-	
-	JAXBContext context = JAXBContext.newInstance(BoersenEintrag.class);
-	Unmarshaller um = context.createUnmarshaller();
-	ein = (generated.BoersenEintrag) um.unmarshal(new FileReader("src/XML/Boerse.xml"));
-	generated.BoersenEintrag rt = ob.createBoersenEintrag();
-	rt.getKommentare().add(ein.getKommentare().get(i-1));
-	return rt;
-}
-
 	@POST
 	@Produces("application/xml")
 	@Consumes("application/xml")
@@ -70,12 +42,11 @@ public generated.BoersenEintrag leseKommentar(@PathParam("KommentarID")int i) th
 
 	BoersenEintrag eintrag = (BoersenEintrag) um.unmarshal(new FileInputStream("src/XML/Boerse.xml"));
 	List<Boerse.BoersenEintrag.Kommentare> kom = eintrag.getKommentare();
-	kommentar.setKommentarID(kom.size()+1);
 	kom.add(kommentar);
 
 	marshaller.marshal(eintrag, new File("src/XML/Boerse.xml"));
 
-	URI location = URI.create( "http://localhost:4433/boerse/kommentar" + kommentar.getKommentarID());
+	URI location = URI.create( "http://localhost:4433/boerse/kommentar" + kommentar.getKommentar());
 	return Response.created(location).build();
 	}
 	
@@ -94,7 +65,7 @@ public generated.BoersenEintrag leseKommentar(@PathParam("KommentarID")int i) th
 		kommentar.getKommentare().remove(KommentarID);
 		
 		
-		// Boerse "aktualisieren" und zurŸckgeben
+		// Boerse "aktualisieren" und zurï¿½ckgeben
 		// Marshaller
 		Marshaller m = context.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);

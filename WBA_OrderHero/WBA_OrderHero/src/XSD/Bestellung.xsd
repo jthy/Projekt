@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+<xs:element name="Bestellung">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="Bestellungs_ID" type ="xs:int"/>
+			<xs:element name="Lieferdatum" type="xs:date"/>
+			<xs:element ref="Person"/>
+			<xs:element ref="Betrieb"/>
+			<xs:element ref="Person"/>
+			<xs:element ref="Betrieb"/>
+			<xs:element name="Anzahl" type="xs:int"/>
+			<xs:element ref="Produkt"/>
+			<xs:element name="Bestellungsart">
+				<xs:simpleType>
+    				<xs:restriction base="xs:string">
+        				<xs:enumeration value="Dauerauftrag"/>
+						<xs:enumeration value="Einmalige_Bestellung"/>
+					</xs:restriction>
+				</xs:simpleType>                         
+			</xs:element>
+			<xs:element name="Zahlungsart">
+  				<xs:simpleType>
+    				<xs:restriction base="xs:string">
+      					<xs:enumeration value="Rechnung" />
+      					<xs:enumeration value="Lastschrift" />
+      					<xs:enumeration value="Vorkasse" />
+      					<xs:enumeration value="PayPal" />
+      					<xs:enumeration value="Kreditkarte" />
+   				 	</xs:restriction>
+  				</xs:simpleType>
+			</xs:element>			
+			<xs:element name="Gesamtbetrag_Bestellung" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!-- Definitionen -->
+<xs:element name="Person">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="Typ">
+	 			<xs:simpleType>
+			    	<xs:restriction base="xs:string">
+			      		<xs:enumeration value="Gastronom" />
+			      		<xs:enumeration value="Lieferant" />
+			   		</xs:restriction>
+	  			</xs:simpleType>
+	  		</xs:element>
+			<xs:element name="Vorname" type="xs:string"/>
+			<xs:element name="Nachname" type="xs:string"/>
+			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
+			<xs:element name="Alter">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="18" />
+						<xs:maxInclusive value="100" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element ref="Betrieb"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+			
+<xs:element name="Betrieb">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Betriebname" type="xs:string" minOccurs="1" maxOccurs="1" />
+						<xs:element name="Adresse">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="strasse" type="xs:string"/>
+									<xs:element name="Hausnummer" type="xs:int"/>
+									<xs:element name="PLZ">
+										<xs:simpleType>
+											<xs:restriction base="xs:int">
+											<xs:pattern value="(D )?[0-9]{5}" />
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+</xs:element>
+					
+<xs:element name="Produkt">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="Produkt_ID" type="xs:int"/>
+			<xs:element name="Produktangaben">	
+				<xs:complexType>
+					<xs:sequence> 
+						<xs:element name="Produktname" type="xs:string" />
+						<xs:element name="Preis_in_Euro" type="xs:float" />
+						<xs:element name="Beschreibung" type="xs:string" />
+						<xs:element name="Verfuegbarkeit">
+			            	<xs:simpleType>
+			                   <xs:restriction base="xs:string">
+			                      <xs:enumeration value="verfuegbar"/>
+								  <xs:enumeration value="momentan_nicht_verfuegbar"/>
+								</xs:restriction>
+							</xs:simpleType>                         
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+</xs:schema>
