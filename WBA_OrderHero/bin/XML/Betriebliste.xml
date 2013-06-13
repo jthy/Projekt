@@ -83,4 +83,14 @@
         </Adresse>
         <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
     </Betrieb>
+    <Betrieb>
+        <Betriebs_ID>10</Betriebs_ID>
+        <Betriebname>Betriebname</Betriebname>
+        <Adresse>
+            <strasse>strasse</strasse>
+            <Hausnummer>22</Hausnummer>
+            <PLZ>53572</PLZ>
+        </Adresse>
+        <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
+    </Betrieb>
 </Betriebliste>

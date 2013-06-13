@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BoersenEintrag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/BoersenEintrag.xsd">
-  <BoerseneintragsID>0</BoerseneintragsID>
+  <BoerseneintragsID>1</BoerseneintragsID>
   <Person>
     <Person_ID>0</Person_ID>
     <Typ>Gastronom</Typ>

@@ -105,7 +105,7 @@ public Boerse eintragloeschen(@PathParam("/{BoerseneintragsID}") int Boerseneint
 	// Marshaller
 	Marshaller m = context.createMarshaller();
 	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-	m.marshal(eintrag, new File("src/Personenliste.xml"));
+	m.marshal(eintrag, new File("src/XML/Personenliste.xml"));
 
 	return eintrag;
 }

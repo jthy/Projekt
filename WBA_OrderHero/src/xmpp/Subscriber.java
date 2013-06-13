@@ -26,48 +26,120 @@ public class Subscriber extends User{
 	}
 
 
-	void subscribe() throws XMPPException{
+	void abonniereFisch() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
 	    // Get the node
-	    LeafNode node = mgr.getNode("testNode");
+	    LeafNode fisch = mgr.getNode("Fisch");
 
-	    node.addItemEventListener(new ItemEventCoordinator());
+	    fisch.addItemEventListener(new ItemEventCoordinator());
 
 
-		node.subscribe(jid);
+		fisch.subscribe(jid);
+	}
+	void abonniereFleisch() throws XMPPException{
+		// Create a pubsub manager using an existing Connection
+	    PubSubManager mgr = new PubSubManager(connection);
+
+	    // Get the node
+	    LeafNode fleisch = mgr.getNode("Fleisch");
+
+	    fleisch.addItemEventListener(new ItemEventCoordinator());
+
+
+		fleisch.subscribe(jid);
+	}
+	void abonniereGemuese() throws XMPPException{
+		// Create a pubsub manager using an existing Connection
+	    PubSubManager mgr = new PubSubManager(connection);
+
+	    // Get the node
+	    LeafNode gemuese = mgr.getNode("Gemuese");
+
+	    gemuese.addItemEventListener(new ItemEventCoordinator());
+
+
+		gemuese.subscribe(jid);
 	}
 
 
-	public void unsubscribe() throws XMPPException {
+	public void deabonniereFisch() throws XMPPException {
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
 	    // Get the node
-	    LeafNode node = mgr.getNode("testNode");
+	    LeafNode fisch = mgr.getNode("Fisch");
 
-	    node.addItemEventListener(new ItemEventCoordinator());
+	    fisch.addItemEventListener(new ItemEventCoordinator());
 
 
-		node.unsubscribe(jid);
+		fisch.unsubscribe(jid);
 
 	}
 
-
-	public Collection<? extends Item> getMessages() throws XMPPException {
+	public void deabonniereFleisch() throws XMPPException {
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
 	    // Get the node
-	    LeafNode node = mgr.getNode("testNode");
+	    LeafNode fleisch = mgr.getNode("Fleisch");
 
-	    Collection<? extends Item> items = node.getItems();
+	    fleisch.addItemEventListener(new ItemEventCoordinator());
+
+
+		fleisch.unsubscribe(jid);
+
+	}
+	public void deabonniereGemuese() throws XMPPException {
+		// Create a pubsub manager using an existing Connection
+	    PubSubManager mgr = new PubSubManager(connection);
+
+	    // Get the node
+	    LeafNode gemuese = mgr.getNode("Gemuese");
+
+	    gemuese.addItemEventListener(new ItemEventCoordinator());
+
+
+		gemuese.unsubscribe(jid);
+
+	}
+
+	public Collection<? extends Item> leseFischNachrichten() throws XMPPException {
+		// Create a pubsub manager using an existing Connection
+	    PubSubManager mgr = new PubSubManager(connection);
+
+	    // Get the node
+	    LeafNode fisch = mgr.getNode("Fisch");
+
+	    Collection<? extends Item> items = fisch.getItems();
+		return items;
+
+	}
+	public Collection<? extends Item> leseFleischNachrichten() throws XMPPException {
+		// Create a pubsub manager using an existing Connection
+	    PubSubManager mgr = new PubSubManager(connection);
+
+	    // Get the node
+	    LeafNode fleisch = mgr.getNode("Fleisch");
+
+	    Collection<? extends Item> items = fleisch.getItems();
+		return items;
+
+	}
+	public Collection<? extends Item> leseGemueseNachrichten() throws XMPPException {
+		// Create a pubsub manager using an existing Connection
+	    PubSubManager mgr = new PubSubManager(connection);
+
+	    // Get the node
+	    LeafNode gemuese = mgr.getNode("Gemuese");
+
+	    Collection<? extends Item> items = gemuese.getItems();
 		return items;
 
 	}
 
-	public DiscoverItems getNodeInformation() throws XMPPException{
+	public DiscoverItems leseNodeInformationen() throws XMPPException{
 		ServiceDiscoveryManager discoManager = ServiceDiscoveryManager.getInstanceFor(connection);
 		DiscoverItems items=null;
 		items = discoManager.discoverItems("pubsub." + connection.getServiceName());
