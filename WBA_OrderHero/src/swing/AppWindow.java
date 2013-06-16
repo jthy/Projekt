@@ -1,13 +1,7 @@
 package swing;
 
-
-
-import generated.Boerse.BoersenEintrag;
-
-import java.awt.BorderLayout;
 import java.awt.event.*;
 import java.io.FileNotFoundException;
-import java.text.NumberFormat;
 
 import javax.swing.*;
 import javax.xml.bind.JAXBException;
@@ -74,21 +68,13 @@ public class AppWindow extends JFrame {
 		this.getContentPane().setLayout(null);
 		this.initWindow();
 		this.addWindowListener(new WindowListener() {
-
 			public void windowClosed(WindowEvent arg0) {}
-
 			public void windowActivated(WindowEvent e) {}
-
 			public void windowClosing(WindowEvent e) {
-				System.exit(0);
-			}
-
+				System.exit(0);}
 			public void windowDeactivated(WindowEvent e) {}
-
 			public void windowDeiconified(WindowEvent e) {}
-
 			public void windowIconified(WindowEvent e) {}
-
 			public void windowOpened(WindowEvent e) {}
 		});
 
@@ -191,7 +177,15 @@ public class AppWindow extends JFrame {
 
 					public void actionPerformed(ActionEvent arg0) {
 						// TODO Auto-generated method stub
-							BetriebSend();
+							try {
+								BetriebSend();
+							} catch (FileNotFoundException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (JAXBException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 					}
 
 				});
@@ -222,7 +216,7 @@ public class AppWindow extends JFrame {
 					System.out.println("Fehler beim Verbindungsaufbau.");
 				}
 			}
-				public void BetriebSend()
+				public void BetriebSend() throws FileNotFoundException, JAXBException
 				{
 					int EintragsID = 0;
 					try {
@@ -236,12 +230,10 @@ public class AppWindow extends JFrame {
 				else if(rbGet.isSelected()){
 					BetriebService.leseBetriebe();
 				}
-				else if(rbPost.isSelected()){
-					BetriebService.erstelleBetrieb(betrieb);
-				}
+				/*
 				else if(rbPut.isSelected()){
 					BetriebService.aenderBetrieb(EintragsID, betrieb);
-				}
+				}*/
 				else if(rbDelete.isSelected()){
 					BetriebService.loescheBetrieb(EintragsID);
 				}
@@ -267,7 +259,15 @@ public class AppWindow extends JFrame {
 
 								public void actionPerformed(ActionEvent arg0) {
 									// TODO Auto-generated method stub
-										PersonSend();
+										try {
+											PersonSend();
+										} catch (FileNotFoundException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										} catch (JAXBException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
 								}});
 
 							// Positionen festlegen
@@ -296,7 +296,7 @@ public class AppWindow extends JFrame {
 								System.out.println("Fehler beim Verbindungsaufbau.");
 							}
 						}
-							public void PersonSend()
+							public void PersonSend() throws FileNotFoundException, JAXBException
 							{
 								int PersonID = 0;
 								try {
@@ -310,80 +310,91 @@ public class AppWindow extends JFrame {
 							else if(rbGet.isSelected()){
 								PersonService.lesePersonen();
 							}
-							else if(rbPost.isSelected()){
+							/*else if(rbPost.isSelected()){
 								PersonService.erstellePerson(person);
 							}
 							else if(rbPut.isSelected()){
 								PersonService.personaendern(PersonID, person);
-							}
+							}*/
 							else if(rbDelete.isSelected()){
 								PersonService.personloeschen(PersonID);
 							}
 					
 				}	
 							
-										private void Bestellung() {
-											//Allgemeines
-													this.setTitle("OrderHero: Bestellung");
-													this.setResizable(false);
-											// Instanzieren:
-													tfBestellungsID = new JTextField();
-											//Instanziere Radio-Buttons
-											//zunachst nur Auswahl ueber 4 Bereiche
-													rbGet = new JRadioButton();
-													rbGet.setSelected(true);
-													rbGetOne = new JRadioButton();
-													rbPost = new JRadioButton();
-											//Instanziere Senden-Button
-													btnBestellungSend = new JButton("Send");
-													btnBestellungSend.addActionListener(new ActionListener() {
+private void Bestellung() {
+											
+	//Allgemeines
+	this.setTitle("OrderHero: Bestellung");
+	this.setResizable(false);
+	// Instanzieren:
+	tfBestellungsID = new JTextField();
+	//Instanziere Radio-Buttons
+	//zunachst nur Auswahl ueber 4 Bereiche
+	rbGet = new JRadioButton();
+	rbGet.setSelected(true);
+	rbGetOne = new JRadioButton();
+	rbPost = new JRadioButton();
+	//Instanziere Senden-Button
+	btnBestellungSend = new JButton("Send");
+	btnBestellungSend.addActionListener(new ActionListener() {
 
-														public void actionPerformed(ActionEvent arg0) {
-															// TODO Auto-generated method stub
-																BestellungSend();
-														}});
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			try {
+				BestellungSend();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JAXBException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}});
+	
+	// Positionen festlegen
+	rbGet.setBounds(5,10,400,25);
+	rbGetOne.setBounds(5,40,400,25);
+	rbPost.setBounds(5,70,400,25);
+	tfBestellungsID.setBounds(5,100,400,25);
+	btnBestellungSend.setBounds(5,200,200,30);
+	
+	// Elemente dem Fenster hinzufügen:
+	this.getContentPane().add(rbGet);
+	this.getContentPane().add(rbGetOne);
+	this.getContentPane().add(rbPost);
+	this.getContentPane().add(btnBestellungSend);
+	this.getContentPane().add(tfBestellungsID);	
+	this.pack();
 
-													// Positionen festlegen
-													rbGet.setBounds(5,10,400,25);
-													rbGetOne.setBounds(5,40,400,25);
-													rbPost.setBounds(5,70,400,25);
-													tfBestellungsID.setBounds(5,100,400,25);
-													btnBestellungSend.setBounds(5,200,200,30);
-											     	
-													// Elemente dem Fenster hinzufügen:
-													this.getContentPane().add(rbGet);
-													this.getContentPane().add(rbGetOne);
-													this.getContentPane().add(rbPost);
-													this.getContentPane().add(btnBestellungSend);
-													this.getContentPane().add(tfBestellungsID);
-													this.pack();
+	try {
+		Client.connect();		
+	} catch (XMPPException e) {
+		// TODO Auto-generated catch block
+		System.out.println("Fehler beim Verbindungsaufbau.");	
+	}	
+}
+public void BestellungSend() throws FileNotFoundException, JAXBException
 
-													try {
-														Client.connect();
-													} catch (XMPPException e) {
-														// TODO Auto-generated catch block
-														System.out.println("Fehler beim Verbindungsaufbau.");
-													}
-												}
-													public void BestellungSend()
-													{
-														int BestellungsID = 0;
-														try {
-															BestellungsID = Integer.parseInt(tfBestellungsID.getText());
-														} catch (NumberFormatException e) {
-														// Fehlerbehandlung
-														}
-													if(rbGetOne.isSelected()){
-														BestellungService.leseBestellung(BestellungsID);
-													}
-													else if(rbGet.isSelected()){
-														BestellungService.leseBestellungen();
-													}
-													else if(rbPost.isSelected()){
-														BestellungService.erstelleBestellung(bestellung);
-													}
-									}
-	private void Boerse() {
+{
+	int BestellungsID = 0;
+	try {
+		BestellungsID = Integer.parseInt(tfBestellungsID.getText());
+	} catch (NumberFormatException e) {
+		// Fehlerbehandlung	
+	}
+	if(rbGetOne.isSelected()){
+		BestellungService.leseBestellung(BestellungsID);	
+	}
+	else if(rbGet.isSelected()){
+		BestellungService.leseBestellungen();	
+	}
+	/*else if(rbPost.isSelected()){
+	BestellungService.erstelleBestellung(bestellung);
+	}*/
+	}
+
+private void Boerse() {
 								//Allgemeines
 										this.setTitle("OrderHero: Boerse");
 										this.setResizable(false);
@@ -404,7 +415,15 @@ public class AppWindow extends JFrame {
 
 											public void actionPerformed(ActionEvent arg0) {
 												// TODO Auto-generated method stub
-													BestellungSend();
+													try {
+														BestellungSend();
+													} catch (FileNotFoundException e) {
+														// TODO Auto-generated catch block
+														e.printStackTrace();
+													} catch (JAXBException e) {
+														// TODO Auto-generated catch block
+														e.printStackTrace();
+													}
 											}});
 
 										// Positionen festlegen
@@ -437,7 +456,7 @@ public class AppWindow extends JFrame {
 											System.out.println("Fehler beim Verbindungsaufbau.");
 										}
 									}
-										public void BoerseSend()
+		public void BoerseSend() throws FileNotFoundException, JAXBException
 										{
 											int BoersenEintragsID = 0;
 											try {
@@ -451,12 +470,12 @@ public class AppWindow extends JFrame {
 										else if(rbGet.isSelected()){
 											BoersenService.getBoerse();
 										}
-										else if(rbPost.isSelected()){
+										/*else if(rbPost.isSelected()){
 											BoersenService.erstelleEintrag(boersenEintrag);
 										}
 										else if(rbPostKommentar.isSelected()){
 											BoersenService.erstelleKommentar(kommentar);
-										}
+										}*/
 										else if(rbDelete.isSelected()){
 											BoersenService.eintragloeschen(BoersenEintragsID);
 										}
@@ -467,6 +486,7 @@ public class AppWindow extends JFrame {
 											this.Subscriber();
 										}
 							}
+
 private void Subscriber(){
 	//Allgemeines
 		this.setTitle("OrderHero: Boerse - Subscribe");
@@ -564,7 +584,7 @@ private void Subscriber(){
 			Subscriber.leseNodeInformationen();}	
 		}
 		
-		private void Publisher(){
+private void Publisher(){
 			//Allgemeines
 				this.setTitle("OrderHero: Boerse - Publish");
 				this.setResizable(false);
@@ -635,7 +655,7 @@ private void Subscriber(){
 					System.out.println("Fehler beim Verbindungsaufbau.");
 				}
 			}
-				public void PublishSend() throws XMPPException
+		public void PublishSend() throws XMPPException
 				{
 				if(rbFisch.isSelected() && rbNodeErstellen.isSelected()){
 					Publisher.erstelleFischNode();}	
