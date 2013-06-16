@@ -26,7 +26,7 @@ public class BetriebService {
 @GET
 @Produces("application/xml")
 
-public Betriebliste leseBetriebe() throws JAXBException, FileNotFoundException
+public static Betriebliste leseBetriebe() throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Betriebliste betriebe = ob.createBetriebliste();
@@ -39,7 +39,7 @@ public Betriebliste leseBetriebe() throws JAXBException, FileNotFoundException
 @GET
 @Path("/{Betriebs_ID}")
 @Produces("application/xml")
-public Betriebliste leseBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBException, FileNotFoundException
+public static Betriebliste leseBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Betriebliste betriebe = ob.createBetriebliste();
@@ -54,7 +54,7 @@ public Betriebliste leseBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBExcep
 @POST 
 @Produces("application/xml")
 @Consumes("application/xml")
-public Response erstelleBetrieb ( Betrieb betrieb ) throws Exception
+public static Response erstelleBetrieb ( Betrieb betrieb ) throws Exception
 {
 
 	    JAXBContext jc = JAXBContext.newInstance(Betriebliste.class);
@@ -83,7 +83,7 @@ public Response erstelleBetrieb ( Betrieb betrieb ) throws Exception
 @Path( "/{BetriebsID}" )
 @Produces("application/xml")
 @Consumes("application/xml")
-public Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb  ) throws Exception
+public static Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb  ) throws Exception
 {
 
 	    JAXBContext jc = JAXBContext.newInstance(Betriebliste.class);
@@ -120,7 +120,7 @@ public Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb 
 
 @DELETE 
 @Path("/{Betriebs_ID}")
-   public Betriebliste loescheBetrieb(@PathParam("Betriebs_ID") int Betriebs_ID)throws JAXBException, FileNotFoundException{
+   public static Betriebliste loescheBetrieb(@PathParam("Betriebs_ID") int Betriebs_ID)throws JAXBException, FileNotFoundException{
 	JAXBContext context = JAXBContext.newInstance("generated");
 	Unmarshaller um = context.createUnmarshaller();
 	
@@ -130,12 +130,12 @@ public Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb 
 	ObjectFactory of = new ObjectFactory();
 	Betriebliste betrieb = of.createBetriebliste();
 	
-	// i-ten Betrieb aus Betriebliste löschen
+	// i-ten Betrieb aus Betriebliste l���schen
 	betrieb.getBetrieb().addAll(betriebe.getBetrieb());
 	betrieb.getBetrieb().remove(Betriebs_ID);
 	
 	
-	// Betriebliste "aktualisieren" und zurückgeben
+	// Betriebliste "aktualisieren" und zur���ckgeben
 	// Marshaller
 	Marshaller m = context.createMarshaller();
 	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);

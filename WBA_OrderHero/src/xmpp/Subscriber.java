@@ -26,7 +26,7 @@ public class Subscriber extends User{
 	}
 
 
-	void abonniereFisch() throws XMPPException{
+	public static void abonniereFisch() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
@@ -38,7 +38,7 @@ public class Subscriber extends User{
 
 		fisch.subscribe(jid);
 	}
-	void abonniereFleisch() throws XMPPException{
+	public static void abonniereFleisch() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
@@ -50,7 +50,7 @@ public class Subscriber extends User{
 
 		fleisch.subscribe(jid);
 	}
-	void abonniereGemuese() throws XMPPException{
+	public static void abonniereGemuese() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
@@ -64,7 +64,7 @@ public class Subscriber extends User{
 	}
 
 
-	public void deabonniereFisch() throws XMPPException {
+	public static void deabonniereFisch() throws XMPPException {
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
@@ -78,7 +78,7 @@ public class Subscriber extends User{
 
 	}
 
-	public void deabonniereFleisch() throws XMPPException {
+	public  static void deabonniereFleisch() throws XMPPException {
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
@@ -91,7 +91,7 @@ public class Subscriber extends User{
 		fleisch.unsubscribe(jid);
 
 	}
-	public void deabonniereGemuese() throws XMPPException {
+	public  static void deabonniereGemuese() throws XMPPException {
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
@@ -105,7 +105,7 @@ public class Subscriber extends User{
 
 	}
 
-	public Collection<? extends Item> leseFischNachrichten() throws XMPPException {
+	public  static  Collection<? extends Item> leseFischNachrichten() throws XMPPException {
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
@@ -116,7 +116,7 @@ public class Subscriber extends User{
 		return items;
 
 	}
-	public Collection<? extends Item> leseFleischNachrichten() throws XMPPException {
+	public static Collection<? extends Item> leseFleischNachrichten() throws XMPPException {
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
@@ -127,7 +127,7 @@ public class Subscriber extends User{
 		return items;
 
 	}
-	public Collection<? extends Item> leseGemueseNachrichten() throws XMPPException {
+	public static Collection<? extends Item> leseGemueseNachrichten() throws XMPPException {
 		// Create a pubsub manager using an existing Connection
 	    PubSubManager mgr = new PubSubManager(connection);
 
@@ -139,7 +139,7 @@ public class Subscriber extends User{
 
 	}
 
-	public DiscoverItems leseNodeInformationen() throws XMPPException{
+	public static DiscoverItems leseNodeInformationen() throws XMPPException{
 		ServiceDiscoveryManager discoManager = ServiceDiscoveryManager.getInstanceFor(connection);
 		DiscoverItems items=null;
 		items = discoManager.discoverItems("pubsub." + connection.getServiceName());

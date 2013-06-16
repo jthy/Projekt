@@ -5,10 +5,7 @@
 <xs:element name="Bestellung">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Bestellungs_ID" type ="xs:int"/>
-			<xs:element name="Lieferdatum" type="xs:date"/>
-			<xs:element ref="Person"/>
-			<xs:element ref="Betrieb"/>
+			<xs:element name="Bestellungs_ID" type="xs:int" maxOccurs="1" minOccurs="1"/>				<xs:element name="Lieferdatum" type="xs:date"/>
 			<xs:element ref="Person"/>
 			<xs:element ref="Betrieb"/>
 			<xs:element name="Anzahl" type="xs:int"/>

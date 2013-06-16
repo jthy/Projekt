@@ -6,8 +6,8 @@ package xmpp;
 
 	public class User {
 
-	    protected XMPPConnection connection;
-	    protected String jid;
+	    protected static XMPPConnection connection;
+	    protected static String jid;
 
 		 public void login(String userName, String password) throws XMPPException
 		    {

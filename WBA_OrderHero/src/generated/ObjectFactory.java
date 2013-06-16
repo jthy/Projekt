@@ -157,6 +157,10 @@ public class ObjectFactory {
      	return new Boerse();
      	
      }
+     
+     public Bestellungsliste createBestellungsliste(){
+    	 return new Bestellungsliste();
+     }
     
 
 

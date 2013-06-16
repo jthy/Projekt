@@ -31,7 +31,7 @@ import generated.ObjectFactory;
 
 	@GET
 	@Produces( "application/xml")
-	public Personenliste lesePersonen() throws JAXBException, FileNotFoundException{
+	public static Personenliste lesePersonen() throws JAXBException, FileNotFoundException{
 		ObjectFactory ob=new ObjectFactory();
 		Personenliste personen = ob.createPersonenliste();
 		JAXBContext context = JAXBContext.newInstance(Personenliste.class);
@@ -43,7 +43,7 @@ import generated.ObjectFactory;
 	@GET
 	@Path("/{Person_ID}")
 	@Produces( "application/xml")
-	public Personenliste lesePerson(@PathParam("Person_ID")int i) throws JAXBException, FileNotFoundException
+	public static Personenliste lesePerson(@PathParam("Person_ID")int i) throws JAXBException, FileNotFoundException
 	{
 		ObjectFactory ob=new ObjectFactory();
 		Personenliste person = ob.createPersonenliste();
@@ -59,7 +59,7 @@ import generated.ObjectFactory;
 	@POST
 	@Produces("application/xml")
 	@Consumes("application/xml")
-	public Response erstellePerson(Person person)  throws Exception
+	public static Response erstellePerson(Person person)  throws Exception
 		{
 		 JAXBContext jc = JAXBContext.newInstance(Personenliste.class);
 		    //unmarshaller zum lesen 
@@ -82,7 +82,7 @@ import generated.ObjectFactory;
 	@Path("/{Person_ID}")
 	@Produces("application/xml")
 	@Consumes("application/xml")
-	public Response personaendern(@PathParam("Person_ID") int id, Person person)  throws Exception
+	public static Response personaendern(@PathParam("Person_ID") int id, Person person)  throws Exception
 		{
 	    JAXBContext jc = JAXBContext.newInstance(Personenliste.class);
 	    //unmarshaller zum lesen 
@@ -119,7 +119,7 @@ import generated.ObjectFactory;
 	
 	@DELETE 
 	@Path("/{Person_ID}")
-	   public Personenliste personloeschen(@PathParam("Person_ID") int Person_ID)throws JAXBException, FileNotFoundException{
+	   public static Personenliste personloeschen(@PathParam("Person_ID") int Person_ID)throws JAXBException, FileNotFoundException{
 		JAXBContext context = JAXBContext.newInstance("generated");
 		Unmarshaller um = context.createUnmarshaller();
 		
@@ -129,15 +129,15 @@ import generated.ObjectFactory;
 		ObjectFactory of = new ObjectFactory();
 		Personenliste person = of.createPersonenliste();
 		
-		// i-ten Benutzer aus Personenliste lšschen
+		// i-ten Benutzer aus Personenliste lï¿½schen
 		person.getPerson().addAll(personen.getPerson());
 		person.getPerson().remove(Person_ID);
 		
-		// Personenliste "aktualisieren" und zurŸckgeben
+		// Personenliste "aktualisieren" und zurï¿½ckgeben
 		// Marshaller
 		Marshaller m = context.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-		m.marshal(person, new File("src/XML/Personenliste.xml"));
+		m.marshal(person, new File("src/Personenliste.xml"));
 
 		return person;
 	}

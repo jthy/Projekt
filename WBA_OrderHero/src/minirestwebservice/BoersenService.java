@@ -23,6 +23,7 @@ import javax.xml.bind.Unmarshaller;
 
 import generated.Boerse;
 import generated.Boerse.BoersenEintrag;
+import generated.Boerse.BoersenEintrag.Kommentare;
 import generated.ObjectFactory;
 
 
@@ -34,7 +35,7 @@ public class BoersenService
 @GET
 @Produces( "application/xml")
 
-public Boerse getBoerse() throws JAXBException, FileNotFoundException
+public static Boerse getBoerse() throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Boerse boe=ob.createBoerse();
@@ -49,7 +50,7 @@ public Boerse getBoerse() throws JAXBException, FileNotFoundException
 @GET
 @Path("/{BoerseneintragsID}")
 @Produces( "application/xml")
-public Boerse getEintrag(@PathParam("BoerseneintragsID")int i) throws JAXBException, FileNotFoundException
+public static Boerse getEintrag(@PathParam("BoerseneintragsID")int i) throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Boerse boe=ob.createBoerse();
@@ -63,8 +64,10 @@ public Boerse getEintrag(@PathParam("BoerseneintragsID")int i) throws JAXBExcept
 @POST
 @Produces("application/xml")
 @Consumes("application/xml")
-public Response erstelleEintrag(BoersenEintrag boersenEintrag)throws Exception
+public static Response erstelleEintrag(BoersenEintrag boersenEintrag)throws Exception
+
 		{
+	
 		 JAXBContext jc = JAXBContext.newInstance(Boerse.class);
 		    //unmarshaller zum lesen 
 		 Unmarshaller um = jc.createUnmarshaller();
@@ -81,13 +84,38 @@ public Response erstelleEintrag(BoersenEintrag boersenEintrag)throws Exception
 		   
 	    URI location = URI.create( "http://localhost:4433/boerse" + boersenEintrag.getBoerseneintragsID());
 	    return Response.created(location).build();
-		
+
+
 	}
+
+@POST
+@Path("/{BoerseneintragsID}")
+@Produces("application/xml")
+@Consumes("application/xml")
+public static Response erstelleKommentar(BoersenEintrag.Kommentare kommentar)throws Exception{
+
+JAXBContext jc = JAXBContext.newInstance(BoersenEintrag.class);
+//unmarshaller zum lesen 
+Unmarshaller um = jc.createUnmarshaller();
+//marshaller zum schreiben
+Marshaller marshaller =jc.createMarshaller();
+marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+BoersenEintrag eintrag = (BoersenEintrag) um.unmarshal(new FileInputStream("src/XML/BoersenEintrag.xml"));
+List<Boerse.BoersenEintrag.Kommentare> kom = eintrag.getKommentare();
+kommentar.setKommentarID(kom.size()+1);
+kom.add(kommentar);
+
+marshaller.marshal(eintrag, new File("src/XML/BoersenEintrag.xml"));
+
+URI location = URI.create( "http://localhost:4433/boerse/" + kommentar.getKommentarID());
+return Response.created(location).build();
+}
 
 
 @DELETE
 @Path("/{BoerseneintragsID}")
-public Boerse eintragloeschen(@PathParam("/{BoerseneintragsID}") int BoerseneintragsID)throws JAXBException, FileNotFoundException{
+public static Boerse eintragloeschen(@PathParam("/{BoerseneintragsID}") int BoerseneintragsID)throws JAXBException, FileNotFoundException{
 	JAXBContext context = JAXBContext.newInstance("generated");
 	Unmarshaller um = context.createUnmarshaller();
 	
@@ -97,15 +125,15 @@ public Boerse eintragloeschen(@PathParam("/{BoerseneintragsID}") int Boerseneint
 	ObjectFactory of = new ObjectFactory();
 	Boerse eintrag = of.createBoerse();
 	
-	// i-ten Eintrag aus Boerse lšschen
+	// i-ten Eintrag aus Boerse lï¿½schen
 	eintrag.getBoersenEintrag().addAll(eintraege.getBoersenEintrag());
 	eintrag.getBoersenEintrag().remove(BoerseneintragsID);
 	
-	// Boerse "aktualisieren" und zurŸckgeben
+	// Boerse "aktualisieren" und zurï¿½ckgeben
 	// Marshaller
 	Marshaller m = context.createMarshaller();
 	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-	m.marshal(eintrag, new File("src/XML/Personenliste.xml"));
+	m.marshal(eintrag, new File("src/Personenliste.xml"));
 
 	return eintrag;
 }
