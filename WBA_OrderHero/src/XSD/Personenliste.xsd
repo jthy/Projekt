@@ -4,7 +4,7 @@
 <xs:complexType>
 <xs:sequence>
 
-<xs:element name="Person" maxOccurs="unbounded" minOccurs="1">
+<xs:element name="Person" maxOccurs="unbounded" minOccurs="0">
 		<xs:complexType>
 		<xs:sequence>
 		<xs:element name="Person_ID" type="xs:int" minOccurs="1" maxOccurs="1"/>

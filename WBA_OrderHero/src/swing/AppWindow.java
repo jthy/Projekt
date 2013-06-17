@@ -394,98 +394,104 @@ public void BestellungSend() throws FileNotFoundException, JAXBException
 	}*/
 	}
 
-private void Boerse() {
-								//Allgemeines
-										this.setTitle("OrderHero: Boerse");
-										this.setResizable(false);
-								// Instanzieren:
-										tfBoersenEintragsID = new JTextField();
-								//Instanziere Radio-Buttons
-										rbGet = new JRadioButton();
-										rbGet.setSelected(true);
-										rbGetOne = new JRadioButton();
-										rbPost = new JRadioButton();
-										rbPostKommentar = new JRadioButton();
-										rbDelete = new JRadioButton();
-										rbPublish = new JRadioButton();
-										rbSubscribe = new JRadioButton();
-								//Instanziere Senden-Button
-										btnBoerseSend = new JButton("Send");
-										btnBoerseSend.addActionListener(new ActionListener() {
+private void Boerse() {				
+	//Allgemeines
+	this.setTitle("OrderHero: Boerse");
+	this.setResizable(false);
+	// Instanzieren
+	tfBoersenEintragsID = new JTextField();
+	//Instanziere Radio-Buttons
+	rbGet = new JRadioButton();
+	rbGet.setSelected(true);
+	rbGetOne = new JRadioButton();
+	rbPost = new JRadioButton();
+	rbPostKommentar = new JRadioButton();
+	rbDelete = new JRadioButton();
+	rbPublish = new JRadioButton();
+	rbSubscribe = new JRadioButton();
+	//Instanziere Senden-Button
+	btnBoerseSend = new JButton("Send");	
+	btnBoerseSend.addActionListener(new ActionListener() {
 
-											public void actionPerformed(ActionEvent arg0) {
-												// TODO Auto-generated method stub
-													try {
-														BestellungSend();
-													} catch (FileNotFoundException e) {
-														// TODO Auto-generated catch block
-														e.printStackTrace();
-													} catch (JAXBException e) {
-														// TODO Auto-generated catch block
-														e.printStackTrace();
-													}
-											}});
-
-										// Positionen festlegen
-										rbGet.setBounds(5,10,400,25);
-										rbGetOne.setBounds(5,40,400,25);
-										rbPost.setBounds(5,70,400,25);
-										rbPostKommentar.setBounds(5,100,400,25);
-										rbDelete.setBounds(5,130,400,25);
-										rbPublish.setBounds(5,160,400,25);
-										rbSubscribe.setBounds(5,190,400,25);
-										tfBoersenEintragsID.setBounds(5,220,400,25);
-										btnBoerseSend.setBounds(5,250,200,30);
-								     	
-										// Elemente dem Fenster hinzufügen:
-										this.getContentPane().add(rbGet);
-										this.getContentPane().add(rbGetOne);
-										this.getContentPane().add(rbPost);
-										this.getContentPane().add(rbPostKommentar);
-										this.getContentPane().add(rbDelete);
-										this.getContentPane().add(rbPublish);
-										this.getContentPane().add(rbSubscribe);
-										this.getContentPane().add(btnBoerseSend);
-										this.getContentPane().add(tfBoersenEintragsID);
-										this.pack();
-
-										try {
-											Client.connect();
-										} catch (XMPPException e) {
-											// TODO Auto-generated catch block
-											System.out.println("Fehler beim Verbindungsaufbau.");
-										}
-									}
-		public void BoerseSend() throws FileNotFoundException, JAXBException
-										{
-											int BoersenEintragsID = 0;
-											try {
-												BoersenEintragsID = Integer.parseInt(tfBoersenEintragsID.getText());
-											} catch (NumberFormatException e) {
-											// Fehlerbehandlung
-											}
-										if(rbGetOne.isSelected()){
-											BoersenService.getEintrag(BoersenEintragsID);
-										}
-										else if(rbGet.isSelected()){
-											BoersenService.getBoerse();
-										}
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			try {
+				BestellungSend();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JAXBException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();	
+			}
+		}});
+	
+	// Positionen festlegen
+	rbGet.setBounds(5,10,400,25);
+	rbGetOne.setBounds(5,40,400,25);
+	rbPost.setBounds(5,70,400,25);
+	rbPostKommentar.setBounds(5,100,400,25);
+	rbDelete.setBounds(5,130,400,25);
+	rbPublish.setBounds(5,160,400,25);
+	rbSubscribe.setBounds(5,190,400,25);
+	tfBoersenEintragsID.setBounds(5,220,400,25);
+	btnBoerseSend.setBounds(5,250,200,30);
+	
+	
+	// Elemente dem Fenster hinzufügen:
+	this.getContentPane().add(rbGet);
+	this.getContentPane().add(rbGetOne);
+	this.getContentPane().add(rbPost);
+	this.getContentPane().add(rbPostKommentar);
+	this.getContentPane().add(rbDelete);
+	this.getContentPane().add(rbPublish);
+	this.getContentPane().add(rbSubscribe);
+	this.getContentPane().add(btnBoerseSend);
+	this.getContentPane().add(tfBoersenEintragsID);
+	this.pack();
+	
+	try {
+		Client.connect();
+	} catch (XMPPException e) {
+		// TODO Auto-generated catch block
+		System.out.println("Fehler beim Verbindungsaufbau.");	
+	}	
+}
+public void BoerseSend() throws FileNotFoundException, JAXBException
+{
+	int BoersenEintragsID = 0;
+	try {
+		BoersenEintragsID = Integer.parseInt(tfBoersenEintragsID.getText());
+	} catch (NumberFormatException e) {
+		// Fehlerbehandlung	
+	}
+	if(rbGetOne.isSelected()){
+		BoersenService.getEintrag(BoersenEintragsID);	
+	}
+	else if(rbGet.isSelected()){
+		BoersenService.getBoerse();	
+	}
 										/*else if(rbPost.isSelected()){
+	
 											BoersenService.erstelleEintrag(boersenEintrag);
 										}
+										
+										
 										else if(rbPostKommentar.isSelected()){
+										
 											BoersenService.erstelleKommentar(kommentar);
 										}*/
-										else if(rbDelete.isSelected()){
-											BoersenService.eintragloeschen(BoersenEintragsID);
-										}
-										else if(rbPublish.isSelected()){
-											this.Publisher();
-										}
-										else if(rbSubscribe.isSelected()){
-											this.Subscriber();
-										}
-							}
+	
+	else if(rbDelete.isSelected()){
+		BoersenService.eintragloeschen(BoersenEintragsID);	
+	}
+	else if(rbPublish.isSelected()){
+		this.Publisher();	
+	}
+	else if(rbSubscribe.isSelected()){
+		this.Subscriber();	
+	}	
+}
 
 private void Subscriber(){
 	//Allgemeines

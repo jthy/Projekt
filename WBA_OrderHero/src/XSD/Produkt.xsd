@@ -4,7 +4,7 @@
 <xs:element name="Produkt">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Produkt_ID" type="xs:int"/>
+						<xs:element name="Produkt_ID" type="xs:int" minOccurs="1" maxOccurs="1"/>
 						<xs:element name="Produktangaben">	
 							<xs:complexType>
 								<xs:sequence> 

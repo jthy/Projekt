@@ -59,23 +59,23 @@ public class Test {
 					System.out.println("	Abonnenten");
 				 String input2= "";
 				 if(input2.equals("Node erstellen")){
-					 publisher.erstelleFischNode();
+					 Publisher.erstelleFischNode();
 					 System.out.println("\"Fisch\"-Node wurde erstellt");
 				 }
 				 else if(input2.equals("Node löschen")) {
-					 publisher.loescheFischNode();
+					 Publisher.loescheFischNode();
 					 System.out.println("\"Fisch\"-Node wurde gelöscht");
 				 }
 				 else if(input2.equals("Publish ohne Payload")) {
-					 publisher.veroeffentlicheFisch();
+					 Publisher.veroeffentlicheFisch();
 					 System.out.println("\"Fisch\"-Node enthält eine neue Nachricht.");
 				 }
 				 else if(input2.equals("Publish mit Payload")){
-					 publisher.veroeffentlicheFischmitPayload();
+					 Publisher.veroeffentlicheFischmitPayload();
 					 System.out.println("\"Fisch\"-Node enthält eine neue Nachricht mit Payload.");
 				 }
 				 else if(input2.equals("Abonnenten")){
-					 List<Subscription> subscriptions = publisher.leseFischAbonennten();
+					 List<Subscription> subscriptions = Publisher.leseFischAbonennten();
 					 for(Subscription each:subscriptions)
 						 System.out.println(each.getJid()+ " "+each.getElementName());
 				 }
@@ -89,23 +89,23 @@ public class Test {
 					System.out.println("	Abonnenten");
 				 String input3= "";
 				 if(input3.equals("Node erstellen")){
-					 publisher.erstelleFleischNode();
+					 Publisher.erstelleFleischNode();
 					 System.out.println("\"Fleisch\"-Node wurde erstellt");
 				 }
 				 else if(input3.equals("Node löschen")) {
-					 publisher.loescheFleischNode();
+					 Publisher.loescheFleischNode();
 					 System.out.println("\"Fleisch\"-Node wurde gelöscht");
 				 }
 				 else if(input3.equals("Publish ohne Payload")) {
-					 publisher.veroeffentlicheFleisch();
+					 Publisher.veroeffentlicheFleisch();
 					 System.out.println("\"Fleisch\"-Node enthält eine neue Nachricht.");
 				 }
 				 else if(input3.equals("Publish mit Payload")){
-					 publisher.veroeffentlicheFleischmitPayload();
+					 Publisher.veroeffentlicheFleischmitPayload();
 					 System.out.println("\"Fisch\"-Node enthält eine neue Nachricht mit Payload.");
 				 }
 				 else if(input3.equals("Abonnenten")){
-					 List<Subscription> subscriptions = publisher.leseFleischAbonennten();
+					 List<Subscription> subscriptions = Publisher.leseFleischAbonennten();
 					 for(Subscription each:subscriptions)
 						 System.out.println(each.getJid()+ " "+each.getElementName());
 				 }

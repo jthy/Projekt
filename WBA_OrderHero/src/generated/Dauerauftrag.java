@@ -66,7 +66,7 @@ public class Dauerauftrag {
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar ende;
     @XmlElement(name = "Regelmae\u00dfigkeit", required = true)
-    protected String regelmaeÃŸigkeit;
+    protected String regelmae§igkeit;
 
     /**
      * Gets the value of the bestellung property.
@@ -148,8 +148,8 @@ public class Dauerauftrag {
      *     {@link String }
      *     
      */
-    public String getRegelmaeÃŸigkeit() {
-        return regelmaeÃŸigkeit;
+    public String getRegelmae§igkeit() {
+        return regelmae§igkeit;
     }
 
     /**
@@ -160,8 +160,8 @@ public class Dauerauftrag {
      *     {@link String }
      *     
      */
-    public void setRegelmaeÃŸigkeit(String value) {
-        this.regelmaeÃŸigkeit = value;
+    public void setRegelmae§igkeit(String value) {
+        this.regelmae§igkeit = value;
     }
 
 }

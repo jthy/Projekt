@@ -35,7 +35,7 @@ public class BoersenService
 @GET
 @Produces( "application/xml")
 
-public static Boerse getBoerse() throws JAXBException, FileNotFoundException
+public Boerse getBoerse() throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Boerse boe=ob.createBoerse();
@@ -50,7 +50,7 @@ public static Boerse getBoerse() throws JAXBException, FileNotFoundException
 @GET
 @Path("/{BoerseneintragsID}")
 @Produces( "application/xml")
-public static Boerse getEintrag(@PathParam("BoerseneintragsID")int i) throws JAXBException, FileNotFoundException
+public Boerse getEintrag(@PathParam("BoerseneintragsID")int i) throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Boerse boe=ob.createBoerse();
@@ -64,7 +64,7 @@ public static Boerse getEintrag(@PathParam("BoerseneintragsID")int i) throws JAX
 @POST
 @Produces("application/xml")
 @Consumes("application/xml")
-public static Response erstelleEintrag(BoersenEintrag boersenEintrag)throws Exception
+public Response erstelleEintrag(BoersenEintrag boersenEintrag)throws Exception
 
 		{
 	
@@ -92,7 +92,7 @@ public static Response erstelleEintrag(BoersenEintrag boersenEintrag)throws Exce
 @Path("/{BoerseneintragsID}")
 @Produces("application/xml")
 @Consumes("application/xml")
-public static Response erstelleKommentar(BoersenEintrag.Kommentare kommentar)throws Exception{
+public Response erstelleKommentar(BoersenEintrag.Kommentare kommentar)throws Exception{
 
 JAXBContext jc = JAXBContext.newInstance(BoersenEintrag.class);
 //unmarshaller zum lesen 
@@ -115,7 +115,7 @@ return Response.created(location).build();
 
 @DELETE
 @Path("/{BoerseneintragsID}")
-public static Boerse eintragloeschen(@PathParam("/{BoerseneintragsID}") int BoerseneintragsID)throws JAXBException, FileNotFoundException{
+public Boerse eintragloeschen(@PathParam("/{BoerseneintragsID}") int BoerseneintragsID)throws JAXBException, FileNotFoundException{
 	JAXBContext context = JAXBContext.newInstance("generated");
 	Unmarshaller um = context.createUnmarshaller();
 	

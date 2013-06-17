@@ -26,7 +26,7 @@ public class BetriebService {
 @GET
 @Produces("application/xml")
 
-public static Betriebliste leseBetriebe() throws JAXBException, FileNotFoundException
+public Betriebliste leseBetriebe() throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Betriebliste betriebe = ob.createBetriebliste();
@@ -39,7 +39,7 @@ public static Betriebliste leseBetriebe() throws JAXBException, FileNotFoundExce
 @GET
 @Path("/{Betriebs_ID}")
 @Produces("application/xml")
-public static Betriebliste leseBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBException, FileNotFoundException
+public Betriebliste leseBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Betriebliste betriebe = ob.createBetriebliste();
@@ -54,7 +54,7 @@ public static Betriebliste leseBetrieb(@PathParam("Betriebs_ID")int i) throws JA
 @POST 
 @Produces("application/xml")
 @Consumes("application/xml")
-public static Response erstelleBetrieb ( Betrieb betrieb ) throws Exception
+public Response erstelleBetrieb ( Betrieb betrieb ) throws Exception
 {
 
 	    JAXBContext jc = JAXBContext.newInstance(Betriebliste.class);
@@ -83,7 +83,7 @@ public static Response erstelleBetrieb ( Betrieb betrieb ) throws Exception
 @Path( "/{BetriebsID}" )
 @Produces("application/xml")
 @Consumes("application/xml")
-public static Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb  ) throws Exception
+public Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb  ) throws Exception
 {
 
 	    JAXBContext jc = JAXBContext.newInstance(Betriebliste.class);
@@ -120,7 +120,7 @@ public static Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb b
 
 @DELETE 
 @Path("/{Betriebs_ID}")
-   public static Betriebliste loescheBetrieb(@PathParam("Betriebs_ID") int Betriebs_ID)throws JAXBException, FileNotFoundException{
+   public Betriebliste loescheBetrieb(@PathParam("Betriebs_ID") int Betriebs_ID)throws JAXBException, FileNotFoundException{
 	JAXBContext context = JAXBContext.newInstance("generated");
 	Unmarshaller um = context.createUnmarshaller();
 	

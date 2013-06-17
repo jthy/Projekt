@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-<xs:element name="Produkte">
+<xs:element name="Produktliste">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element ref="Produkt"/>
+			<xs:element name="Produkt">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Produkt_ID" type="xs:int" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Produktangaben">	
+							<xs:complexType>
+								<xs:sequence> 
+									<xs:element name="Produktname" type="xs:string" />
+									<xs:element name="Preis_in_Euro" type="xs:float" />
+									<xs:element name="Beschreibung" type="xs:string" />
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+</xs:element>
 			<xs:element name="Verfuegbarkeit">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -13,44 +28,13 @@
 					</xs:restriction>
 				</xs:simpleType>                         
 			</xs:element>
-			<xs:element ref="Person"/>
-		</xs:sequence>
-	</xs:complexType>
-</xs:element> 
-
-
-<!-- Definitionen -->				
-<xs:element name="Produkt">
+			<!--  Angaben zum Lieferanten,bei dem man Produkt bestellen kann -->
+			<xs:element name="Person">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Produkt_ID" type="xs:int"/>
-			<xs:element name="Produktangaben">	
-				<xs:complexType>
-					<xs:sequence> 
-						<xs:element name="Produktname" type="xs:string" />
-						<xs:element name="Preis_in_Euro" type="xs:float" />
-						<xs:element name="Beschreibung" type="xs:string" />
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-</xs:element>
-
-<xs:element name="Person">
-	<xs:complexType>
-		<xs:sequence>
-			<xs:element name="Typ">
-	 			<xs:simpleType>
-			    	<xs:restriction base="xs:string">
-			      		<xs:enumeration value="Gastronom" />
-			      		<xs:enumeration value="Lieferant" />
-			   		</xs:restriction>
-	  			</xs:simpleType>
-	  		</xs:element>
 			<xs:element name="Vorname" type="xs:string" />
 			<xs:element name="Nachname" type="xs:string"/>
-			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
+			<!-- Lieferant muss über 18 sein um Käufe abzuwickeln -->
 			<xs:element name="Alter">
 				<xs:simpleType>
 					<xs:restriction base="xs:int">
@@ -63,7 +47,14 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
-			
+		</xs:sequence>
+	</xs:complexType>
+</xs:element> 
+
+
+<!-- Definitionen -->				
+
+		
 <xs:element name="Betrieb">
 				<xs:complexType>
 					<xs:sequence>
