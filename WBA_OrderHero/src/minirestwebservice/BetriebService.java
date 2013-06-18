@@ -22,6 +22,7 @@ import generated.ObjectFactory;
 @Path("/betriebe")
 public class BetriebService {
 
+String pfad ="src/XML/Betriebliste.xml";
 
 @GET
 @Produces("application/xml")
@@ -32,7 +33,7 @@ public Betriebliste leseBetriebe() throws JAXBException, FileNotFoundException
 	Betriebliste betriebe = ob.createBetriebliste();
 	JAXBContext context = JAXBContext.newInstance(Betriebliste.class);
 	Unmarshaller um = context.createUnmarshaller();
-	betriebe = ( Betriebliste ) um.unmarshal(new FileReader("src/XML/Betriebliste.xml"));
+	betriebe = ( Betriebliste ) um.unmarshal(new FileReader(pfad));
 	return betriebe;	
 }
 
@@ -45,7 +46,7 @@ public Betriebliste leseBetrieb(@PathParam("Betriebs_ID")int i) throws JAXBExcep
 	Betriebliste betriebe = ob.createBetriebliste();
 	JAXBContext context = JAXBContext.newInstance(Betriebliste.class);
 	Unmarshaller um = context.createUnmarshaller();
-	betriebe = ( Betriebliste ) um.unmarshal(new FileReader("src/XML/Betriebliste.xml"));
+	betriebe = ( Betriebliste ) um.unmarshal(new FileReader(pfad));
 	Betriebliste rt = ob.createBetriebliste();
 	rt.getBetrieb().add(betriebe.getBetrieb().get(i-1));
 	return rt;
@@ -64,7 +65,7 @@ public Response erstelleBetrieb ( Betrieb betrieb ) throws Exception
 	    Marshaller marshaller =jc.createMarshaller();
 	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-	    Betriebliste betriebe = (Betriebliste) um.unmarshal(new FileInputStream("src/XML/Betriebliste.xml"));
+	    Betriebliste betriebe = (Betriebliste) um.unmarshal(new FileInputStream(pfad));
 
 	    List<Betrieb> betriebliste = betriebe.getBetrieb();
 
@@ -72,7 +73,7 @@ public Response erstelleBetrieb ( Betrieb betrieb ) throws Exception
 		
 	 	betriebliste.add( betrieb );
 
-	    marshaller.marshal(betriebe, new File("src/XML/Betriebliste.xml"));
+	    marshaller.marshal(betriebe, new File(pfad));
 	   
 	    URI location = URI.create( "http://localhost:4433/betriebe" + betrieb.getBetriebsID() );
 	    return Response.created(location).build();
@@ -93,7 +94,7 @@ public Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb 
 	    Marshaller marshaller =jc.createMarshaller();
 	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-	    Betriebliste betriebe = (Betriebliste) um.unmarshal(new FileInputStream("src/XML/Betriebliste.xml"));
+	    Betriebliste betriebe = (Betriebliste) um.unmarshal(new FileInputStream(pfad));
 	    
 	    List<Betrieb> betriebliste = betriebe.getBetrieb();
 	    //wenn id nicht vergeben ist wird betrieb erst erstellt!
@@ -112,7 +113,7 @@ public Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb 
 	    }
 	    
 
-	    marshaller.marshal(betriebe, new File("src/XML/Betriebliste.xml"));
+	    marshaller.marshal(betriebe, new File(pfad));
 
 	    URI location = URI.create( "http://localhost:4433/betriebe" + betrieb.getBetriebsID() );
 	    return Response.created(location).build(); 
@@ -124,7 +125,7 @@ public Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb 
 	JAXBContext context = JAXBContext.newInstance("generated");
 	Unmarshaller um = context.createUnmarshaller();
 	
-	Betriebliste betriebe = (Betriebliste) um.unmarshal( new FileReader("src/XML/Betriebliste.xml"));
+	Betriebliste betriebe = (Betriebliste) um.unmarshal( new FileReader(pfad));
 
 	//Betriebliste in Betrieb kopieren
 	ObjectFactory of = new ObjectFactory();
@@ -139,7 +140,7 @@ public Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb 
 	// Marshaller
 	Marshaller m = context.createMarshaller();
 	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-	m.marshal(betrieb, new File("src/XML/Betriebliste.xml"));
+	m.marshal(betrieb, new File(pfad));
 
 	return betrieb;
 }

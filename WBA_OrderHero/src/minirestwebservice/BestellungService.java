@@ -23,30 +23,32 @@ import generated.ObjectFactory;
 	@Path("/bestellungen")
 	public class BestellungService {
 	
-
+	String pfad ="src/XML/Bestellungsliste.xml ";
+	
+	
 	@GET
 	@Produces("application/xml")
 
-	public static Bestellungsliste leseBestellungen() throws JAXBException, FileNotFoundException
+	public Bestellungsliste leseBestellungen() throws JAXBException, FileNotFoundException
 	{
 		ObjectFactory ob=new ObjectFactory();
 		Bestellungsliste bestellungen = ob.createBestellungsliste();
 		JAXBContext context = JAXBContext.newInstance(Bestellungsliste.class);
 		Unmarshaller um = context.createUnmarshaller();
-		bestellungen = ( Bestellungsliste ) um.unmarshal(new FileReader("src/XML/Bestellungsliste.xml"));
+		bestellungen = ( Bestellungsliste ) um.unmarshal(new FileReader(pfad));
 		return bestellungen;	
 	}
 
 	@GET
 	@Path("/{Bestellungs_ID}")
 	@Produces("application/xml")
-	public static Bestellungsliste leseBestellung(@PathParam("Bestellungs_ID")int i) throws JAXBException, FileNotFoundException
+	public Bestellungsliste leseBestellung(@PathParam("Bestellungs_ID")int i) throws JAXBException, FileNotFoundException
 	{
 		ObjectFactory ob=new ObjectFactory();
 		Bestellungsliste bestellungen = ob.createBestellungsliste();
 		JAXBContext context = JAXBContext.newInstance(Bestellungsliste.class);
 		Unmarshaller um = context.createUnmarshaller();
-		bestellungen = ( Bestellungsliste ) um.unmarshal(new FileReader("src/XML/Bestellungsliste.xml"));
+		bestellungen = ( Bestellungsliste ) um.unmarshal(new FileReader(pfad));
 		Bestellungsliste bl = ob.createBestellungsliste();
 		bl.getBestellung().add(bestellungen.getBestellung().get(i-1));
 		return bl;
@@ -55,7 +57,7 @@ import generated.ObjectFactory;
 	@POST 
 	@Produces("application/xml")
 	@Consumes("application/xml")
-	public static Response erstelleBestellung ( Bestellung bestellung ) throws Exception
+	public Response erstelleBestellung ( Bestellung bestellung ) throws Exception
 	{
 
 		    JAXBContext jc = JAXBContext.newInstance(Bestellungsliste.class);
@@ -65,7 +67,7 @@ import generated.ObjectFactory;
 		    Marshaller marshaller =jc.createMarshaller();
 		    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-		    Bestellungsliste bestellungen = (Bestellungsliste) um.unmarshal(new FileInputStream("src/XML/Bestellungsliste.xml"));
+		    Bestellungsliste bestellungen = (Bestellungsliste) um.unmarshal(new FileInputStream(pfad));
 
 		    List<Bestellung> bestellungsliste = bestellungen.getBestellung();
 
@@ -73,7 +75,7 @@ import generated.ObjectFactory;
 			
 		 	bestellungsliste.add( bestellung );
 
-		    marshaller.marshal(bestellungen, new File("src/XML/Bestellungsliste.xml"));
+		    marshaller.marshal(bestellungen, new File(pfad));
 		   
 		    URI location = URI.create( "http://localhost:4433/bestellungen" + bestellung.getBestellungsID() );
 		    return Response.created(location).build();

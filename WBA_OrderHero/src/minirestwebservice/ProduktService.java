@@ -24,30 +24,31 @@ import generated.Produktliste;
 @Path("/produkte")
 public class ProduktService {
 
+String pfad = "src/XML/Produktliste.xml";
 
 @GET
 @Produces("application/xml")
 
-public static Produktliste leseProdukte() throws JAXBException, FileNotFoundException
+public Produktliste leseProdukte() throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Produktliste produkte = ob.createProduktliste();
 	JAXBContext context = JAXBContext.newInstance(Produktliste.class);
 	Unmarshaller um = context.createUnmarshaller();
-	produkte = ( Produktliste ) um.unmarshal(new FileReader("src/XML/Produktliste.xml"));
+	produkte = ( Produktliste ) um.unmarshal(new FileReader(pfad));
 	return produkte;	
 }
 
 @GET
 @Path("/{Produkt_ID}")
 @Produces("application/xml")
-public static Produktliste leseProdukt(@PathParam("Produkt_ID")int i) throws JAXBException, FileNotFoundException
+public Produktliste leseProdukt(@PathParam("Produkt_ID")int i) throws JAXBException, FileNotFoundException
 {
 	ObjectFactory ob=new ObjectFactory();
 	Produktliste produkte = ob.createProduktliste();
 	JAXBContext context = JAXBContext.newInstance(Betriebliste.class);
 	Unmarshaller um = context.createUnmarshaller();
-	produkte = ( Produktliste ) um.unmarshal(new FileReader("src/XML/Produktliste.xml"));
+	produkte = ( Produktliste ) um.unmarshal(new FileReader(pfad));
 	Produktliste proli = ob.createProduktliste();
 	proli.getProdukt().add(produkte.getProdukt().get(i-1));
 	return proli;
@@ -56,7 +57,7 @@ public static Produktliste leseProdukt(@PathParam("Produkt_ID")int i) throws JAX
 @POST 
 @Produces("application/xml")
 @Consumes("application/xml")
-public static Response erstelleProdukt( Produkt produkt ) throws Exception
+public Response erstelleProdukt( Produkt produkt ) throws Exception
 {
 
 	    JAXBContext jc = JAXBContext.newInstance(Produktliste.class);
@@ -66,7 +67,7 @@ public static Response erstelleProdukt( Produkt produkt ) throws Exception
 	    Marshaller marshaller =jc.createMarshaller();
 	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-	    Produktliste produkte = (Produktliste) um.unmarshal(new FileInputStream("src/XML/Produktliste.xml"));
+	    Produktliste produkte = (Produktliste) um.unmarshal(new FileInputStream(pfad));
 
 	    List<Produkt> produktliste = produkte.getProdukt();
 
@@ -74,7 +75,7 @@ public static Response erstelleProdukt( Produkt produkt ) throws Exception
 		
 	 	produktliste.add( produkt );
 
-	    marshaller.marshal(produkte, new File("src/XML/Produktliste.xml"));
+	    marshaller.marshal(produkte, new File(pfad));
 	   
 	    URI location = URI.create( "http://localhost:4433/produkte" + produkt.getProduktID() );
 	    return Response.created(location).build();
@@ -85,7 +86,7 @@ public static Response erstelleProdukt( Produkt produkt ) throws Exception
 @Path( "/{ProduktID}" )
 @Produces("application/xml")
 @Consumes("application/xml")
-public static Response aenderProdukt( @PathParam("ProduktID") int id, Produkt produkt  ) throws Exception
+public Response aenderProdukt( @PathParam("ProduktID") int id, Produkt produkt  ) throws Exception
 {
 
 	    JAXBContext jc = JAXBContext.newInstance(Produktliste.class);
@@ -95,7 +96,7 @@ public static Response aenderProdukt( @PathParam("ProduktID") int id, Produkt pr
 	    Marshaller marshaller =jc.createMarshaller();
 	    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-	    Produktliste produkte = (Produktliste) um.unmarshal(new FileInputStream("src/XML/Produktliste.xml"));
+	    Produktliste produkte = (Produktliste) um.unmarshal(new FileInputStream(pfad));
 	    
 	    List<Produkt> produktliste = produkte.getProdukt();
 	    //wenn id nicht vergeben ist wird betrieb erst erstellt!
@@ -114,7 +115,7 @@ public static Response aenderProdukt( @PathParam("ProduktID") int id, Produkt pr
 	    }
 	    
 
-	    marshaller.marshal(produkte, new File("src/XML/Produktliste.xml"));
+	    marshaller.marshal(produkte, new File(pfad));
 
 	    URI location = URI.create( "http://localhost:4433/produkte" + produkt.getProduktID() );
 	    return Response.created(location).build(); 
@@ -122,27 +123,27 @@ public static Response aenderProdukt( @PathParam("ProduktID") int id, Produkt pr
 
 @DELETE 
 @Path("/{Produkt_ID}")
-   public static Produktliste loescheProdukt(@PathParam("Produkt_ID") int Produkt_ID)throws JAXBException, FileNotFoundException
+   public Produktliste loescheProdukt(@PathParam("Produkt_ID") int Produkt_ID)throws JAXBException, FileNotFoundException
    {
 	JAXBContext context = JAXBContext.newInstance("generated");
 	Unmarshaller um = context.createUnmarshaller();
 	
-	Produktliste produkte = (Produktliste) um.unmarshal( new FileReader("src/XML/Produktliste.xml"));
+	Produktliste produkte = (Produktliste) um.unmarshal( new FileReader(pfad));
 
 	//Betriebliste in Betrieb kopieren
 	ObjectFactory of = new ObjectFactory();
 	Produktliste produkt = of.createProduktliste();
 	
-	// i-ten Betrieb aus Betriebliste l���schen
+	// i-ten Betrieb aus Betriebliste l���������schen
 	produkt.getProdukt().addAll(produkte.getProdukt());
 	produkt.getProdukt().remove(Produkt_ID);
 	
 	
-	// Betriebliste "aktualisieren" und zur���ckgeben
+	// Betriebliste "aktualisieren" und zur���������ckgeben
 	// Marshaller
 	Marshaller m = context.createMarshaller();
 	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-	m.marshal(produkt, new File("src/XML/Produktliste.xml"));
+	m.marshal(produkt, new File(pfad));
 
 	return produkt;
 }

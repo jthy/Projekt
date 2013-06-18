@@ -23,7 +23,6 @@ import javax.xml.bind.Unmarshaller;
 
 import generated.Boerse;
 import generated.Boerse.BoersenEintrag;
-import generated.Boerse.BoersenEintrag.Kommentare;
 import generated.ObjectFactory;
 
 
@@ -32,6 +31,8 @@ import generated.ObjectFactory;
 public class BoersenService 
 {
 
+String pfad ="src/XML/Boerse.xml";
+	
 @GET
 @Produces( "application/xml")
 
@@ -41,7 +42,7 @@ public Boerse getBoerse() throws JAXBException, FileNotFoundException
 	Boerse boe=ob.createBoerse();
 	JAXBContext context = JAXBContext.newInstance(Boerse.class);
 	Unmarshaller um = context.createUnmarshaller();
-	boe = ( Boerse ) um.unmarshal(new FileReader("src/XML/Boerse.xml"));
+	boe = ( Boerse ) um.unmarshal(new FileReader(pfad));
 	
 	return boe;
 	
@@ -56,7 +57,7 @@ public Boerse getEintrag(@PathParam("BoerseneintragsID")int i) throws JAXBExcept
 	Boerse boe=ob.createBoerse();
 	JAXBContext context = JAXBContext.newInstance(Boerse.class);
 	Unmarshaller um = context.createUnmarshaller();
-	boe = (Boerse) um.unmarshal(new FileReader("src/XML/Boerse.xml"));
+	boe = (Boerse) um.unmarshal(new FileReader(pfad));
 	Boerse rt = ob.createBoerse();
 	rt.getBoersenEintrag().add(boe.getBoersenEintrag().get(i-1));
 	return rt;
@@ -65,9 +66,7 @@ public Boerse getEintrag(@PathParam("BoerseneintragsID")int i) throws JAXBExcept
 @Produces("application/xml")
 @Consumes("application/xml")
 public Response erstelleEintrag(BoersenEintrag boersenEintrag)throws Exception
-
 		{
-	
 		 JAXBContext jc = JAXBContext.newInstance(Boerse.class);
 		    //unmarshaller zum lesen 
 		 Unmarshaller um = jc.createUnmarshaller();
@@ -75,42 +74,17 @@ public Response erstelleEintrag(BoersenEintrag boersenEintrag)throws Exception
 		 Marshaller marshaller =jc.createMarshaller();
 		 marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 		
-		Boerse boe = (Boerse) um.unmarshal(new FileInputStream("src/XML/Boerse.xml"));
+		Boerse boe = (Boerse) um.unmarshal(new FileInputStream(pfad));
 		List<Boerse.BoersenEintrag> boerse = boe.getBoersenEintrag();
 		boersenEintrag.setBoerseneintragsID(boerse.size()+1);
 		boerse.add(boersenEintrag);
 		
-		marshaller.marshal(boe, new File("src/XML/Boerse.xml"));
+		marshaller.marshal(boe, new File(pfad));
 		   
 	    URI location = URI.create( "http://localhost:4433/boerse" + boersenEintrag.getBoerseneintragsID());
 	    return Response.created(location).build();
-
-
+		
 	}
-
-@POST
-@Path("/{BoerseneintragsID}")
-@Produces("application/xml")
-@Consumes("application/xml")
-public Response erstelleKommentar(BoersenEintrag.Kommentare kommentar)throws Exception{
-
-JAXBContext jc = JAXBContext.newInstance(BoersenEintrag.class);
-//unmarshaller zum lesen 
-Unmarshaller um = jc.createUnmarshaller();
-//marshaller zum schreiben
-Marshaller marshaller =jc.createMarshaller();
-marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-
-BoersenEintrag eintrag = (BoersenEintrag) um.unmarshal(new FileInputStream("src/XML/BoersenEintrag.xml"));
-List<Boerse.BoersenEintrag.Kommentare> kom = eintrag.getKommentare();
-kommentar.setKommentarID(kom.size()+1);
-kom.add(kommentar);
-
-marshaller.marshal(eintrag, new File("src/XML/BoersenEintrag.xml"));
-
-URI location = URI.create( "http://localhost:4433/boerse/" + kommentar.getKommentarID());
-return Response.created(location).build();
-}
 
 
 @DELETE
@@ -119,7 +93,7 @@ public Boerse eintragloeschen(@PathParam("/{BoerseneintragsID}") int Boerseneint
 	JAXBContext context = JAXBContext.newInstance("generated");
 	Unmarshaller um = context.createUnmarshaller();
 	
-	Boerse eintraege = (Boerse) um.unmarshal(new FileReader("src/XML/Personenliste.xml"));
+	Boerse eintraege = (Boerse) um.unmarshal(new FileReader(pfad));
 	
 	//Boerse in Eintrag kopieren
 	ObjectFactory of = new ObjectFactory();
@@ -133,7 +107,7 @@ public Boerse eintragloeschen(@PathParam("/{BoerseneintragsID}") int Boerseneint
 	// Marshaller
 	Marshaller m = context.createMarshaller();
 	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-	m.marshal(eintrag, new File("src/Personenliste.xml"));
+	m.marshal(eintrag, new File(pfad));
 
 	return eintrag;
 }

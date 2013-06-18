@@ -33,6 +33,8 @@ import java.awt.Color;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
 import javax.swing.border.TitledBorder;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class gui {
@@ -40,7 +42,8 @@ public class gui {
 	private JFrame frame;
 	private final Action action = new SwingAction();
 	private JLabel lblAusgabe;
-
+    private JSpinner spinner;
+    private JTextField tfEintragsID;
 	/**
 	 * Create the application.
 	 */
@@ -56,40 +59,40 @@ public class gui {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		//Auswahl der jeweiligen ID
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(211, 30, 37, 28);
-		frame.getContentPane().add(spinner);
-		//Ausgabe der Eintraege oder des Eintrages
-		lblAusgabe = new JLabel("Ausgabe: ");
-		lblAusgabe.setBounds(17, 160, 404, 77);
-		frame.getContentPane().add(lblAusgabe);
-		
+	
+		//Rahmen um Auswahmoeglichkeiten
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Boerse", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(6, 17, 427, 114);
+		panel.setBounds(16, 19, 418, 114);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
 		//Option einzelnen Eintrag mittels ID auswaehlen
 		final JLabel lblEinzelnenEintragAuswaehlen = new JLabel("Einzelnen Eintrag auswaehlen:");
 		lblEinzelnenEintragAuswaehlen.setBounds(16, 22, 189, 16);
 		panel.add(lblEinzelnenEintragAuswaehlen);
 		
-		//Sende-Button
-		JButton btnEintraege = new JButton("Eintraege");
-		btnEintraege.setBounds(255, 46, 166, 29);
-		panel.add(btnEintraege);
-		btnEintraege.setAction(action);
-		//Sende-Button
-		Button button = new Button("Eintrag ausgeben");
-		button.setBounds(279, 10, 138, 28);
-		panel.add(button);
-		
 		//Option alle Eintraege ueber Titel auszugeben
 		JLabel lblAlleEintraegeAuswaehlen = new JLabel("Alle Eintraege auswaehlen:");
 		lblAlleEintraegeAuswaehlen.setBounds(16, 50, 167, 16);
 		panel.add(lblAlleEintraegeAuswaehlen);
+		
+		//Sende-Button
+		JButton btnEintraege = new JButton("Eintraege");
+		btnEintraege.setBounds(255, 46, 166, 28);
+		panel.add(btnEintraege);
+		btnEintraege.setAction(action);
+		//Sende-Button
+		JButton button = new JButton("Eintrag ausgeben");
+		button.setBounds(255, 17, 166, 28);
+		panel.add(button);
+		button.setAction(action);
+		
+		tfEintragsID = new JTextField();
+		tfEintragsID.setBounds(215, 16, 43, 28);
+		panel.add(tfEintragsID);
+		tfEintragsID.setColumns(1);
+		
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -117,18 +120,62 @@ public class gui {
 			}
 		});
 		frame.setVisible(true);
-		frame.setVisible(true);
+		
+		//Ausgabe der Eintraege oder des Eintrages
+		lblAusgabe = new JLabel("Ausgabe: ");
+	
+		lblAusgabe.setBounds(16, 137, 404, 77);
+		frame.getContentPane().add(lblAusgabe);
+				
 	}
 	
 	public void EintraegeSend() throws FileNotFoundException, JAXBException {
+	
 		BoersenService boerse = new BoersenService();
-		Boerse leseEintraege = boerse.getBoerse();
+		Boerse leseEintraege = boerse.getBoerse(); 
+		
 		for(BoersenEintrag be : leseEintraege.getBoersenEintrag()){
-			lblAusgabe.setText(lblAusgabe.getText()+be.getTitel());	
+			String titel  = be.getTitel();
+			final int id = be.getBoerseneintragsID();
+			lblAusgabe.setText(lblAusgabe.getText() + id + ". " + titel);
+
+			lblAusgabe.addMouseListener(new MouseAdapter(){
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+					try {
+						EintragKomplett();
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (JAXBException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				private void EintragKomplett() throws FileNotFoundException, JAXBException {
+					BoersenService boerse = new BoersenService();
+					Boerse leseEintrag = boerse.getEintrag(id);
+					
+					lblAusgabe.setText("Komplett:" + leseEintrag);
+				}
+			});
 		}
 	}
+	
 	public void EintragSend() throws FileNotFoundException, JAXBException{
-		
+		int EintragsID = 0;
+		try {
+		EintragsID = Integer.parseInt(tfEintragsID.getText());
+		} catch (NumberFormatException e) {
+		// Fehlerbehandlung
+			lblAusgabe.setText("Eintrag existiert nicht!");
+		}
+		BoersenService boerse = new BoersenService();
+		Boerse leseEintrag = boerse.getEintrag(EintragsID);
+		for(BoersenEintrag id : leseEintrag.getBoersenEintrag()){
+			String titel  = id.getTitel();
+			lblAusgabe.setText(lblAusgabe.getText() + EintragsID + ". " + titel);
+		}
 	}
 	
 	private class SwingAction extends AbstractAction {
