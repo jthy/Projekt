@@ -81,7 +81,7 @@ public class gui {
 		JButton btnEintraege = new JButton("Eintraege");
 		btnEintraege.setBounds(255, 46, 166, 28);
 		panel.add(btnEintraege);
-		btnEintraege.setAction(action);
+		//btnEintraege.setAction(action);
 		//Sende-Button
 		JButton button = new JButton("Eintrag ausgeben");
 		button.setBounds(255, 17, 166, 28);
@@ -135,7 +135,7 @@ public class gui {
 		Boerse leseEintraege = boerse.getBoerse(); 
 		
 		for(BoersenEintrag be : leseEintraege.getBoersenEintrag()){
-			String titel  = be.getTitel();
+			final String titel  = be.getTitel();
 			final int id = be.getBoerseneintragsID();
 			lblAusgabe.setText(lblAusgabe.getText() + id + ". " + titel);
 
@@ -156,7 +156,7 @@ public class gui {
 					BoersenService boerse = new BoersenService();
 					Boerse leseEintrag = boerse.getEintrag(id);
 					
-					lblAusgabe.setText("Komplett:" + leseEintrag);
+					lblAusgabe.setText("Komplett:" + titel + leseEintrag);
 				}
 			});
 		}

@@ -3,7 +3,6 @@
     <BoersenEintrag>
         <BoerseneintragsID>1</BoerseneintragsID>
         <Person>
-            <Person_ID>0</Person_ID>
             <Typ>Gastronom</Typ>
             <Vorname>Vorname</Vorname>
             <Nachname>Nachname</Nachname>
@@ -16,42 +15,18 @@
                     <Hausnummer>0</Hausnummer>
                     <PLZ>0</PLZ>
                 </Adresse>
-                <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
             </Betrieb>
         </Person>
         <Erstellungsdatum>2001-12-31T12:00:00</Erstellungsdatum>
-        <Titel>lo</Titel>
+        <Titel>Titel</Titel>
         <Informationstext>Informationstext</Informationstext>
         <Startdatum>2001-12-31T12:00:00</Startdatum>
         <Ablaufdatum>2001-12-31T12:00:00</Ablaufdatum>
-         <Kommentare>
-  <KommentarID>1</KommentarID>
-  <Datum> 2001-12-31T12:00:00 </Datum>
-  <Person>
-  <Person_ID>4</Person_ID>
-    <Typ>Gastronom</Typ>
-    <Vorname>Vorname</Vorname>
-    <Nachname>Nachname</Nachname>
-    <Alter>20</Alter>
-    <Betrieb>
-      <Betriebs_ID>0</Betriebs_ID>
-      <Betriebname>Betriebname</Betriebname>
-      <Adresse>
-        <strasse>strasse</strasse>
-        <Hausnummer>0</Hausnummer>
-        <PLZ>57334</PLZ>
-      </Adresse>
-      <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
-    </Betrieb>
-  </Person>
-  <Informationstext> Super Angebot </Informationstext>
-  </Kommentare>
         <Typ>Angebot</Typ>
     </BoersenEintrag>
      <BoersenEintrag>
         <BoerseneintragsID>2</BoerseneintragsID>
         <Person>
-            <Person_ID>0</Person_ID>
             <Typ>Gastronom</Typ>
             <Vorname>Vorname</Vorname>
             <Nachname>Nachname</Nachname>
@@ -64,36 +39,37 @@
                     <Hausnummer>0</Hausnummer>
                     <PLZ>0</PLZ>
                 </Adresse>
-                <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
             </Betrieb>
         </Person>
         <Erstellungsdatum>2001-12-31T12:00:00</Erstellungsdatum>
-        <Titel>muhaha</Titel>
+        <Titel>hey</Titel>
         <Informationstext>Informationstext</Informationstext>
         <Startdatum>2001-12-31T12:00:00</Startdatum>
         <Ablaufdatum>2001-12-31T12:00:00</Ablaufdatum>
-         <Kommentare>
-  <KommentarID>1</KommentarID>
-  <Datum> 2001-12-31T12:00:00 </Datum>
-  <Person>
-  <Person_ID>4</Person_ID>
-    <Typ>Gastronom</Typ>
-    <Vorname>Vorname</Vorname>
-    <Nachname>Nachname</Nachname>
-    <Alter>20</Alter>
-    <Betrieb>
-      <Betriebs_ID>0</Betriebs_ID>
-      <Betriebname>Betriebname</Betriebname>
-      <Adresse>
-        <strasse>strasse</strasse>
-        <Hausnummer>0</Hausnummer>
-        <PLZ>57334</PLZ>
-      </Adresse>
-      <Art_des_Betriebes>Art_des_Betriebes</Art_des_Betriebes>
-    </Betrieb>
-  </Person>
-  <Informationstext> Super Angebot </Informationstext>
-  </Kommentare>
         <Typ>Angebot</Typ>
     </BoersenEintrag>
-    </Boerse>
+     <BoersenEintrag>
+        <BoerseneintragsID>3</BoerseneintragsID>
+        <Person>
+            <Typ>Gastronom</Typ>
+            <Vorname>Vorname</Vorname>
+            <Nachname>Nachname</Nachname>
+            <Alter>0</Alter>
+            <Betrieb>
+                <Betriebs_ID>0</Betriebs_ID>
+                <Betriebname>Betriebname</Betriebname>
+                <Adresse>
+                    <strasse>strasse</strasse>
+                    <Hausnummer>0</Hausnummer>
+                    <PLZ>0</PLZ>
+                </Adresse>
+            </Betrieb>
+        </Person>
+        <Erstellungsdatum>2001-12-31T12:00:00</Erstellungsdatum>
+        <Titel>sie hatte nur noch schuhe an</Titel>
+        <Informationstext>Informationstext</Informationstext>
+        <Startdatum>2001-12-31T12:00:00</Startdatum>
+        <Ablaufdatum>2001-12-31T12:00:00</Ablaufdatum>
+        <Typ>Angebot</Typ>
+    </BoersenEintrag>
+</Boerse>

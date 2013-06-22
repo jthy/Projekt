@@ -39,7 +39,7 @@ public class Test {
 		private static void LoginAsPublisher() {
 		 Publisher publisher = null;
 		 try {
-			publisher = new Publisher("Publisher","test");
+			publisher = new Publisher();
 			System.out.println("Willkommen "+ publisher.getRealName());
 
 			 System.out.println("Welche Art Lebensmittel?");
@@ -53,29 +53,29 @@ public class Test {
 			 if(input1.equals("Fisch")){
 				 System.out.println("Optionen:");
 					System.out.println("	Node erstellen");
-					System.out.println("	Node lšschen");
+					System.out.println("	Node lï¿½schen");
 					System.out.println("	Publish ohne Payload");
 					System.out.println("	Publish mit Payload");
 					System.out.println("	Abonnenten");
 				 String input2= "";
 				 if(input2.equals("Node erstellen")){
-					 Publisher.erstelleFischNode();
+					 publisher.erstelleFischNode();
 					 System.out.println("\"Fisch\"-Node wurde erstellt");
 				 }
-				 else if(input2.equals("Node lšschen")) {
-					 Publisher.loescheFischNode();
-					 System.out.println("\"Fisch\"-Node wurde gelšscht");
+				 else if(input2.equals("Node lï¿½schen")) {
+					 publisher.loescheFischNode();
+					 System.out.println("\"Fisch\"-Node wurde gelï¿½scht");
 				 }
 				 else if(input2.equals("Publish ohne Payload")) {
-					 Publisher.veroeffentlicheFisch();
-					 System.out.println("\"Fisch\"-Node enthŠlt eine neue Nachricht.");
+					 publisher.veroeffentlicheFisch();
+					 System.out.println("\"Fisch\"-Node enthï¿½lt eine neue Nachricht.");
 				 }
 				 else if(input2.equals("Publish mit Payload")){
-					 Publisher.veroeffentlicheFischmitPayload();
-					 System.out.println("\"Fisch\"-Node enthŠlt eine neue Nachricht mit Payload.");
+					 publisher.veroeffentlicheFischmitPayload();
+					 System.out.println("\"Fisch\"-Node enthï¿½lt eine neue Nachricht mit Payload.");
 				 }
 				 else if(input2.equals("Abonnenten")){
-					 List<Subscription> subscriptions = Publisher.leseFischAbonennten();
+					 List<Subscription> subscriptions = publisher.leseFischAbonennten();
 					 for(Subscription each:subscriptions)
 						 System.out.println(each.getJid()+ " "+each.getElementName());
 				 }
@@ -83,29 +83,29 @@ public class Test {
 			 else if(input1.equals("Fleisch")){
 				 System.out.println("Optionen:");
 					System.out.println("	Node erstellen");
-					System.out.println("	Node lšschen");
+					System.out.println("	Node lï¿½schen");
 					System.out.println("	Publish ohne Payload");
 					System.out.println("	Publish mit Payload");
 					System.out.println("	Abonnenten");
 				 String input3= "";
 				 if(input3.equals("Node erstellen")){
-					 Publisher.erstelleFleischNode();
+					 publisher.erstelleFleischNode();
 					 System.out.println("\"Fleisch\"-Node wurde erstellt");
 				 }
-				 else if(input3.equals("Node lšschen")) {
-					 Publisher.loescheFleischNode();
-					 System.out.println("\"Fleisch\"-Node wurde gelšscht");
+				 else if(input3.equals("Node lï¿½schen")) {
+					 publisher.loescheFleischNode();
+					 System.out.println("\"Fleisch\"-Node wurde gelï¿½scht");
 				 }
 				 else if(input3.equals("Publish ohne Payload")) {
-					 Publisher.veroeffentlicheFleisch();
-					 System.out.println("\"Fleisch\"-Node enthŠlt eine neue Nachricht.");
+					 publisher.veroeffentlicheFleisch();
+					 System.out.println("\"Fleisch\"-Node enthï¿½lt eine neue Nachricht.");
 				 }
 				 else if(input3.equals("Publish mit Payload")){
-					 Publisher.veroeffentlicheFleischmitPayload();
-					 System.out.println("\"Fisch\"-Node enthŠlt eine neue Nachricht mit Payload.");
+					 publisher.veroeffentlicheFleischmitPayload();
+					 System.out.println("\"Fisch\"-Node enthï¿½lt eine neue Nachricht mit Payload.");
 				 }
 				 else if(input3.equals("Abonnenten")){
-					 List<Subscription> subscriptions = Publisher.leseFleischAbonennten();
+					 List<Subscription> subscriptions = publisher.leseFleischAbonennten();
 					 for(Subscription each:subscriptions)
 						 System.out.println(each.getJid()+ " "+each.getElementName());
 				 }
@@ -113,7 +113,7 @@ public class Test {
 			 else if(input1.equals("Gemuese")){
 				 System.out.println("Optionen:");
 					System.out.println("	Node erstellen");
-					System.out.println("	Node lšschen");
+					System.out.println("	Node lï¿½schen");
 					System.out.println("	Publish ohne Payload");
 					System.out.println("	Publish mit Payload");
 					System.out.println("	Abonnenten");
@@ -122,17 +122,17 @@ public class Test {
 					 publisher.erstelleGemueseNode();
 					 System.out.println("\"Gemuese\"-Node wurde erstellt");
 				 }
-				 else if(input4.equals("Node lšschen")) {
+				 else if(input4.equals("Node lï¿½schen")) {
 					 publisher.loescheGemueseNode();
-					 System.out.println("\"Gemuese\"-Node wurde gelšscht");
+					 System.out.println("\"Gemuese\"-Node wurde gelï¿½scht");
 				 }
 				 else if(input4.equals("Publish ohne Payload")) {
 					 publisher.veroeffentlicheGemuese();
-					 System.out.println("\"Gemuese\"-Node enthŠlt eine neue Nachricht.");
+					 System.out.println("\"Gemuese\"-Node enthï¿½lt eine neue Nachricht.");
 				 }
 				 else if(input4.equals("Publish mit Payload")){
 					 publisher.veroeffentlicheGemuesemitPayload();
-					 System.out.println("\"Gemuese\"-Node enthŠlt eine neue Nachricht mit Payload.");
+					 System.out.println("\"Gemuese\"-Node enthï¿½lt eine neue Nachricht mit Payload.");
 				 }
 				 else if(input4.equals("Abonnenten")){
 					 List<Subscription> subscriptions = publisher.leseGemueseAbonennten();

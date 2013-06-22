@@ -1,26 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Produktliste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSD/Produktliste.xsd">
-  <Produkt>
-    <Produkt_ID>0</Produkt_ID>
-    <Produktangaben>
-      <Produktname>Produktname</Produktname>
-      <Preis_in_Euro>0.0</Preis_in_Euro>
-      <Beschreibung>Beschreibung</Beschreibung>
-    </Produktangaben>
-  </Produkt>
-  <Verfuegbarkeit>verfuegbar</Verfuegbarkeit>
-  <Person>
-    <Vorname>Vorname</Vorname>
-    <Nachname>Nachname</Nachname>
-    <Alter>0</Alter>
-    <Betrieb>
-      <Betriebs_ID>0</Betriebs_ID>
-      <Betriebname>Betriebname</Betriebname>
-      <Adresse>
-        <strasse>strasse</strasse>
-        <Hausnummer>0</Hausnummer>
-        <PLZ>0</PLZ>
-      </Adresse>
-    </Betrieb>
-  </Person>
-</Produktliste>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Produktliste/>

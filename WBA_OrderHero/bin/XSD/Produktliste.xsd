@@ -4,22 +4,7 @@
 <xs:element name="Produktliste">
 	<xs:complexType>
 		<xs:sequence>
-			<xs:element name="Produkt">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Produkt_ID" type="xs:int" minOccurs="1" maxOccurs="1"/>
-						<xs:element name="Produktangaben">	
-							<xs:complexType>
-								<xs:sequence> 
-									<xs:element name="Produktname" type="xs:string" />
-									<xs:element name="Preis_in_Euro" type="xs:float" />
-									<xs:element name="Beschreibung" type="xs:string" />
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-</xs:element>
+			<xs:element ref="Produkt" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Verfuegbarkeit">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -28,13 +13,44 @@
 					</xs:restriction>
 				</xs:simpleType>                         
 			</xs:element>
-			<!--  Angaben zum Lieferanten,bei dem man Produkt bestellen kann -->
-			<xs:element name="Person">
+			<xs:element ref="Person"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element> 
+
+
+<!-- Definitionen -->				
+<xs:element name="Produkt">
 	<xs:complexType>
 		<xs:sequence>
+			<xs:element name="Produkt_ID" type="xs:int"/>
+			<xs:element name="Produktangaben">	
+				<xs:complexType>
+					<xs:sequence> 
+						<xs:element name="Produktname" type="xs:string" />
+						<xs:element name="Preis_in_Euro" type="xs:float" />
+						<xs:element name="Beschreibung" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="Person">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="Typ">
+	 			<xs:simpleType>
+			    	<xs:restriction base="xs:string">
+			      		<xs:enumeration value="Gastronom" />
+			      		<xs:enumeration value="Lieferant" />
+			   		</xs:restriction>
+	  			</xs:simpleType>
+	  		</xs:element>
 			<xs:element name="Vorname" type="xs:string" />
 			<xs:element name="Nachname" type="xs:string"/>
-			<!-- Lieferant muss über 18 sein um Käufe abzuwickeln -->
+			<!-- Gastronom muss über 18 sein um Käufe abzuwickeln -->
 			<xs:element name="Alter">
 				<xs:simpleType>
 					<xs:restriction base="xs:int">
@@ -47,14 +63,7 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:element>
-		</xs:sequence>
-	</xs:complexType>
-</xs:element> 
-
-
-<!-- Definitionen -->				
-
-		
+			
 <xs:element name="Betrieb">
 				<xs:complexType>
 					<xs:sequence>

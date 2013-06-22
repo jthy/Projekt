@@ -1,7 +1,10 @@
 package xmpp;
 
+import swing.*;
+
 import java.util.List;
 
+import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.pubsub.Item;
 import org.jivesoftware.smackx.pubsub.LeafNode;
@@ -13,11 +16,21 @@ import org.jivesoftware.smackx.pubsub.Subscription;
 
 public class Publisher extends User{
 
-	public Publisher(String userName, String password) throws XMPPException
+	static String Benutzername2 = GUI_Login.tfBenutzername.getText();
+	 static String Passwort2=GUI_Login.pwFeld.getText();
+	 
+	public void Publisher(String Benutzername2 , String Passwort2) throws XMPPException
 	{
-		login(userName,password);	
+		login(Benutzername2,Passwort2);	
+		   /*XMPPConnection.DEBUG_ENABLED = true;
+
+	        return this;*/
 	}
-/*
+	
+
+		
+
+	/*
 	//Lebensmittel ist Collection Node 
 public void CollectionLebensmittel() throws XMPPException{
 	// Create a pubsub manager using an existing Connection
@@ -33,7 +46,7 @@ public void CollectionLebensmittel() throws XMPPException{
     Collection<>
 
 }*/
-	public static void erstelleFleischNode(){
+	public void erstelleFleischNode(){
 		// Create a pubsub manager using an existing Connection
 				PubSubManager mgr = new PubSubManager(connection);
 		// Create the node
@@ -44,7 +57,7 @@ public void CollectionLebensmittel() throws XMPPException{
 					e.printStackTrace();
 				}
 	}
-	public static void erstelleFischNode(){
+	public void erstelleFischNode(){
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -56,7 +69,7 @@ public void CollectionLebensmittel() throws XMPPException{
 			e.printStackTrace();
 		}
 	}
-	public static void erstelleGemueseNode(){
+	public void erstelleGemueseNode(){
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -71,7 +84,7 @@ public void CollectionLebensmittel() throws XMPPException{
 	
 	
 
-	public static void loescheFleischNode(){
+	public void loescheFleischNode(){
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -83,7 +96,7 @@ public void CollectionLebensmittel() throws XMPPException{
 			e.printStackTrace();
 		}
 	}
-	public static void loescheFischNode(){
+	public void loescheFischNode(){
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -95,7 +108,7 @@ public void CollectionLebensmittel() throws XMPPException{
 			e.printStackTrace();
 		}
 	}
-	public static void loescheGemueseNode(){
+	public void loescheGemueseNode(){
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -108,7 +121,7 @@ public void CollectionLebensmittel() throws XMPPException{
 		}
 	}
 
-	public static void veroeffentlicheFleisch() throws XMPPException{
+	public void veroeffentlicheFleisch() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -124,7 +137,7 @@ public void CollectionLebensmittel() throws XMPPException{
 		node.publish();
 	}
 
-	public static void veroeffentlicheFisch() throws XMPPException{
+	public void veroeffentlicheFisch() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -140,7 +153,7 @@ public void CollectionLebensmittel() throws XMPPException{
 		node.publish();
 	}
 	
-	public static void veroeffentlicheGemuese() throws XMPPException{
+	public void veroeffentlicheGemuese() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -155,7 +168,7 @@ public void CollectionLebensmittel() throws XMPPException{
 
 		node.publish();
 	}
-	public static void veroeffentlicheFleischmitPayload() throws XMPPException{
+	public void veroeffentlicheFleischmitPayload() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -166,7 +179,7 @@ public void CollectionLebensmittel() throws XMPPException{
 		node.publish(new PayloadItem<SimplePayload>("Fleisch1" + System.currentTimeMillis(), new SimplePayload("", "", "")));
 
 	}
-	public static void veroeffentlicheFischmitPayload() throws XMPPException{
+	public void veroeffentlicheFischmitPayload() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -177,7 +190,7 @@ public void CollectionLebensmittel() throws XMPPException{
 		node.publish(new PayloadItem<SimplePayload>("Fisch1" + System.currentTimeMillis(), new SimplePayload("", "", "")));
 
 	}
-	public static void veroeffentlicheGemuesemitPayload() throws XMPPException{
+	public void veroeffentlicheGemuesemitPayload() throws XMPPException{
 		// Create a pubsub manager using an existing Connection
 		PubSubManager mgr = new PubSubManager(connection);
 
@@ -190,7 +203,7 @@ public void CollectionLebensmittel() throws XMPPException{
 	}
 
 
-	public static List<Subscription> leseFleischAbonennten() throws XMPPException {
+	public List<Subscription> leseFleischAbonennten() throws XMPPException {
 	 // Create a pubsub manager using an existing Connection
 	 PubSubManager mgr = new PubSubManager(connection);
      
@@ -200,7 +213,7 @@ public void CollectionLebensmittel() throws XMPPException{
 	 return node.getSubscriptions();
 	}
 	
-	public static List<Subscription> leseFischAbonennten() throws XMPPException {
+	public List<Subscription> leseFischAbonennten() throws XMPPException {
 		 // Create a pubsub manager using an existing Connection
 		 PubSubManager mgr = new PubSubManager(connection);
 	     
@@ -209,7 +222,7 @@ public void CollectionLebensmittel() throws XMPPException{
 
 		 return node.getSubscriptions();
 		}
-	public static List<Subscription> leseGemueseAbonennten() throws XMPPException {
+	public List<Subscription> leseGemueseAbonennten() throws XMPPException {
 		 // Create a pubsub manager using an existing Connection
 		 PubSubManager mgr = new PubSubManager(connection);
 	     
@@ -219,3 +232,4 @@ public void CollectionLebensmittel() throws XMPPException{
 		 return node.getSubscriptions();
 		}
 }
+
