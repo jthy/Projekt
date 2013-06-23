@@ -48,6 +48,7 @@ public Boerse getBoerse() throws JAXBException, FileNotFoundException
 	
 }
 
+
 @GET
 @Path("/{BoerseneintragsID}")
 @Produces( "application/xml")
@@ -99,11 +100,11 @@ public Boerse eintragloeschen(@PathParam("/{BoerseneintragsID}") int Boerseneint
 	ObjectFactory of = new ObjectFactory();
 	Boerse eintrag = of.createBoerse();
 	
-	// i-ten Eintrag aus Boerse l�schen
+	// i-ten Eintrag aus Boerse loeschen
 	eintrag.getBoersenEintrag().addAll(eintraege.getBoersenEintrag());
 	eintrag.getBoersenEintrag().remove(BoerseneintragsID);
 	
-	// Boerse "aktualisieren" und zur�ckgeben
+	// Boerse "aktualisieren" und zurueckgeben
 	// Marshaller
 	Marshaller m = context.createMarshaller();
 	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);

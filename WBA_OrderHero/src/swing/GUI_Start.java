@@ -3,7 +3,6 @@ package swing;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +10,12 @@ import java.awt.event.ActionListener;
  
 class GUI_Start extends JFrame
 {
-  GUI_Start()
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+GUI_Start()
  {
  //setDefaultCloseOperation(javax.swing.
   //WindowConstants.DISPOSE_ON_CLOSE);
@@ -21,9 +25,9 @@ class GUI_Start extends JFrame
  
 //Menüleiste
  Border bo = new LineBorder(Color.blue);
-	//Erstellung einer Menüleiste
+	//Erstellung einer Menueleiste
 	JMenuBar bar = new JMenuBar();
-	// Umrandung des Menüs
+	// Umrandung des Menues
 	bar.setBorder(bo);
 	// neues Objekt der Klasse JMenu
 	//JMenu menu = new JMenu("Produktliste");
@@ -31,11 +35,11 @@ class GUI_Start extends JFrame
 	JMenu menu2 = new JMenu("Betriebe");
 	JMenu menu3 = new JMenu("Boerse");
 	
-	// Menü wird in der Menüleiste hinzugefügt
+	// Menü wird in der Menueleiste hinzugefuegt
 	bar.add(menu);
 	bar.add(menu2);
 	bar.add(menu3);
-	// Menüleiste wird für Frame gesetzt
+	// Menüleiste wird fuer Frame gesetzt
 	setJMenuBar(bar);
 	setVisible(true);
 	
@@ -57,17 +61,17 @@ class GUI_Start extends JFrame
 			menu3.add(itemB);
 
 			
-			//MenuItem B�rse anzeigen
+			//MenuItem Boerse anzeigen
 						itemA.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								GUI_Boerse boerse = new GUI_Boerse();
+								new GUI_Boerse();
 								  }
 							});
 						
-						//MenüItem Börse erstellen
+						//MenüItem Boerse erstellen
 						itemB.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								GUI_Node node = new GUI_Node();
+								new GUI_Node();
 								  }
 							});
   }

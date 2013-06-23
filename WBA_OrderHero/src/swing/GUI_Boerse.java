@@ -1,50 +1,33 @@
 package swing;
 
-import generated.Betriebliste;
-import generated.Betriebliste.Betrieb;
 import generated.Boerse;
 import generated.Boerse.BoersenEintrag;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
-import javax.swing.Action;
-import javax.xml.bind.JAXBException;
-
-import minirestwebservice.BetriebService;
-import minirestwebservice.BoersenService;
-
-import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.awt.event.InputMethodListener;
-import java.awt.event.InputMethodEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Choice;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JSpinner;
-import java.awt.Button;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
-import java.awt.FlowLayout;
-import java.awt.Color;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
-import java.awt.Component;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import minirestwebservice.BoersenService;
 
 public class GUI_Boerse {
 
 	private JFrame frame;
 	private final Action action = new SwingAction();
-	private JLabel lblAusgabe;
-	private JTextField tfEintragsID;
+	// private JLabel lblAusgabe;
+	private JComboBox eintraege;
+	private Object[] titels;
+	private JButton loadSelectedEntryButton;
+	private Boerse lastEntrys;
+
 	/**
 	 * Create the application.
 	 */
@@ -58,133 +41,70 @@ public class GUI_Boerse {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+
+		//Eintrag auswaehlen
+		loadSelectedEntryButton = new JButton("Eintrag laden");
+		loadSelectedEntryButton.setBounds(16, 100, 200, 20);
+		frame.add(loadSelectedEntryButton);
+
+		// Alle Einträge für die Combobox laden
+		BoersenService boerse = new BoersenService();
+		try {
+			lastEntrys = boerse.getBoerse();
+			ArrayList<String> a = new ArrayList<String>();
+			for (BoersenEintrag be : lastEntrys.getBoersenEintrag()) {
+				a.add(be.getTitel());
+			}
+			titels = a.toArray();
+			eintraege = new JComboBox(titels);
+			eintraege.setSelectedIndex(0);
+			eintraege.setBounds(17, 50, 404, 30);
+		} catch (Exception e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		
-		//Auswahl der jeweiligen ID
-		tfEintragsID = new JTextField();
-		tfEintragsID.setBounds(211, 30, 37, 28);
-		tfEintragsID.setColumns(1);
-		frame.getContentPane().add(tfEintragsID);
-		
-		
-		//Option alle Eintraege ueber Titel auszugeben
-		JLabel lblAlleEintraegeAuswaehlen = new JLabel("Alle Eintraege auswaehlen:");
-		lblAlleEintraegeAuswaehlen.setBounds(17, 70, 167, 16);
-		frame.getContentPane().add(lblAlleEintraegeAuswaehlen);
-		
-		//Ausgabe der Eintraege oder des Eintrages
-		lblAusgabe = new JLabel("Ausgabe: ");
-		lblAusgabe.setBounds(17, 195, 404, 77);
-		frame.getContentPane().add(lblAusgabe);
+		frame.getContentPane().add(eintraege);
+		frame.getContentPane().add(loadSelectedEntryButton);
+		loadSelectedEntryButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					int listIndex = eintraege.getSelectedIndex();
+					int entryId = lastEntrys.getBoersenEintrag().get(listIndex).getBoerseneintragsID();
+					GUI_Eintrag page = new GUI_Eintrag(entryId);
+					page.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
+				super.mouseClicked(e);
+			}
+		});
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Boerse", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(6, 17, 427, 114);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		//Option einzelnen Eintrag mittels ID auswaehlen
-		final JLabel lblEinzelnenEintragAuswaehlen = new JLabel("Einzelnen Eintrag auswaehlen:");
-		lblEinzelnenEintragAuswaehlen.setBounds(6, 22, 189, 16);
-		panel.add(lblEinzelnenEintragAuswaehlen);
-		
-		//Sende-Button
-		JButton btnEintraege = new JButton("Eintraege");
-		btnEintraege.setBounds(255, 46, 166, 29);
-		panel.add(btnEintraege);
-		btnEintraege.setAction(action);
-		//Sende-Button
-		Button button = new Button("Eintrag ausgeben");
-		button.setBounds(279, 10, 138, 28);
-		panel.add(button);
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					EintragSend();
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (JAXBException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		btnEintraege.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-					try {
-						EintraegeSend();
-					} catch (FileNotFoundException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (JAXBException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-			}
-		});
 		frame.setVisible(true);
 		frame.setVisible(true);
 	}
-	
-	public void EintraegeSend() throws FileNotFoundException, JAXBException {
-		BoersenService boerse = new BoersenService();
-		Boerse leseEintraege = boerse.getBoerse(); 
-		
-		for(BoersenEintrag be : leseEintraege.getBoersenEintrag()){
-			final String titel  = be.getTitel();
-			final int id = be.getBoerseneintragsID();
-			lblAusgabe.setText(lblAusgabe.getText() + id + ". " + titel);
-			//bei Klick auf Titel soll sich Fenster mit Eintrag öffnen
-			lblAusgabe.addMouseListener(new MouseAdapter(){
-				@Override
-				public void mouseClicked(MouseEvent arg0) {
-					GUI_Eintrag page;
-					try {
-						page = new GUI_Eintrag(id);
-						page.setVisible(true);
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (JAXBException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-				}
-			});
-		}
-	}
-	public void EintragSend() throws FileNotFoundException, JAXBException{
-		int EintragsID = 0;
-		try {
-		EintragsID = Integer.parseInt(tfEintragsID.getText());
-		} catch (NumberFormatException e) {
-		// Fehlerbehandlung
-			lblAusgabe.setText("Eintrag existiert nicht!");
-		}
-		BoersenService boerse = new BoersenService();
-		Boerse leseEintrag = boerse.getEintrag(EintragsID);
-		for(BoersenEintrag id : leseEintrag.getBoersenEintrag()){
-			String titel  = id.getTitel();
-			lblAusgabe.setText(lblAusgabe.getText() + EintragsID + ". " + titel);
-		}
-	}
+
 	class SwingAction extends AbstractAction {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
+
 		public SwingAction() {
 			putValue(NAME, "Eintraege ausgeben");
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
+
 		public void actionPerformed(ActionEvent e) {
 		}
-	}
-	public static void main(String[] args)
-	{
-	 GUI_Boerse g = new GUI_Boerse();
-	 g.initialize();
 	}
 }

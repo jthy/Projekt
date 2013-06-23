@@ -131,12 +131,12 @@ public Response aenderBetrieb( @PathParam("BetriebsID") int id, Betrieb betrieb 
 	ObjectFactory of = new ObjectFactory();
 	Betriebliste betrieb = of.createBetriebliste();
 	
-	// i-ten Betrieb aus Betriebliste l���schen
+	// i-ten Betrieb aus Betriebliste loeschen
 	betrieb.getBetrieb().addAll(betriebe.getBetrieb());
 	betrieb.getBetrieb().remove(Betriebs_ID);
 	
 	
-	// Betriebliste "aktualisieren" und zur���ckgeben
+	// Betriebliste "aktualisieren" und zurueckgeben
 	// Marshaller
 	Marshaller m = context.createMarshaller();
 	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);

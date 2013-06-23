@@ -25,8 +25,6 @@ import generated.Personenliste;
 import generated.Personenliste.Person;
 import generated.ObjectFactory;
 
-import generated.Personenliste;
-import generated.ObjectFactory;
 
 	@Path("/personenliste")
 	public class PersonService {
@@ -134,11 +132,11 @@ String pfad ="src/XML/Personenliste.xml";
 		ObjectFactory of = new ObjectFactory();
 		Personenliste person = of.createPersonenliste();
 		
-		// i-ten Benutzer aus Personenliste l�schen
+		// i-ten Benutzer aus Personenliste loeschen
 		person.getPerson().addAll(personen.getPerson());
 		person.getPerson().remove(Person_ID);
 		
-		// Personenliste "aktualisieren" und zur�ckgeben
+		// Personenliste "aktualisieren" und zurueckgeben
 		// Marshaller
 		Marshaller m = context.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);

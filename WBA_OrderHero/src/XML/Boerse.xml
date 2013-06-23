@@ -19,10 +19,45 @@
         </Person>
         <Erstellungsdatum>2001-12-31T12:00:00</Erstellungsdatum>
         <Titel>Titel</Titel>
-        <Informationstext>Informationstext</Informationstext>
+        <Informationstext>
+Wir waren im Kino
+im Film mit dem Dino
+danach ein Glas Wein
+dann gingen wir Heim
+
+Wir kannten uns 2 Tage
+Noch nicht sehr lang keine Frage
+Sie ließ mich kurz allein
+und dann kam sie wieder rein
+
+Hey
+Sie hatte nur noch Schuhe an
+Sie hatte nur noch Schuhe an
+Sie hatte nur noch Schuhe an
+Hey</Informationstext>
         <Startdatum>2001-12-31T12:00:00</Startdatum>
         <Ablaufdatum>2001-12-31T12:00:00</Ablaufdatum>
         <Typ>Angebot</Typ>
+        <Kommentare>
+        <KommentarID>1</KommentarID>
+        <Datum>2001-12-31T12:00:00</Datum>
+        <Person>
+            <Typ>Gastronom</Typ>
+            <Vorname>Vorname</Vorname>
+            <Nachname>Nachname</Nachname>
+            <Alter>0</Alter>
+            <Betrieb>
+                <Betriebs_ID>0</Betriebs_ID>
+                <Betriebname>Betriebname</Betriebname>
+                <Adresse>
+                    <strasse>strasse</strasse>
+                    <Hausnummer>0</Hausnummer>
+                    <PLZ>0</PLZ>
+                </Adresse>
+            </Betrieb>
+        </Person>
+        <Informationstext>DU bist ein Phänomen!</Informationstext>
+        </Kommentare>
     </BoersenEintrag>
      <BoersenEintrag>
         <BoerseneintragsID>2</BoerseneintragsID>

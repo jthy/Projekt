@@ -4,7 +4,6 @@ import swing.*;
 
 import java.util.List;
 
-import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smackx.pubsub.Item;
 import org.jivesoftware.smackx.pubsub.LeafNode;
@@ -22,30 +21,8 @@ public class Publisher extends User{
 	public void Publisher(String Benutzername2 , String Passwort2) throws XMPPException
 	{
 		login(Benutzername2,Passwort2);	
-		   /*XMPPConnection.DEBUG_ENABLED = true;
-
-	        return this;*/
 	}
-	
 
-		
-
-	/*
-	//Lebensmittel ist Collection Node 
-public void CollectionLebensmittel() throws XMPPException{
-	// Create a pubsub manager using an existing Connection
-    PubSubManager mgr = new PubSubManager(connection);
-
-    // Get the node
-    LeafNode fleisch = mgr.getNode("Fleisch");
-    LeafNode fisch = mgr.getNode("Fisch");
-    LeafNode gemuese = mgr.getNode("Gemuese");
-    
-    Collection<? extends Item> lebensmittel = fleisch.getItems();
-    Collection<? extends Item> lebensmittel = fisch.getItems();
-    Collection<>
-
-}*/
 	public void erstelleFleischNode(){
 		// Create a pubsub manager using an existing Connection
 				PubSubManager mgr = new PubSubManager(connection);

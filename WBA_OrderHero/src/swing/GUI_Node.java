@@ -7,7 +7,11 @@ import javax.swing.border.TitledBorder;
 
 public class GUI_Node extends JFrame 
 {
-	 private JFrame frameNode;
+	 /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JFrame frameNode;
 	 private static JLabel lblNodeWaehlen = new JLabel();
 	 private static JLabel lblTitel  = new JLabel();
 	 private static JLabel lblNachricht  = new JLabel();

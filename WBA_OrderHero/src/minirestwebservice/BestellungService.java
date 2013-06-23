@@ -77,7 +77,7 @@ import generated.ObjectFactory;
 
 		    marshaller.marshal(bestellungen, new File(pfad));
 		   
-		    URI location = URI.create( "http://localhost:4433/bestellungen" + bestellung.getBestellungsID() );
+		    URI location = URI.create( "http://localhost:5222/bestellungen" + bestellung.getBestellungsID() );
 		    return Response.created(location).build();
 	}
 }

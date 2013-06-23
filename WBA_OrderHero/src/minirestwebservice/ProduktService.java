@@ -9,14 +9,12 @@ import java.util.List;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
-//import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import generated.Betriebliste;
-import generated.Betriebliste.Betrieb;
 import generated.ObjectFactory;
 import generated.Produkt;
 import generated.Produktliste;
@@ -99,7 +97,7 @@ public Response aenderProdukt( @PathParam("ProduktID") int id, Produkt produkt  
 	    Produktliste produkte = (Produktliste) um.unmarshal(new FileInputStream(pfad));
 	    
 	    List<Produkt> produktliste = produkte.getProdukt();
-	    //wenn id nicht vergeben ist wird betrieb erst erstellt!
+	    //wenn id nicht vergeben ist wird Produkt erst erstellt!
 	    if(id > produktliste.size()){
     		produkt.setProduktID(produktliste.size()+1);
     	 	produktliste.add( produkt );
@@ -117,7 +115,7 @@ public Response aenderProdukt( @PathParam("ProduktID") int id, Produkt produkt  
 
 	    marshaller.marshal(produkte, new File(pfad));
 
-	    URI location = URI.create( "http://localhost:4433/produkte" + produkt.getProduktID() );
+	    URI location = URI.create( "http://localhost:5222/produkte" + produkt.getProduktID() );
 	    return Response.created(location).build(); 
 }
 
@@ -130,16 +128,16 @@ public Response aenderProdukt( @PathParam("ProduktID") int id, Produkt produkt  
 	
 	Produktliste produkte = (Produktliste) um.unmarshal( new FileReader(pfad));
 
-	//Betriebliste in Betrieb kopieren
+	//Produktliste in Produkt kopieren
 	ObjectFactory of = new ObjectFactory();
 	Produktliste produkt = of.createProduktliste();
 	
-	// i-ten Betrieb aus Betriebliste l���������schen
+	// i-tes Produkt loeschen
 	produkt.getProdukt().addAll(produkte.getProdukt());
 	produkt.getProdukt().remove(Produkt_ID);
 	
 	
-	// Betriebliste "aktualisieren" und zur���������ckgeben
+	// Produktliste "aktualisieren" und zurueckgeben
 	// Marshaller
 	Marshaller m = context.createMarshaller();
 	m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
